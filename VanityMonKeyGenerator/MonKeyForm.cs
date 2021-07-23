@@ -29,11 +29,6 @@ namespace VanityMonKeyGenerator
             LoadMonKeyImage(monKey.Address);
             addressTextBox.Text = monKey.Address;
             seedTextBox.Text = monKey.Seed;
-            richTextBox1.Clear();
-            foreach (string accessory in accessories)
-            {
-                richTextBox1.AppendText(accessory + "\n");
-            }
         }
 
         private void LoadMonKeyImage(string address)
@@ -45,6 +40,14 @@ namespace VanityMonKeyGenerator
         private void button1_Click(object sender, EventArgs e)
         {
             Drawing.DrawMonKey(null, monKeyPictureBox);
+        }
+
+       
+
+        private void SettingsButton_Click(object sender, EventArgs e)
+        {
+            Settings settingsForm = new Settings();
+            settingsForm.Show();
         }
     }
 }
