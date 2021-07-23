@@ -5,6 +5,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>monKey.ico</ApplicationIcon>
+    <AssemblyName>Vanity MonKey Generator</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
