@@ -15,9 +15,18 @@ namespace VanityMonKeyGenerator
             InitializeComponent();
         }
 
-        private void glassesComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void GlassesComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Drawing.DrawMonKey(GetAccessories(), monKeyPictureBox);
+        }
 
+        private List<string> GetAccessories()
+        {
+            List<string> accessories = new List<string>();
+
+            accessories.Add("Glasses-" + glassesComboBox.Text);
+
+            return accessories;
         }
     }
 }

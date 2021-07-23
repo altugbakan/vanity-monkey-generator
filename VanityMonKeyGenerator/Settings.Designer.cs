@@ -68,7 +68,7 @@ namespace VanityMonKeyGenerator
             this.glassesComboBox.Size = new System.Drawing.Size(131, 23);
             this.glassesComboBox.TabIndex = 0;
             this.glassesComboBox.Text = "Any";
-            this.glassesComboBox.SelectedIndexChanged += new System.EventHandler(this.glassesComboBox_SelectedIndexChanged);
+            this.glassesComboBox.SelectedIndexChanged += new System.EventHandler(this.GlassesComboBox_SelectedIndexChanged);
             // 
             // glassesLabel
             // 
