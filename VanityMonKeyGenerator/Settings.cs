@@ -89,5 +89,16 @@ namespace VanityMonKeyGenerator
         {
             Drawing.DrawMonKey(GetAccessories(), monKeyPictureBox);
         }
+
+        private void OkButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
+
 }
