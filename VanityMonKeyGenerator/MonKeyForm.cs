@@ -17,12 +17,19 @@ namespace VanityMonKeyGenerator
         private async void GetRandomMonKeyButton_Click(object sender, EventArgs e)
         {
             MonKey monKey = new MonKey();
-            monKey.Svg = await monKey.RequestMonKey();
+            try
+            {
+                monKey.Svg = await monKey.RequestMonKey();
+            }
+            catch
+            {
+                MessageBox.Show("No internet connection.", "Error");
+                return;
+            }
             Drawing.DrawSvg(monKey.Svg, monKeyPictureBox);
             addressTextBox.Text = monKey.Address;
             seedTextBox.Text = monKey.Seed;
-        }      
-        
+        }
 
         private void FindSpecificMonKeyButton_Click(object sender, EventArgs e)
         {
@@ -37,6 +44,11 @@ namespace VanityMonKeyGenerator
                         Settings settingsForm = new Settings();
                         settingsForm.ShowDialog();
                     }
+                    else
+                    {
+                        GetRandomMonKeyButton_Click(null, null);
+                        return;
+                    }
                 }
                 monKeySearcher.RunWorkerAsync();
                 findSpecificMonKeyButton.Text = "Cancel";
@@ -44,7 +56,6 @@ namespace VanityMonKeyGenerator
             else
             {
                 monKeySearcher.CancelAsync();
-                findSpecificMonKeyButton.Text = "Find Specific MonKey";
             }
         }
 
@@ -65,6 +76,11 @@ namespace VanityMonKeyGenerator
             {
                 MonKey monKey = new MonKey();
                 monKey.Svg = monKey.RequestMonKeySync();
+                if (monKey.Svg == "")
+                {
+                    e.Cancel = true;
+                    return;
+                }
                 if (Accessories.AccessoriesMatching(Properties.Settings.Default.SavedAccessories
                     .Cast<string>().ToList(), Accessories.ObtainedAccessories(monKey.Svg)))
                 {

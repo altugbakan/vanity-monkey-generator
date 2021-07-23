@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 using Blake2Fast;
 using Chaos.NaCl.Internal.Ed25519Ref10;
@@ -53,7 +54,15 @@ namespace VanityMonKeyGenerator
 
         public string RequestMonKeySync()
         {
-            RequestMonKey().Wait();
+            try
+            {
+                RequestMonKey().Wait();
+            }
+            catch
+            {
+                MessageBox.Show("No internet connection.", "Error");
+                return "";
+            }
             return RequestMonKey().Result;
         }
 

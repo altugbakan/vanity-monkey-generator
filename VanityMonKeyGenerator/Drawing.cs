@@ -224,7 +224,7 @@ namespace VanityMonKeyGenerator
         {
             List<string> aboveHandsList = new List<string>()
             {
-                "Misc-BananaHands", "Misc-Bowtie", "Misc-Club", "Misc-Flamethrower",
+                "Misc-BananaHands", "Misc-BananaRightHand", "Misc-Bowtie", "Misc-Club", "Misc-Flamethrower",
                 "Misc-GlovesWhite", "Misc-Guitar", "Misc-Microphone", "Misc-WhiskyRight"
             };
 
