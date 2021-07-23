@@ -3,7 +3,7 @@ Vanity MonKey generator for Banano.
 
 Create a custom MonKey and get the address and the seed.
 
-More info can be found on https://monkey.banano.cc
+More info can be found on https://monkey.banano.cc.
 
 ## Usage
 Press the gear button to modify your MonKey. The generator will try to find a MonKey containing the selected accessories.
