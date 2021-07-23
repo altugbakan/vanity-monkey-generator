@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Resources;
 using System.Xml;
 using VanityMonKeyGenerator.Properties;
+
+using Svg;
 
 namespace VanityMonKeyGenerator
 {
@@ -40,6 +41,15 @@ namespace VanityMonKeyGenerator
         {
             ResourceManager rm = new ResourceManager(typeof(Resources));
             return rm.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
+        }
+
+        public static SvgDocument GetAccessorySvg(string accessory)
+        {
+            ResourceSet accessoryList = GetAccessoryList();
+            string svgString = (string)accessoryList.GetObject(accessory);
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(svgString);
+            return SvgDocument.Open(doc);
         }
 
         public static bool ContainsAccessory(this string monKeySvg, DictionaryEntry accessory)

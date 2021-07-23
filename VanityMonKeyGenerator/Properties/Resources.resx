@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Arms" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Arms.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="BananaHands" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BananaHands.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
@@ -141,6 +144,12 @@
   </data>
   <data name="BeanieLongBanano" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BeanieLongBanano.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Body" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Body.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="BodyUpper" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BodyUpper.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="Bowtie" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Bowtie.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
@@ -199,8 +208,17 @@
   <data name="Crown" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Crown.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="Ears" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ears.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="EyePatch" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EyePatch.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Eyes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Eyes.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Face" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Face.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="Fedora" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Fedora.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
@@ -210,6 +228,12 @@
   </data>
   <data name="Flamethrower" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Flamethrower.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="FootLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FootLeft.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="FootRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FootRight.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="GlassesNerdCyan" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GlassesNerdCyan.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
@@ -226,6 +250,12 @@
   <data name="Guitar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Guitar.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="HandLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HandLeft.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="HandRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HandRight.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="HatCowboy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HatCowboy.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
@@ -238,6 +268,9 @@
   <data name="Joint" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Joint.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="Legs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Legs.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="Meh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Meh.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
@@ -249,6 +282,9 @@
   </data>
   <data name="NecklaceBoss" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NecklaceBoss.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Nose" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Nose.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="OverallsBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OverallsBlue.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
@@ -303,6 +339,9 @@
   </data>
   <data name="SunglassesThug" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SunglassesThug.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Tail" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Tail.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="TailSock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TailSock.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>

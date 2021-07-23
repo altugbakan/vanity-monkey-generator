@@ -36,6 +36,7 @@ namespace VanityMonKeyGenerator
             this.seedTextBox = new System.Windows.Forms.TextBox();
             this.monKeyPictureBox = new System.Windows.Forms.PictureBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.monKeyPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,11 +98,22 @@ namespace VanityMonKeyGenerator
             this.richTextBox1.TabIndex = 6;
             this.richTextBox1.Text = "";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(259, 267);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MonKeyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(371, 317);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.monKeyPictureBox);
             this.Controls.Add(this.seedLabel);
@@ -126,6 +138,7 @@ namespace VanityMonKeyGenerator
         private System.Windows.Forms.TextBox seedTextBox;
         private System.Windows.Forms.PictureBox monKeyPictureBox;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

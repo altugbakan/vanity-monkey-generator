@@ -41,5 +41,10 @@ namespace VanityMonKeyGenerator
             monKeyPictureBox.ImageLocation = "https://monkey.banano.cc/api/v1/monkey/" +
                 address + "?format=png&size=125&background=true";
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Drawing.DrawMonKey(null, monKeyPictureBox);
+        }
     }
 }

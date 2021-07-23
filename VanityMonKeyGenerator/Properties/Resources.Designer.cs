@@ -61,6 +61,15 @@ namespace VanityMonKeyGenerator.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;svg fill=&quot;none&quot; height=&quot;4000&quot; viewBox=&quot;0 0 4000 4000&quot; width=&quot;4000&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d=&quot;m1587 3147c36.5 0 65.66-32.58 62.04-68.42-5.42-63.52 18.62-132.19 65.95-198.39 43.06-60.25 89.21-93.26 53.71-132.19-35.5-38.94-115.56 3.92-155.4 59.5-65.71 91.92-97.19 189.11-88.63 283.68 3.19 31.47 25.83 55.82 62.33 55.82z&quot; fill=&quot;#7f6145&quot; stroke=&quot;#333&quot; stroke-miterlimit=&quot;10&quot; stroke-width=&quot;5&quot;/&gt;&lt;path d=&quot;m1570.65 3145.22c-62.15-107.22 43.67-345.19 176.18-410.41-40.01-10.61-100.55 26.68-133.53 72.69- [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Arms {
+            get {
+                return ResourceManager.GetString("Arms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;svg fill=&quot;none&quot; height=&quot;4000&quot; viewBox=&quot;0 0 4000 4000&quot; width=&quot;4000&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d=&quot;m2477.82 3358.22c-180.35 9.04-222.2-123.16-226.11-205.68-5.57-117.52 71.29-226.13 206.26-226.13 14.53 0 20.36 18.6 8 26.21-62.51 38.26-103.48 108.98-103.48 182.39 0 71.59 46.75 174.93 121.15 196.26 15.36 4.41 8.7 26.22-5.82 26.95z&quot; fill=&quot;#fbdd11&quot; stroke=&quot;#333&quot; stroke-width=&quot;10&quot;/&gt;&lt;path d=&quot;m2477.82 3358.22c-180.35 9.04-222.2-123.16-226.11-205.68-5.57-117.52 71.29-226.13 206.26-226.13 14.53 0 20.36 1 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string BananaHands {
@@ -129,6 +138,24 @@ namespace VanityMonKeyGenerator.Properties {
         internal static string BeanieLongBanano {
             get {
                 return ResourceManager.GetString("BeanieLongBanano", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;svg fill=&quot;none&quot; height=&quot;4000&quot; viewBox=&quot;0 0 4000 4000&quot; width=&quot;4000&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d=&quot;m2275.11 3290.64c-50.77-7.42-115.16-32.27-196.86-76-11.87-6.35-16.67-21.85-10.25-33.84 6.35-11.87 21.85-16.66 33.84-10.25 75.45 40.37 136.18 64.12 180.5 70.6 28.93 4.23 49.75 1 61.88-9.64 13.61-11.92 12.39-33 8.83-72.39-4.17-46.12-9.36-103.53 19.78-169.51 44-99.72 153.63-194.53 269.09-176.7 73.33 11.36 143.6 66.19 159.73 140.59 13.73 63.36-6.02 150.17-73.53 174.43-44.77 16-95.93-2.36-130.84-32.08- [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Body {
+            get {
+                return ResourceManager.GetString("Body", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;svg fill=&quot;none&quot; height=&quot;4000&quot; viewBox=&quot;0 0 4000 4000&quot; width=&quot;4000&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d=&quot;m2000 2548c154 0 220 135 260 246s58 220 58 292c0 152-138.68 305.46-318 307-175.53 1.51-318-155-318-307 0-72 17.7-181.5 58-292 40-111 106-246 260-246z&quot; fill=&quot;#7f6145&quot; stroke=&quot;#333&quot; stroke-miterlimit=&quot;10&quot; stroke-width=&quot;5&quot;/&gt;&lt;path d=&quot;m2000 3393c-175.67 1.59-330-157-318-337 10 148 145.15 288.48 318 287s308-139 318-287c12 180-142.33 335.41-318 337z&quot; fill=&quot;#000&quot; fill-opacity=&quot;.14&quot;/&gt;&lt;path d=&quot;m2000 2672c10 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string BodyUpper {
+            get {
+                return ResourceManager.GetString("BodyUpper", resourceCulture);
             }
         }
         
@@ -304,11 +331,38 @@ namespace VanityMonKeyGenerator.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;svg fill=&quot;none&quot; height=&quot;4000&quot; viewBox=&quot;0 0 4000 4000&quot; width=&quot;4000&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d=&quot;m3133.19 1832.12c111.1 102 66.32 309.29-9.09 427.16-107.46 168-353.47 273.75-479.46 184.37-131.58-93.35-114.4-386.92 39.2-539.32 114.68-113.78 334.45-177.69 449.35-72.21z&quot; fill=&quot;#f7c394&quot; stroke=&quot;#333&quot; stroke-miterlimit=&quot;10&quot; stroke-width=&quot;5&quot;/&gt;&lt;path d=&quot;m3003.49 1952.22c66 68.19 30.1 196.68-21.65 267.88-73.75 101.45-232.17 158.69-307.94 97.86-79.14-63.53-57.39-247.22 44.75-337.18 76.26-67.16 216.64-9 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Ears {
+            get {
+                return ResourceManager.GetString("Ears", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;svg fill=&quot;none&quot; height=&quot;4000&quot; viewBox=&quot;0 0 4000 4000&quot; width=&quot;4000&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d=&quot;m2976.23 1736.4c-121.06-54.19-253.46-96.24-388.21-137.05-19.55-5.92-39.15-11.81-58.77-17.71-115.67-34.78-232.13-69.8-343.95-111.88-261.52-98.43-497.12-235.32-636.59-497.434-3.16-5.928-9.21-7.875-15.52-7.511-6.28.361-13.29 2.98-19.48 6.763-6.2 3.786-11.85 8.896-15.28 14.498-3.43 5.599-4.83 12.071-1.65 18.064 133.88 267.74 378.8 410.52 649.71 513.15 118.14 44.75 241.32 81.91 362.46 118.45 17.75 5.36 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EyePatch {
             get {
                 return ResourceManager.GetString("EyePatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;svg fill=&quot;none&quot; height=&quot;4000&quot; viewBox=&quot;0 0 4000 4000&quot; width=&quot;4000&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d=&quot;m1759.66 1403.06c154.89 18 266.48 208.75 250 376.77-16.38 167.34-162.69 342-329.88 323-151.8-17.3-250.26-186.22-253.5-328.16-4.31-190.16 160.84-391.67 333.38-371.61z&quot; fill=&quot;#fff&quot;/&gt;&lt;path d=&quot;m1947.73 1825.22c22.11-113.95-39.5-221.76-137.6-240.79-98.1-19.04-195.55 57.91-217.66 171.87-22.11 113.95 39.5 221.76 137.6 240.79 98.1 19.04 195.55-57.91 217.66-171.87z&quot; fill=&quot;#313cc4&quot; stroke=&quot;#333&quot; stroke-mite [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Eyes {
+            get {
+                return ResourceManager.GetString("Eyes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;svg fill=&quot;none&quot; height=&quot;4000&quot; viewBox=&quot;0 0 4000 4000&quot; width=&quot;4000&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d=&quot;m2395 2818c-115.35 45.22-271 79-395 79s-259.34-26.43-395-79c-7.24 10.54-16.61 26.27-23 37 142 57 275 86 418 86s276-29 418-86c-6.15-10.7-15.93-26.36-23-37z&quot; fill=&quot;#000&quot; fill-opacity=&quot;.15&quot;/&gt;&lt;path d=&quot;m2500.32 839c42.32-35.85-124.32-76-146.52-139.49-26.8-76.51 395.59 127.1 331.57 261.08-5 10.51-55.43 94-417.61-23.77 398.16 129.18 699.66 403.12 698.24 910.18-1.09 388.75-350.07 990.81-966.43 996.18-594. [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Face {
+            get {
+                return ResourceManager.GetString("Face", resourceCulture);
             }
         }
         
@@ -336,6 +390,24 @@ namespace VanityMonKeyGenerator.Properties {
         internal static string Flamethrower {
             get {
                 return ResourceManager.GetString("Flamethrower", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;svg fill=&quot;none&quot; height=&quot;4000&quot; viewBox=&quot;0 0 4000 4000&quot; width=&quot;4000&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d=&quot;m1910 3556c32 0 63.09-23.6 66.7-56.14 9.11-82.21-94.35-89.68-150.67-90.92-57.1-1.25-154.03 9.56-171.02 72.27-14.85 54.79 36.49 74.79 72.99 74.79s49-12.15 92.98-12.15c38.41 0 57.02 12.15 89.02 12.15z&quot; fill=&quot;#f7c394&quot; stroke=&quot;#333&quot; stroke-miterlimit=&quot;10&quot; stroke-width=&quot;5&quot;/&gt;&lt;path d=&quot;m1909 3534c-32 0-50.61-12.15-89.02-12.15-43.98 0-56.48 12.15-92.98 12.15-28.39 0-65.75-12.1-73.97-43.26-6.73 47.6 40.67 6 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string FootLeft {
+            get {
+                return ResourceManager.GetString("FootLeft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;svg fill=&quot;none&quot; height=&quot;4000&quot; viewBox=&quot;0 0 4000 4000&quot; width=&quot;4000&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d=&quot;m2090 3556c-32 0-63.09-23.6-66.7-56.14-9.11-82.21 94.35-89.68 150.67-90.92 57.1-1.25 154.03 9.56 171.02 72.27 14.85 54.79-36.49 74.79-72.99 74.79s-49-12.15-92.98-12.15c-38.42 0-57.02 12.15-89.02 12.15z&quot; fill=&quot;#f7c394&quot; stroke=&quot;#333&quot; stroke-miterlimit=&quot;10&quot; stroke-width=&quot;5&quot;/&gt;&lt;path d=&quot;m2091 3534c32 0 50.61-12.15 89.02-12.15 43.98 0 56.48 12.15 92.98 12.15 28.39 0 65.75-12.1 73.97-43.26 6.73 47.6-40.67 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string FootRight {
+            get {
+                return ResourceManager.GetString("FootRight", resourceCulture);
             }
         }
         
@@ -385,6 +457,24 @@ namespace VanityMonKeyGenerator.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;svg fill=&quot;none&quot; height=&quot;4000&quot; viewBox=&quot;0 0 4000 4000&quot; width=&quot;4000&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d=&quot;m1601.4 3259.89c56.82.05 92.99-68.11 58.59-115.27 15.91-45.21-18.09-95.39-66.66-96.55-56-1.34-88.37 58.5-82.5 109.13 5.48 47.31 37.52 102.65 90.57 102.69z&quot; fill=&quot;#f7c394&quot; stroke=&quot;#333&quot; stroke-miterlimit=&quot;10&quot; stroke-width=&quot;5&quot;/&gt;&lt;path d=&quot;m1510.83 3157.2c6.78 58.57 54.37 126.8 125.37 93.8-68.82-8.8-117-125.5-83.11-191.84-5.39 3.84-13.89 8.34-27.6 27.61-12.29 21.73-17.7 46.2-14.66 70.43z&quot; fill=&quot;#000&quot; f [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string HandLeft {
+            get {
+                return ResourceManager.GetString("HandLeft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;svg fill=&quot;none&quot; height=&quot;4000&quot; viewBox=&quot;0 0 4000 4000&quot; width=&quot;4000&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d=&quot;m2398.6 3259.89c-56.82.05-92.99-68.11-58.59-115.27-15.92-45.21 18.08-95.39 66.66-96.55 56-1.34 88.36 58.5 82.5 109.13-5.48 47.31-37.53 102.65-90.57 102.69z&quot; fill=&quot;#f7c394&quot; stroke=&quot;#333&quot; stroke-miterlimit=&quot;10&quot; stroke-width=&quot;5&quot;/&gt;&lt;path d=&quot;m2489.17 3157.2c-6.78 58.57-54.37 126.8-125.37 93.8 68.82-8.8 117-125.5 83.11-191.84 5.39 3.84 13.89 8.34 27.6 27.61 12.29 21.73 17.7 46.2 14.66 70.43z&quot; fill=&quot;#000&quot; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string HandRight {
+            get {
+                return ResourceManager.GetString("HandRight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;svg fill=&quot;none&quot; height=&quot;4000&quot; viewBox=&quot;0 0 4000 4000&quot; width=&quot;4000&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d=&quot;m2853.29 1376.74c-373.29 123.76-1102.29 11.76-1448.76-298.36 566.69-502.269 1122.53-287.668 1448.76 298.36z&quot; fill=&quot;#000&quot; fill-opacity=&quot;.15&quot;/&gt;&lt;path d=&quot;m2820.67 1119.44c-411.17 0-1002.4-159.921-1250.12-261.53 163.95-338.91 424.38-679.639 619.19-642.24 80.66 15.47 81.76 87.83 163.76 100.33s117.5-59.582 198.35-46.05c152.65 25.55 188.15 541.05 268.82 849.49z&quot; fill=&quot;#290c0d&quot; stroke=&quot;#333&quot; stroke-miterli [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string HatCowboy {
@@ -421,6 +511,15 @@ namespace VanityMonKeyGenerator.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;svg width=&quot;4000&quot; height=&quot;4000&quot; viewBox=&quot;0 0 4000 4000&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d=&quot;M1959.37 3446.51c5-87.08 27.4-154.43 47.17-206.81 19.77-52.38 42.42-144.7-42.56-166.02-121.5-30.49-188.31 254.12-193.3 340.94-2.93 51.08 36.82 110.33 88.4 113.29 47.48 2.31 97.45-31.79 100.29-81.4z&quot; fill=&quot;#7F6145&quot; stroke=&quot;#333&quot; stroke-width=&quot;5&quot; stroke-miterlimit=&quot;10&quot;/&gt;&lt;path d=&quot;M1769.48 3414.5c51.5-7 148-7 188.5 34 .34-3.09 1.44-11.94 1.66-15.04-42.16-36.96-138.16-39.46-188.02-32.46-.26 3.3-1.86 10 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Legs {
+            get {
+                return ResourceManager.GetString("Legs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;svg fill=&quot;none&quot; height=&quot;4000&quot; viewBox=&quot;0 0 4000 4000&quot; width=&quot;4000&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d=&quot;m2588.29 2324.51c20.82 14.6 25.74 49.01 7.48 67.58-3.93 4-12.73 1.04-11.63-5.2 3.17-18.04-.65-37.13-6.2-54.42-1.91-5.94 4.77-11.64 10.32-7.91z&quot; fill=&quot;#000&quot; fill-opacity=&quot;.1&quot;/&gt;&lt;path d=&quot;m1404.97 2465.51c-17.65 18.31-15.91 53.03 5.55 67.77 4.62 3.17 12.7-1.41 10.43-7.33-6.56-17.1-6.45-36.57-4.3-54.6.74-6.19-6.91-10.52-11.64-5.8z&quot; fill=&quot;#000&quot; fill-opacity=&quot;.1&quot;/&gt;&lt;path d=&quot;m2538.22 2317.78c22.69 23.9 25. [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Meh {
@@ -453,6 +552,15 @@ namespace VanityMonKeyGenerator.Properties {
         internal static string NecklaceBoss {
             get {
                 return ResourceManager.GetString("NecklaceBoss", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;svg fill=&quot;none&quot; height=&quot;4000&quot; viewBox=&quot;0 0 4000 4000&quot; width=&quot;4000&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d=&quot;m1785 2099c0 76.35 98.85 169 216.26 168 108.22-.95 213.74-92.55 213.74-167.78 0-152.13-430-154.42-430-.22z&quot; fill=&quot;#000&quot; fill-opacity=&quot;.1&quot;/&gt;&lt;path d=&quot;m1782 2081c0 76.35 100.23 169 219.27 168 109.73-.95 216.73-92.55 216.73-167.78 0-60.53-126.24-113.77-216.73-113-84.02.78-219.27 41.16-219.27 112.78z&quot; fill=&quot;#7a5d43&quot;/&gt;&lt;path d=&quot;m1783.58 2067.77c41.76 54.75 124.68 100.94 217.85 100.22 86.21-.68 170.92-47. [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Nose {
+            get {
+                return ResourceManager.GetString("Nose", resourceCulture);
             }
         }
         
@@ -615,6 +723,15 @@ namespace VanityMonKeyGenerator.Properties {
         internal static string SunglassesThug {
             get {
                 return ResourceManager.GetString("SunglassesThug", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;svg width=&quot;4000&quot; height=&quot;4000&quot; viewBox=&quot;0 0 4000 4000&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d=&quot;M2275.11 3290.64c-50.77-7.42-115.16-32.27-196.86-76-11.87-6.35-16.67-21.85-10.25-33.84 6.35-11.87 21.85-16.66 33.84-10.25 75.45 40.37 136.18 64.12 180.5 70.6 28.93 4.23 49.75 1 61.88-9.64 13.61-11.92 12.39-33 8.83-72.39-4.17-46.12-9.36-103.53 19.78-169.51 44-99.72 153.63-194.53 269.09-176.7 73.33 11.36 143.6 66.19 159.73 140.59 13.73 63.36-6.02 150.17-73.53 174.43-44.77 16-95.93-2.36-130.84-32.08- [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Tail {
+            get {
+                return ResourceManager.GetString("Tail", resourceCulture);
             }
         }
         

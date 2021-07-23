@@ -19,10 +19,5 @@ namespace VanityMonKeyGenerator
         {
 
         }
-
-        private void mouthsLabel_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
