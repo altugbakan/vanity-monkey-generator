@@ -1,5 +1,3 @@
-# Chaos.NaCl.Blake2B.Core
+# VanityAddrGen
 
-Copied from https://github.com/alexanderdna/VanityAddrGen/edit/main/Chaos
-
-Original repository is https://github.com/CodesInChaos/Chaos.NaCl
+Copied from https://github.com/alexanderdna/VanityAddrGen
