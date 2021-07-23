@@ -42,10 +42,9 @@ namespace VanityMonKeyGenerator
             // 
             // GetMonKeyButton
             // 
-            this.GetMonKeyButton.Location = new System.Drawing.Point(206, 445);
-            this.GetMonKeyButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.GetMonKeyButton.Location = new System.Drawing.Point(144, 267);
             this.GetMonKeyButton.Name = "GetMonKeyButton";
-            this.GetMonKeyButton.Size = new System.Drawing.Size(121, 38);
+            this.GetMonKeyButton.Size = new System.Drawing.Size(85, 23);
             this.GetMonKeyButton.TabIndex = 0;
             this.GetMonKeyButton.Text = "Get MonKey";
             this.GetMonKeyButton.UseVisualStyleBackColor = true;
@@ -53,55 +52,49 @@ namespace VanityMonKeyGenerator
             // 
             // addressTextBox
             // 
-            this.addressTextBox.Location = new System.Drawing.Point(19, 267);
-            this.addressTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.addressTextBox.Location = new System.Drawing.Point(13, 160);
             this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.Size = new System.Drawing.Size(493, 31);
+            this.addressTextBox.Size = new System.Drawing.Size(346, 23);
             this.addressTextBox.TabIndex = 1;
             // 
             // addressLabel
             // 
             this.addressLabel.AutoSize = true;
-            this.addressLabel.Location = new System.Drawing.Point(19, 232);
-            this.addressLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.addressLabel.Location = new System.Drawing.Point(13, 139);
             this.addressLabel.Name = "addressLabel";
-            this.addressLabel.Size = new System.Drawing.Size(77, 25);
+            this.addressLabel.Size = new System.Drawing.Size(49, 15);
             this.addressLabel.TabIndex = 2;
             this.addressLabel.Text = "Address";
             // 
             // seedLabel
             // 
             this.seedLabel.AutoSize = true;
-            this.seedLabel.Location = new System.Drawing.Point(19, 325);
-            this.seedLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.seedLabel.Location = new System.Drawing.Point(13, 195);
             this.seedLabel.Name = "seedLabel";
-            this.seedLabel.Size = new System.Drawing.Size(51, 25);
+            this.seedLabel.Size = new System.Drawing.Size(32, 15);
             this.seedLabel.TabIndex = 4;
             this.seedLabel.Text = "Seed";
             // 
             // seedTextBox
             // 
-            this.seedTextBox.Location = new System.Drawing.Point(19, 360);
-            this.seedTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.seedTextBox.Location = new System.Drawing.Point(13, 216);
             this.seedTextBox.Name = "seedTextBox";
-            this.seedTextBox.Size = new System.Drawing.Size(493, 31);
+            this.seedTextBox.Size = new System.Drawing.Size(346, 23);
             this.seedTextBox.TabIndex = 3;
             // 
             // monKeyPictureBox
             // 
-            this.monKeyPictureBox.Location = new System.Drawing.Point(177, 20);
-            this.monKeyPictureBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.monKeyPictureBox.Location = new System.Drawing.Point(124, 12);
             this.monKeyPictureBox.Name = "monKeyPictureBox";
-            this.monKeyPictureBox.Size = new System.Drawing.Size(179, 208);
+            this.monKeyPictureBox.Size = new System.Drawing.Size(125, 125);
             this.monKeyPictureBox.TabIndex = 5;
             this.monKeyPictureBox.TabStop = false;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(370, 445);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button1.Location = new System.Drawing.Point(259, 267);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 38);
+            this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 7;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -109,9 +102,10 @@ namespace VanityMonKeyGenerator
             // 
             // settingsButton
             // 
-            this.settingsButton.Location = new System.Drawing.Point(400, 20);
+            this.settingsButton.Location = new System.Drawing.Point(280, 12);
+            this.settingsButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.settingsButton.Name = "settingsButton";
-            this.settingsButton.Size = new System.Drawing.Size(112, 34);
+            this.settingsButton.Size = new System.Drawing.Size(78, 24);
             this.settingsButton.TabIndex = 8;
             this.settingsButton.Text = "Settings";
             this.settingsButton.UseVisualStyleBackColor = true;
@@ -119,9 +113,9 @@ namespace VanityMonKeyGenerator
             // 
             // MonKeyForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 528);
+            this.ClientSize = new System.Drawing.Size(371, 317);
             this.Controls.Add(this.settingsButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.monKeyPictureBox);
@@ -130,7 +124,6 @@ namespace VanityMonKeyGenerator
             this.Controls.Add(this.addressLabel);
             this.Controls.Add(this.addressTextBox);
             this.Controls.Add(this.GetMonKeyButton);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MonKeyForm";
             this.Text = "Vanity MonKey Generator";
             ((System.ComponentModel.ISupportInitialize)(this.monKeyPictureBox)).EndInit();

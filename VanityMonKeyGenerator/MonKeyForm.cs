@@ -39,7 +39,7 @@ namespace VanityMonKeyGenerator
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Drawing.DrawMonKey(null, monKeyPictureBox);
+
         }
 
        

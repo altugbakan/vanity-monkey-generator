@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace VanityMonKeyGenerator
@@ -13,6 +9,7 @@ namespace VanityMonKeyGenerator
         public Settings()
         {
             InitializeComponent();
+            Drawing.DrawMonKey(GetAccessories(), monKeyPictureBox);
         }
 
         private void GlassesComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -27,37 +24,37 @@ namespace VanityMonKeyGenerator
 
             if (glassesComboBox.Text != "None" )
             {
-                accessories.Add("Glasses-" + glassesComboBox.Text);
+                accessories.Add("Glasses-" + glassesComboBox.Text.Replace(" ", ""));
             }
 
             if (hatsComboBox.Text != "None")
             {
-                accessories.Add("Hats-" + hatsComboBox.Text);
+                accessories.Add("Hats-" + hatsComboBox.Text.Replace(" ", ""));
             }
 
             if (miscComboBox.Text != "None")
             {
-                accessories.Add("Misc-" + miscComboBox.Text);
+                accessories.Add("Misc-" + miscComboBox.Text.Replace(" ", ""));
             }
 
             if (mouthsComboBox.Text != "None")
             {
-                accessories.Add("Mouths-" + mouthsComboBox.Text);
+                accessories.Add("Mouths-" + mouthsComboBox.Text.Replace(" ", ""));
             }
 
             if (shirtPantsComboBox.Text != "None")
             {
-                accessories.Add("Shirt-Pants-" + shirtPantsComboBox.Text);
+                accessories.Add("Shirt-Pants-" + shirtPantsComboBox.Text.Replace(" ", ""));
             }
 
             if (shoesComboBox.Text != "None")
             {
-                accessories.Add("Shoes" + shoesComboBox.Text);
+                accessories.Add("Shoes-" + shoesComboBox.Text.Replace(" ", ""));
             }
 
             if (tailsComboBox.Text != "None")
             {
-                accessories.Add("Tails" + tailsComboBox.Text);
+                accessories.Add("Tails-" + tailsComboBox.Text.Replace(" ", ""));
             }
             
             return accessories;
