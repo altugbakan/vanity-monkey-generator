@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Resources;
 using System.Xml;
+using System.Linq;
 using VanityMonKeyGenerator.Properties;
 
 using Svg;
@@ -11,7 +12,7 @@ namespace VanityMonKeyGenerator
 {
     public static class Accessories
     {
-        public static List<string> MatchingAccessories(string monKeySvg)
+        public static List<string> ObtainedAccessories(string monKeySvg)
         {
             List<string> accessories = new List<string>();
             foreach (DictionaryEntry accessory in GetAccessoryList())
@@ -26,14 +27,15 @@ namespace VanityMonKeyGenerator
 
         private static List<string> PruneExtraAccessories(List<string> accessories)
         {
-            if (accessories.Contains("SmileTongue"))
+            if (accessories.Contains("Mouths-SmileTongue"))
             {
-                accessories.Remove("SmileNormal");
+                accessories.Remove("Mouths-SmileNormal");
             }
-            if (accessories.Contains("BananaHands"))
+            if (accessories.Contains("Misc-BananaHands"))
             {
-                accessories.Remove("BananaRightHand");
+                accessories.Remove("Misc-BananaRightHand");
             }
+            accessories.RemoveAll(accessory => !accessory.Contains("-"));
             return accessories;
         }
 
@@ -74,11 +76,11 @@ namespace VanityMonKeyGenerator
         {
             switch (accessory)
             {
-                case "BeanieLong":
-                case "BeanieLongBanano":
-                case "TshirtLongStripes":
-                case "SocksVStripe":
-                case "TailSock":
+                case "Hats-BeanieLong":
+                case "Hats-BeanieLongBanano":
+                case "ShirtsPants-TshirtLongStripes":
+                case "Shoes-SocksVStripe":
+                case "Tails-TailSock":
                     return true;
                 default:
                     return false;
@@ -100,6 +102,29 @@ namespace VanityMonKeyGenerator
                 }
             }
             return false;
+        }
+
+        public static bool AccessoriesMatching(List<string> requestedAccessories,
+            List<string> obtainedAccessories)
+        {
+            foreach (string accessory in requestedAccessories.Where(
+                accessory => !accessory.Contains("Any") && !accessory.Contains("None")))
+            {
+                if (!obtainedAccessories.Contains(accessory))
+                {
+                    return false;
+                }
+            }
+            foreach (string accessory in requestedAccessories.Where(
+                accessory => accessory.Contains("None")))
+            {
+                if (obtainedAccessories.Any(accessory => 
+                    accessory.StartsWith(accessory.Remove(accessory.IndexOf('-')))))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

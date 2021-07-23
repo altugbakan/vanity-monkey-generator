@@ -13,7 +13,7 @@ namespace VanityMonKeyGenerator
     {
         public string Address;
         public string Seed;
-
+        public string Svg;
         public MonKey()
         {
             Job.AddressBuffer addressBuffer = new Job.AddressBuffer(Job.AddressPrefix.Length + 60);
@@ -49,6 +49,12 @@ namespace VanityMonKeyGenerator
             string response = await client.GetStringAsync("https://monkey.banano.cc/api/v1/monkey/" + Address);
             client.Dispose();
             return response;
+        }
+
+        public string RequestMonKeySync()
+        {
+            RequestMonKey().Wait();
+            return RequestMonKey().Result;
         }
 
         private string ByteArrayToHexString(byte[] bytes)

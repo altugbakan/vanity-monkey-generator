@@ -121,98 +121,14 @@
   <data name="Arms" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Arms.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="BananaHands" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BananaHands.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="BananaRightHand" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BananaRightHand.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="Bandana" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bandana.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="Beanie" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Beanie.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="BeanieBanano" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BeanieBanano.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="BeanieHippie" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BeanieHippie.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="BeanieLong" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BeanieLong.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="BeanieLongBanano" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BeanieLongBanano.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
   <data name="Body" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Body.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="BodyUpper" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BodyUpper.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="Bowtie" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bowtie.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="Camera" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Camera.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="Cap" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Cap.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="CapBackwards" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CapBackwards.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="CapBanano" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CapBanano.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="CapBebe" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CapBebe.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="CapCarlos" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CapCarlos.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="CapHng" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CapHng.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="CapHngPlus" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CapHngPlus.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="CapKappa" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CapKappa.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="CapPepe" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CapPepe.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="CapRick" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CapRick.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="CapSmug" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CapSmug.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="CapSmugGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CapSmugGreen.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="CapThonk" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CapThonk.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="Cigar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Cigar.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="Club" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Club.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="Confused" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Confused.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="Crown" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Crown.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
   <data name="Ears" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ears.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="EyePatch" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EyePatch.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="Eyes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Eyes.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
@@ -220,35 +136,38 @@
   <data name="Face" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Face.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="Fedora" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Fedora.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="FedoraLong" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FedoraLong.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="Flamethrower" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Flamethrower.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
   <data name="FootLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FootLeft.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="FootRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FootRight.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="GlassesNerdCyan" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Glasses-EyePatch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EyePatch.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Glasses-GlassesNerdCyan" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GlassesNerdCyan.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="GlassesNerdGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Glasses-GlassesNerdGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GlassesNerdGreen.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="GlassesNerdPink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Glasses-GlassesNerdPink" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GlassesNerdPink.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="GlovesWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\GlovesWhite.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Glasses-Monocle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Monocle.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="Guitar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Guitar.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Glasses-SunglassesAviatorCyan" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SunglassesAviatorCyan.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Glasses-SunglassesAviatorGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SunglassesAviatorGreen.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Glasses-SunglassesAviatorYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SunglassesAviatorYellow.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Glasses-SunglassesThug" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SunglassesThug.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="HandLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HandLeft.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
@@ -256,109 +175,190 @@
   <data name="HandRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HandRight.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="HatCowboy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Hats-Bandana" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bandana.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Hats-Beanie" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Beanie.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Hats-BeanieBanano" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BeanieBanano.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Hats-BeanieHippie" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BeanieHippie.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Hats-BeanieLong" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BeanieLong.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Hats-BeanieLongBanano" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BeanieLongBanano.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Hats-Cap" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cap.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Hats-CapBackwards" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CapBackwards.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Hats-CapBanano" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CapBanano.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Hats-CapBebe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CapBebe.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Hats-CapCarlos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CapCarlos.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Hats-CapHng" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CapHng.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Hats-CapHngPlus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CapHngPlus.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Hats-CapKappa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CapKappa.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Hats-CapPepe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CapPepe.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Hats-CapRick" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CapRick.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Hats-CapSmug" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CapSmug.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Hats-CapSmugGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CapSmugGreen.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Hats-CapThonk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CapThonk.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Hats-Crown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Crown.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Hats-Fedora" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fedora.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Hats-FedoraLong" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FedoraLong.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Hats-HatCowboy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HatCowboy.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="HatJester" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Hats-HatJester" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HatJester.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="HelmetViking" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Hats-HelmetViking" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HelmetViking.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="Joint" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Joint.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="Legs" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Legs.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="Meh" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Meh.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Misc-BananaHands" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BananaHands.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="Microphone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Misc-BananaRightHand" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BananaRightHand.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Misc-Bowtie" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bowtie.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Misc-Camera" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Camera.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Misc-Club" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Club.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Misc-Flamethrower" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Flamethrower.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Misc-GlovesWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GlovesWhite.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Misc-Guitar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Guitar.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Misc-Microphone" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Microphone.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="Monocle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Monocle.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="NecklaceBoss" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Misc-NecklaceBoss" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NecklaceBoss.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Misc-TieCyan" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TieCyan.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Misc-TiePink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TiePink.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Misc-WhiskyRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WhiskyRight.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Mouths-Cigar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cigar.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Mouths-Confused" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Confused.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Mouths-Joint" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Joint.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Mouths-Meh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Meh.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Mouths-Pipe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pipe.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Mouths-SmileBigTeeth" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SmileBigTeeth.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Mouths-SmileNormal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SmileNormal.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Mouths-SmileTongue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SmileTongue.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="Nose" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Nose.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="OverallsBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ShirtsPants-OverallsBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OverallsBlue.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="OverallsRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ShirtsPants-OverallsRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OverallsRed.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="PantsBusinessBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ShirtsPants-PantsBusinessBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PantsBusinessBlue.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="PantsFlower" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ShirtsPants-PantsFlower" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PantsFlower.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="Pipe" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Pipe.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="ShirtsPants-TshirtLongStripes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TshirtLongStripes.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="SmileBigTeeth" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SmileBigTeeth.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="ShirtsPants-TshirtShortWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TshirtShortWhite.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="SmileNormal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SmileNormal.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="SmileTongue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SmileTongue.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="SneakersBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Shoes-SneakersBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SneakersBlue.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="SneakersGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Shoes-SneakersGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SneakersGreen.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="SneakersRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Shoes-SneakersRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SneakersRed.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="SneakersSwagger" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Shoes-SneakersSwagger" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SneakersSwagger.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="SocksHStripe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Shoes-SocksHStripe" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SocksHStripe.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="SocksVStripe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Shoes-SocksVStripe" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SocksVStripe.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="SunglassesAviatorCyan" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SunglassesAviatorCyan.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="SunglassesAviatorGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SunglassesAviatorGreen.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="SunglassesAviatorYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SunglassesAviatorYellow.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="SunglassesThug" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SunglassesThug.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="Tail" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Tail.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="TailSock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Tails-TailSock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TailSock.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="TieCyan" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TieCyan.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="TiePink" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TiePink.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="TshirtLongStripes" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TshirtLongStripes.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="TshirtShortWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TshirtShortWhite.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="WhiskyRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WhiskyRight.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
 </root>

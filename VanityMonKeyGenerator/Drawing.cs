@@ -2,6 +2,9 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using System.Xml;
+
+using Svg;
 
 namespace VanityMonKeyGenerator
 {
@@ -22,6 +25,14 @@ namespace VanityMonKeyGenerator
             pictureBox.Image = canvas;
         }
 
+        public static void DrawSvg(string svg, PictureBox pictureBox)
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.LoadXml(svg);
+            SvgDocument svgDoc = SvgDocument.Open(xmlDoc);
+            pictureBox.Image = svgDoc.Draw(pictureBox.Width, pictureBox.Height);
+        }
+
         private static List<string> ParseAccessoryList(List<string> accessoryList)
         {
             List<string> parsedAccessories = new List<string>();
@@ -30,11 +41,10 @@ namespace VanityMonKeyGenerator
             // Tail Accessory
             if (accessoryList.Any(acc => acc.Contains("Tails")))
             {
-                string tail = accessoryList.First(acc => acc.Contains("Tails"))
-                    .Replace("Tails-", "");
-                if (tail != "Any")
+                string tail = accessoryList.First(acc => acc.Contains("Tails"));
+                if (!tail.Contains("Any") && !tail.Contains("None"))
                 {
-                    parsedAccessories.Add("TailSock");
+                    parsedAccessories.Add("Tails-TailSock");
                 }
             }
             // Legs
@@ -44,11 +54,10 @@ namespace VanityMonKeyGenerator
             // Body Upper
             parsedAccessories.Add("BodyUpper");
             // Shirts Pants Accessory
-            if (accessoryList.Any(acc => acc.Contains("Shirt-Pants")))
+            if (accessoryList.Any(acc => acc.Contains("ShirtsPants")))
             {
-                string shirtsPants = accessoryList.First(acc => acc.Contains("Shirt-Pants"))
-                    .Replace("Shirt-Pants-", "");
-                if (shirtsPants != "Any")
+                string shirtsPants = accessoryList.First(acc => acc.Contains("ShirtsPants"));
+                if (!shirtsPants.Contains("Any") && !shirtsPants.Contains("None"))
                 {
                     parsedAccessories.Add(shirtsPants);
                     if (shirtsPants.RemovesLegs())
@@ -60,11 +69,10 @@ namespace VanityMonKeyGenerator
             // Misc Above Shirts Pants
             if (accessoryList.Any(acc => acc.Contains("Misc")))
             {
-                string misc = accessoryList.First(acc => acc.Contains("Misc"))
-                    .Replace("Misc-", "");
+                string misc = accessoryList.First(acc => acc.Contains("Misc"));
                 if (misc.IsAboveShirtsPants())
                 {
-                    if (misc != "Any")
+                    if (!misc.Contains("Any") && !misc.Contains("None"))
                     {
                         parsedAccessories.Add(misc);
                     }
@@ -79,9 +87,8 @@ namespace VanityMonKeyGenerator
             // Glasses Accessory
             if (accessoryList.Any(acc => acc.Contains("Glasses")))
             {
-                string glasses = accessoryList.First(acc => acc.Contains("Glasses"))
-                    .Replace("Glasses-", "");
-                if (glasses != "Any")
+                string glasses = accessoryList.First(acc => acc.Contains("Glasses"));
+                if (!glasses.Contains("Any") && !glasses.Contains("None"))
                 {
                     parsedAccessories.Add(glasses);
                     if (glasses.RemovesEyes())
@@ -93,17 +100,19 @@ namespace VanityMonKeyGenerator
             // Nose
             parsedAccessories.Add("Nose");
             // Mouth
-            if (accessoryList.First(acc => acc.Contains("Mouths")).Replace("Mouths-", "") != "Any")
+            if (accessoryList.Any(acc => acc.Contains("Mouths")))
             {
-                parsedAccessories.Add(accessoryList.First(acc => acc.Contains("Mouths"))
-                        .Replace("Mouths-", ""));
+                if (!accessoryList.First(acc => acc.Contains("Mouths")).Contains("Any") &&
+                    !accessoryList.First(acc => acc.Contains("Mouths")).Contains("None"))
+                {
+                    parsedAccessories.Add(accessoryList.First(acc => acc.Contains("Mouths")));
+                }
             }
             // Hat
             if (accessoryList.Any(acc => acc.Contains("Hats")))
             {
-                string hat = accessoryList.First(acc => acc.Contains("Hats"))
-                    .Replace("Hats-", "");
-                if (hat != "Any")
+                string hat = accessoryList.First(acc => acc.Contains("Hats"));
+                if (!hat.Contains("Any") && !hat.Contains("None"))
                 {
                     parsedAccessories.Add(hat);
                 }
@@ -115,9 +124,8 @@ namespace VanityMonKeyGenerator
             // Shoes Accessory
             if (accessoryList.Any(acc => acc.Contains("Shoes")))
             {
-                string shoes = accessoryList.First(acc => acc.Contains("Shoes"))
-                    .Replace("Shoes-", "");
-                if (shoes != "Any")
+                string shoes = accessoryList.First(acc => acc.Contains("Shoes"));
+                if (!shoes.Contains("Any") && !shoes.Contains("None"))
                 {
                     parsedAccessories.Add(shoes);
                     parsedAccessories.Remove("FootLeft");
@@ -131,11 +139,10 @@ namespace VanityMonKeyGenerator
             // Misc Above Hands
             if (accessoryList.Any(acc => acc.Contains("Misc")))
             {
-                string misc = accessoryList.First(acc => acc.Contains("Misc"))
-                    .Replace("Misc-", "");
+                string misc = accessoryList.First(acc => acc.Contains("Misc"));
                 if (misc.IsAboveHands())
                 {
-                    if (misc != "Any")
+                    if (!misc.Contains("Any") && !misc.Contains("None"))
                     {
                         parsedAccessories.Add(misc);
                         if (misc.RemovesHands())
@@ -162,7 +169,7 @@ namespace VanityMonKeyGenerator
         {
             List<string> removesLegsList = new List<string>()
             {
-                "PantsBusinessBlue", "PantsFlower"
+                "ShirtsPants-PantsBusinessBlue", "ShirtsPants-PantsFlower"
             };
 
             return removesLegsList.Contains(accessory);
@@ -172,7 +179,7 @@ namespace VanityMonKeyGenerator
         {
             List<string> removesEyesList = new List<string>()
             {
-                "SunglassesAviatorCyan", "SunglassesAviatorGreen", "SunglassesAviatorYellow"
+                "Glasses-SunglassesAviatorCyan", "Glasses-SunglassesAviatorGreen", "Glasses-SunglassesAviatorYellow"
             };
 
             return removesEyesList.Contains(accessory);
@@ -182,7 +189,7 @@ namespace VanityMonKeyGenerator
         {
             List<string> removesHandsList = new List<string>()
             {
-                "BananaHands", "Club", "Flamethrower", "GlovesWhite"
+                "Misc-BananaHands", "Misc-Club", "Misc-Flamethrower", "Misc-GlovesWhite"
             };
 
             return removesHandsList.Contains(accessory);
@@ -192,7 +199,7 @@ namespace VanityMonKeyGenerator
         {
             List<string> removesHandRightList = new List<string>()
             {
-                "BananaRightHand", "Microphone", "WhiskyRight"
+                "Misc-BananaRightHand", "Misc-Microphone", "Misc-WhiskyRight"
             };
 
             return removesHandRightList.Contains(accessory);
@@ -200,14 +207,14 @@ namespace VanityMonKeyGenerator
 
         private static bool RemovesHandLeft(this string accessory)
         {
-            return accessory == "Guitar";
+            return accessory == "Misc-Guitar";
         }
 
         private static bool IsAboveShirtsPants(this string accessory)
         {
             List<string> aboveShirtsPantsList = new List<string>()
             {
-                "Camera", "NecklaceBoss", "TieCyan", "TiePink"
+                "Misc-Camera", "Misc-NecklaceBoss", "Misc-TieCyan", "Misc-TiePink"
             };
 
             return aboveShirtsPantsList.Contains(accessory);
@@ -217,8 +224,8 @@ namespace VanityMonKeyGenerator
         {
             List<string> aboveHandsList = new List<string>()
             {
-                "BananaHands", "Bowtie", "Club", "Flamethrower",
-                "GlovesWhite", "Guitar", "Microphone", "WhiskyRight"
+                "Misc-BananaHands", "Misc-Bowtie", "Misc-Club", "Misc-Flamethrower",
+                "Misc-GlovesWhite", "Misc-Guitar", "Misc-Microphone", "Misc-WhiskyRight"
             };
 
             return aboveHandsList.Contains(accessory);

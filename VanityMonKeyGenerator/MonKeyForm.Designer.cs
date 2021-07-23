@@ -29,30 +29,33 @@ namespace VanityMonKeyGenerator
         /// </summary>
         private void InitializeComponent()
         {
-            this.GetMonKeyButton = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MonKeyForm));
+            this.getRandomMonKeyButton = new System.Windows.Forms.Button();
             this.addressTextBox = new System.Windows.Forms.TextBox();
             this.addressLabel = new System.Windows.Forms.Label();
             this.seedLabel = new System.Windows.Forms.Label();
             this.seedTextBox = new System.Windows.Forms.TextBox();
             this.monKeyPictureBox = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.settingsButton = new System.Windows.Forms.Button();
+            this.findSpecificMonKeyButton = new System.Windows.Forms.Button();
+            this.monKeySearcher = new System.ComponentModel.BackgroundWorker();
+            this.searchedLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.monKeyPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // GetMonKeyButton
+            // getRandomMonKeyButton
             // 
-            this.GetMonKeyButton.Location = new System.Drawing.Point(144, 267);
-            this.GetMonKeyButton.Name = "GetMonKeyButton";
-            this.GetMonKeyButton.Size = new System.Drawing.Size(85, 23);
-            this.GetMonKeyButton.TabIndex = 0;
-            this.GetMonKeyButton.Text = "Get MonKey";
-            this.GetMonKeyButton.UseVisualStyleBackColor = true;
-            this.GetMonKeyButton.Click += new System.EventHandler(this.GetMonKeyButton_Click);
+            this.getRandomMonKeyButton.Location = new System.Drawing.Point(12, 337);
+            this.getRandomMonKeyButton.Name = "getRandomMonKeyButton";
+            this.getRandomMonKeyButton.Size = new System.Drawing.Size(155, 23);
+            this.getRandomMonKeyButton.TabIndex = 0;
+            this.getRandomMonKeyButton.Text = "Get Random MonKey";
+            this.getRandomMonKeyButton.UseVisualStyleBackColor = true;
+            this.getRandomMonKeyButton.Click += new System.EventHandler(this.GetRandomMonKeyButton_Click);
             // 
             // addressTextBox
             // 
-            this.addressTextBox.Location = new System.Drawing.Point(13, 160);
+            this.addressTextBox.Location = new System.Drawing.Point(12, 222);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(346, 23);
             this.addressTextBox.TabIndex = 1;
@@ -60,7 +63,7 @@ namespace VanityMonKeyGenerator
             // addressLabel
             // 
             this.addressLabel.AutoSize = true;
-            this.addressLabel.Location = new System.Drawing.Point(13, 139);
+            this.addressLabel.Location = new System.Drawing.Point(12, 201);
             this.addressLabel.Name = "addressLabel";
             this.addressLabel.Size = new System.Drawing.Size(49, 15);
             this.addressLabel.TabIndex = 2;
@@ -69,7 +72,7 @@ namespace VanityMonKeyGenerator
             // seedLabel
             // 
             this.seedLabel.AutoSize = true;
-            this.seedLabel.Location = new System.Drawing.Point(13, 195);
+            this.seedLabel.Location = new System.Drawing.Point(12, 257);
             this.seedLabel.Name = "seedLabel";
             this.seedLabel.Size = new System.Drawing.Size(32, 15);
             this.seedLabel.TabIndex = 4;
@@ -77,53 +80,75 @@ namespace VanityMonKeyGenerator
             // 
             // seedTextBox
             // 
-            this.seedTextBox.Location = new System.Drawing.Point(13, 216);
+            this.seedTextBox.Location = new System.Drawing.Point(12, 278);
             this.seedTextBox.Name = "seedTextBox";
             this.seedTextBox.Size = new System.Drawing.Size(346, 23);
             this.seedTextBox.TabIndex = 3;
             // 
             // monKeyPictureBox
             // 
-            this.monKeyPictureBox.Location = new System.Drawing.Point(124, 12);
+            this.monKeyPictureBox.Location = new System.Drawing.Point(85, 0);
             this.monKeyPictureBox.Name = "monKeyPictureBox";
-            this.monKeyPictureBox.Size = new System.Drawing.Size(125, 125);
+            this.monKeyPictureBox.Size = new System.Drawing.Size(200, 200);
             this.monKeyPictureBox.TabIndex = 5;
             this.monKeyPictureBox.TabStop = false;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(259, 267);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // settingsButton
             // 
-            this.settingsButton.Location = new System.Drawing.Point(280, 12);
-            this.settingsButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.settingsButton.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.settingsButton.Image = ((System.Drawing.Image)(resources.GetObject("settingsButton.Image")));
+            this.settingsButton.Location = new System.Drawing.Point(330, 11);
+            this.settingsButton.Margin = new System.Windows.Forms.Padding(2);
             this.settingsButton.Name = "settingsButton";
-            this.settingsButton.Size = new System.Drawing.Size(78, 24);
+            this.settingsButton.Size = new System.Drawing.Size(30, 30);
             this.settingsButton.TabIndex = 8;
-            this.settingsButton.Text = "Settings";
             this.settingsButton.UseVisualStyleBackColor = true;
             this.settingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
+            // 
+            // findSpecificMonKeyButton
+            // 
+            this.findSpecificMonKeyButton.Location = new System.Drawing.Point(203, 337);
+            this.findSpecificMonKeyButton.Name = "findSpecificMonKeyButton";
+            this.findSpecificMonKeyButton.Size = new System.Drawing.Size(155, 23);
+            this.findSpecificMonKeyButton.TabIndex = 9;
+            this.findSpecificMonKeyButton.Text = "Find Specific MonKey";
+            this.findSpecificMonKeyButton.UseVisualStyleBackColor = true;
+            this.findSpecificMonKeyButton.Click += new System.EventHandler(this.FindSpecificMonKeyButton_Click);
+            // 
+            // monKeySearcher
+            // 
+            this.monKeySearcher.WorkerReportsProgress = true;
+            this.monKeySearcher.WorkerSupportsCancellation = true;
+            this.monKeySearcher.DoWork += new System.ComponentModel.DoWorkEventHandler(this.MonKeySearcher_DoWork);
+            this.monKeySearcher.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.MonKeySearcher_ProgressChanged);
+            this.monKeySearcher.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.MonKeySearcher_RunWorkerCompleted);
+            // 
+            // searchedLabel
+            // 
+            this.searchedLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.searchedLabel.Location = new System.Drawing.Point(15, 317);
+            this.searchedLabel.Name = "searchedLabel";
+            this.searchedLabel.Size = new System.Drawing.Size(344, 20);
+            this.searchedLabel.TabIndex = 10;
+            this.searchedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // MonKeyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(371, 317);
+            this.ClientSize = new System.Drawing.Size(371, 368);
+            this.Controls.Add(this.searchedLabel);
+            this.Controls.Add(this.findSpecificMonKeyButton);
             this.Controls.Add(this.settingsButton);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.monKeyPictureBox);
             this.Controls.Add(this.seedLabel);
             this.Controls.Add(this.seedTextBox);
             this.Controls.Add(this.addressLabel);
             this.Controls.Add(this.addressTextBox);
-            this.Controls.Add(this.GetMonKeyButton);
+            this.Controls.Add(this.getRandomMonKeyButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MonKeyForm";
             this.Text = "Vanity MonKey Generator";
             ((System.ComponentModel.ISupportInitialize)(this.monKeyPictureBox)).EndInit();
@@ -134,14 +159,16 @@ namespace VanityMonKeyGenerator
 
         #endregion
 
-        private System.Windows.Forms.Button GetMonKeyButton;
+        private System.Windows.Forms.Button getRandomMonKeyButton;
         private System.Windows.Forms.TextBox addressTextBox;
         private System.Windows.Forms.Label addressLabel;
         private System.Windows.Forms.Label seedLabel;
         private System.Windows.Forms.TextBox seedTextBox;
         private System.Windows.Forms.PictureBox monKeyPictureBox;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button settingsButton;
+        private System.Windows.Forms.Button findSpecificMonKeyButton;
+        private System.ComponentModel.BackgroundWorker monKeySearcher;
+        private System.Windows.Forms.Label searchedLabel;
     }
 }
 

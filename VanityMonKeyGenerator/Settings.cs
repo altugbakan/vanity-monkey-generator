@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Windows.Forms;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace VanityMonKeyGenerator
 {
@@ -9,89 +12,118 @@ namespace VanityMonKeyGenerator
         public Settings()
         {
             InitializeComponent();
-            Drawing.DrawMonKey(GetAccessories(), monKeyPictureBox);
+            LoadSavedMonKey();
         }
 
-        private void GlassesComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void LoadSavedMonKey()
         {
+            if (Properties.Settings.Default.SavedAccessories == null)
+            {
+                Drawing.DrawMonKey(GetAccessories(), monKeyPictureBox);
+                return;
+            }
+
+            List<string> accessoryList = Properties.Settings.Default.
+                SavedAccessories.Cast<string>().ToList();
+
+            // Glasses
+            if (accessoryList.Any(acc => acc.Contains("Glasses")))
+            {
+                glassesComboBox.Text = Regex.Replace(accessoryList.First(acc => acc.Contains("Glasses"))
+                    .Replace("Glasses-", ""), "([a-z])([A-Z])", "$1 $2");
+            }
+            else
+            {
+                glassesComboBox.Text = "None";
+            }
+            // Hats
+            if (accessoryList.Any(acc => acc.Contains("Hats")))
+            {
+                hatsComboBox.Text = Regex.Replace(accessoryList.First(acc => acc.Contains("Hats"))
+                    .Replace("Hats-", ""), "([a-z])([A-Z])", "$1 $2");
+            }
+            else
+            {
+                hatsComboBox.Text = "None";
+            }
+            // Misc
+            if (accessoryList.Any(acc => acc.Contains("Misc")))
+            {
+                miscComboBox.Text = Regex.Replace(accessoryList.First(acc => acc.Contains("Misc"))
+                    .Replace("Misc-", ""), "([a-z])([A-Z])", "$1 $2");
+            }
+            else
+            {
+                miscComboBox.Text = "None";
+            }
+            // Mouths
+            if (accessoryList.Any(acc => acc.Contains("Mouths")))
+            {
+                mouthsComboBox.Text = Regex.Replace(accessoryList.First(acc => acc.Contains("Mouths"))
+                    .Replace("Mouths-", ""), "([a-z])([A-Z])", "$1 $2");
+            }
+            else
+            {
+                mouthsComboBox.Text = "None";
+            }
+            // ShirtsPants
+            if (accessoryList.Any(acc => acc.Contains("ShirtsPants")))
+            {
+                shirtPantsComboBox.Text = Regex.Replace(accessoryList.First(acc => acc.Contains("ShirtsPants"))
+                    .Replace("ShirtsPants-", ""), "([a-z])([A-Z])", "$1 $2");
+            }
+            else
+            {
+                shirtPantsComboBox.Text = "None";
+            }
+            // Shoes
+            if (accessoryList.Any(acc => acc.Contains("Shoes")))
+            {
+                shoesComboBox.Text = Regex.Replace(accessoryList.First(acc => acc.Contains("Shoes"))
+                    .Replace("Shoes-", ""), "([a-z])([A-Z])", "$1 $2");
+            }
+            else
+            {
+                shoesComboBox.Text = "None";
+            }
+            // Tails
+            if (accessoryList.Any(acc => acc.Contains("Tails")))
+            {
+                tailsComboBox.Text = Regex.Replace(accessoryList.First(acc => acc.Contains("Tails"))
+                    .Replace("Tails-", ""), "([a-z])([A-Z])", "$1 $2");
+            }
+            else
+            {
+                tailsComboBox.Text = "None";
+            }
+
             Drawing.DrawMonKey(GetAccessories(), monKeyPictureBox);
         }
-
         private List<string> GetAccessories()
         {
-            List<string> accessories = new List<string>();
-
-
-            if (glassesComboBox.Text != "None" )
+            return new List<string>()
             {
-                accessories.Add("Glasses-" + glassesComboBox.Text.Replace(" ", ""));
-            }
-
-            if (hatsComboBox.Text != "None")
-            {
-                accessories.Add("Hats-" + hatsComboBox.Text.Replace(" ", ""));
-            }
-
-            if (miscComboBox.Text != "None")
-            {
-                accessories.Add("Misc-" + miscComboBox.Text.Replace(" ", ""));
-            }
-
-            if (mouthsComboBox.Text != "None")
-            {
-                accessories.Add("Mouths-" + mouthsComboBox.Text.Replace(" ", ""));
-            }
-
-            if (shirtPantsComboBox.Text != "None")
-            {
-                accessories.Add("Shirt-Pants-" + shirtPantsComboBox.Text.Replace(" ", ""));
-            }
-
-            if (shoesComboBox.Text != "None")
-            {
-                accessories.Add("Shoes-" + shoesComboBox.Text.Replace(" ", ""));
-            }
-
-            if (tailsComboBox.Text != "None")
-            {
-                accessories.Add("Tails-" + tailsComboBox.Text.Replace(" ", ""));
-            }
-            
-            return accessories;
+                "Glasses-" + glassesComboBox.Text.Replace(" ", ""),
+                "Hats-" + hatsComboBox.Text.Replace(" ", ""),
+                "Misc-" + miscComboBox.Text.Replace(" ", ""),
+                "Mouths-" + mouthsComboBox.Text.Replace(" ", ""),
+                "ShirtsPants-" + shirtPantsComboBox.Text.Replace(" ", ""),
+                "Shoes-" + shoesComboBox.Text.Replace(" ", ""),
+                "Tails-" + tailsComboBox.Text.Replace(" ", ""),
+            };
         }
 
-        private void HatsComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Drawing.DrawMonKey(GetAccessories(), monKeyPictureBox);
-        }
-
-        private void MiscComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Drawing.DrawMonKey(GetAccessories(), monKeyPictureBox);
-        }
-
-        private void MouthsComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Drawing.DrawMonKey(GetAccessories(), monKeyPictureBox);
-        }
-
-        private void ShirtPantsComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Drawing.DrawMonKey(GetAccessories(), monKeyPictureBox);
-        }
-
-        private void ShoesComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Drawing.DrawMonKey(GetAccessories(), monKeyPictureBox);
-        }
-
-        private void TailsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Drawing.DrawMonKey(GetAccessories(), monKeyPictureBox);
         }
 
         private void OkButton_Click(object sender, EventArgs e)
         {
+            StringCollection stringCollection = new StringCollection();
+            stringCollection.AddRange(GetAccessories().ToArray());
+            Properties.Settings.Default.SavedAccessories = stringCollection;
+            Properties.Settings.Default.Save();
             Close();
         }
 
