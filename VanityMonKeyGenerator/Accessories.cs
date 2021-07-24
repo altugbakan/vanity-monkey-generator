@@ -118,8 +118,8 @@ namespace VanityMonKeyGenerator
             foreach (string accessory in requestedAccessories.Where(
                 accessory => accessory.Contains("None")))
             {
-                if (obtainedAccessories.Any(accessory => 
-                    accessory.StartsWith(accessory.Remove(accessory.IndexOf('-')))))
+                if (obtainedAccessories.Any(obtainedAccessory =>
+                        obtainedAccessory.StartsWith(accessory.Remove(accessory.IndexOf('-')))))
                 {
                     return false;
                 }

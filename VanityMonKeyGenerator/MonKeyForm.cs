@@ -14,16 +14,11 @@ namespace VanityMonKeyGenerator
             LoadDefaultMonKey();
         }
 
-        private async void GetRandomMonKeyButton_Click(object sender, EventArgs e)
+        private void GetRandomMonKeyButton_Click(object sender, EventArgs e)
         {
             MonKey monKey = new MonKey();
-            try
+            if (monKey.Svg == null)
             {
-                monKey.Svg = await monKey.RequestMonKey();
-            }
-            catch
-            {
-                MessageBox.Show("No internet connection.", "Error");
                 return;
             }
             Drawing.DrawSvg(monKey.Svg, monKeyPictureBox);
@@ -75,8 +70,7 @@ namespace VanityMonKeyGenerator
             while (!monKeySearcher.CancellationPending)
             {
                 MonKey monKey = new MonKey();
-                monKey.Svg = monKey.RequestMonKeySync();
-                if (monKey.Svg == "")
+                if (monKey.Svg == null)
                 {
                     e.Cancel = true;
                     return;

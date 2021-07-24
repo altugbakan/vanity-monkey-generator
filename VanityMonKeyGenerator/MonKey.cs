@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Blake2Fast;
@@ -16,6 +15,11 @@ namespace VanityMonKeyGenerator
         public string Seed;
         public string Svg;
         public MonKey()
+        {
+            CreateMonKeyAccount();
+        }
+
+        private void CreateMonKeyAccount()
         {
             Job.AddressBuffer addressBuffer = new Job.AddressBuffer(Job.AddressPrefix.Length + 60);
 
@@ -43,27 +47,26 @@ namespace VanityMonKeyGenerator
 
             Address = "ban_" + addressBuffer.ToString();
             Seed = ByteArrayToHexString(seedBytes);
-        }
-        public async Task<string> RequestMonKey()
-        {
-            HttpClient client = new HttpClient();
-            string response = await client.GetStringAsync("https://monkey.banano.cc/api/v1/monkey/" + Address);
-            client.Dispose();
-            return response;
+            Svg = RequestMonKey();
         }
 
-        public string RequestMonKeySync()
+        public string RequestMonKey()
         {
+            HttpClient client = new HttpClient();
             try
             {
-                RequestMonKey().Wait();
+                string response = client.GetStringAsync("https://monkey.banano.cc/api/v1/monkey/" + Address).Result;
+                return response;
             }
             catch
             {
-                MessageBox.Show("No internet connection.", "Error");
-                return "";
+                MessageBox.Show("No internet connection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
-            return RequestMonKey().Result;
+            finally
+            {
+                client.Dispose();
+            }
         }
 
         private string ByteArrayToHexString(byte[] bytes)
