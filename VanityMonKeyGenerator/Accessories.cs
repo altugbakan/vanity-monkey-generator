@@ -127,8 +127,26 @@ namespace VanityMonKeyGenerator
             return true;
         }
 
+        public static double GetMonkeyChance(List<string> accessories)
+        {
+            double chance = 1.0;
+            foreach (string accessory in accessories)
+            {
+                chance *= GetAccessoryChance(accessory);
+            }
+            return chance;
+        }
+
         public static double GetAccessoryChance(string accessory)
         {
+            if (accessory.Contains("Any"))
+            {
+                return 1.0;
+            }
+            else if (accessory.Contains("None"))
+            {
+                return 1.0 - GetCategoryChance(accessory.Remove(accessory.IndexOf('-')));
+            }
             return GetCategoryChance(accessory.Remove(accessory.IndexOf('-'))) *
                 GetAccessoryWeight(accessory); 
         }
