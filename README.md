@@ -1,5 +1,5 @@
 # Vanity MonKey Generator
-Vanity MonKey generator for Banano.
+Vanity MonKey generator for Banano cryptocurrency.
 
 Create a custom MonKey and get the address and the seed.
 
