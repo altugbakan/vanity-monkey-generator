@@ -126,5 +126,271 @@ namespace VanityMonKeyGenerator
             }
             return true;
         }
+
+        public static double GetAccessoryChance(string accessory)
+        {
+            return GetCategoryChance(accessory.Remove(accessory.IndexOf('-'))) *
+                GetAccessoryWeight(accessory); 
+        }
+
+        private static double GetCategoryChance(string category)
+        {
+            switch (category)
+            {
+                case "Glasses":
+                    return 0.25;
+                case "Hats":
+                    return 0.35;
+                case "Misc":
+                    return 0.3;
+                case "Mouths":
+                    return 1.0;
+                case "ShirtsPants":
+                    return 0.25;
+                case "Shoes":
+                    return 0.22;
+                case "Tails":
+                    return 0.2;
+                default:
+                    return 0.0;
+            }
+            
+        }
+
+        private static double GetAccessoryWeight(string accessory)
+        {
+            double accessoryWeight = 0.0;
+            switch (accessory)
+            {
+                case "Glasses-EyePatch":
+                    accessoryWeight = 0.5;
+                    break;
+                case "Glasses-GlassesNerdCyan":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Glasses-GlassesNerdGreen":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Glasses-GlassesNerdPink":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Glasses-Monocle":
+                    accessoryWeight = 0.5;
+                    break;
+                case "Glasses-SunglassesAviatorCyan":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Glasses-SunglassesAviatorGreen":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Glasses-SunglassesAviatorYellow":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Glasses-SunglassesThug":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Hats-Bandana":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Hats-Beanie":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Hats-BeanieBanano":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Hats-BeanieHippie":
+                    accessoryWeight = 0.125;
+                    break;
+                case "Hats-BeanieLong":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Hats-BeanieLongBanano":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Hats-Cap":
+                    accessoryWeight = 0.8;
+                    break;
+                case "Hats-CapBackwards":
+                    accessoryWeight = 0.8;
+                    break;
+                case "Hats-CapBanano":
+                    accessoryWeight = 0.8;
+                    break;
+                case "Hats-CapBebe":
+                    accessoryWeight = 0.8;
+                    break;
+                case "Hats-CapCarlos":
+                    accessoryWeight = 0.8;
+                    break;
+                case "Hats-CapHng":
+                    accessoryWeight = 0.8;
+                    break;
+                case "Hats-CapHngPlus":
+                    accessoryWeight = 0.125;
+                    break;
+                case "Hats-CapKappa":
+                    accessoryWeight = 0.8;
+                    break;
+                case "Hats-CapPepe":
+                    accessoryWeight = 0.8;
+                    break;
+                case "Hats-CapRick":
+                    accessoryWeight = 0.8;
+                    break;
+                case "Hats-CapSmug":
+                    accessoryWeight = 0.8;
+                    break;
+                case "Hats-CapSmugGreen":
+                    accessoryWeight = 0.8;
+                    break;
+                case "Hats-CapThonk":
+                    accessoryWeight = 0.8;
+                    break;
+                case "Hats-Crown":
+                    accessoryWeight = 0.225;
+                    break;
+                case "Hats-Fedora":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Hats-FedoraLong":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Hats-HatCowboy":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Hats-HatJester":
+                    accessoryWeight = 0.125;
+                    break;
+                case "Hats-HelmetViking":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Misc-BananaHands":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Misc-BananaRightHand":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Misc-Bowtie":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Misc-Camera":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Misc-Club":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Misc-FlameThrower":
+                    accessoryWeight = 0.04;
+                    break;
+                case "Misc-GlovesWhite":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Misc-Guitar":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Misc-Microphone":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Misc-NecklaceBoss":
+                    accessoryWeight = 0.75;
+                    break;
+                case "Misc-TieCyan":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Misc-TiePink":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Misc-WhiskyRight":
+                    accessoryWeight = 0.5;
+                    break;
+                case "Mouths-Cigar":
+                    accessoryWeight = 0.5;
+                    break;
+                case "Mouths-Confused":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Mouths-Joint":
+                    accessoryWeight = 0.06;
+                    break;
+                case "Mouths-Meh":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Mouths-Pipe":
+                    accessoryWeight = 0.5;
+                    break;
+                case "Mouths-SmileBigTeeth":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Mouths-Normal":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Mouths-Tongue":
+                    accessoryWeight = 0.5;
+                    break;
+                case "ShirtsPants-OverallsBlue":
+                    accessoryWeight = 1.0;
+                    break;
+                case "ShirtsPants-OverallsRed":
+                    accessoryWeight = 1.0;
+                    break;
+                case "ShirtsPants-PantsBusinessBlue":
+                    accessoryWeight = 1.0;
+                    break;
+                case "ShirtsPants-PantsFlower":
+                    accessoryWeight = 1.0;
+                    break;
+                case "ShirtsPants-TshirtLongStripes":
+                    accessoryWeight = 1.0;
+                    break;
+                case "ShirtsPants-TshirtShortWhite":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Shoes-SneakersBlue":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Shoes-SneakersGreen":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Shoes-SneakersRed":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Shoes-SneakersSwagger":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Shoes-SocksHStripe":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Shoes-SocksVStripe":
+                    accessoryWeight = 1.0;
+                    break;
+                case "Tails-TailSock":
+                    accessoryWeight = 1.0;
+                    break;
+            }
+            return accessoryWeight / GetCategoryWeight(accessory.Remove(accessory.IndexOf('-')));
+        }
+
+        private static double GetCategoryWeight(string category)
+        {
+            switch (category)
+            {
+                case "Glasses":
+                    return 8.0;
+                case "Hats":
+                    return 19.4;
+                case "Misc":
+                    return 11.29;
+                case "Mouths":
+                    return 5.56;
+                case "ShirtsPants":
+                    return 6.0;
+                case "Shoes":
+                    return 6.0;
+                case "Tails":
+                    return 1.0;
+                default:
+                    return 0.0;
+            }
+        }
     }
 }
