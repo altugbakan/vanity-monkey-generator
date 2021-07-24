@@ -365,7 +365,7 @@ namespace VanityMonKeyGenerator
         private System.Windows.Forms.Label shoesLabel;
         private System.Windows.Forms.ComboBox tailsComboBox;
         private System.Windows.Forms.Label tailsLabel;
-        public System.Windows.Forms.PictureBox monKeyPictureBox;
+        private System.Windows.Forms.PictureBox monKeyPictureBox;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Button cancelButton;
     }

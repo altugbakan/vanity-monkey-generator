@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace VanityMonKeyGenerator
 {
@@ -67,6 +67,9 @@ namespace VanityMonKeyGenerator
         private void MonKeySearcher_DoWork(object sender, DoWorkEventArgs e)
         {
             int iterations = 0;
+            List<string> requestedAccessories = Properties.Settings.Default.SavedAccessories
+                .Cast<string>().ToList();
+            int expected = (int)(1.0 / Accessories.GetMonKeyChance(requestedAccessories));
             while (!monKeySearcher.CancellationPending)
             {
                 MonKey monKey = new MonKey();
@@ -75,13 +78,14 @@ namespace VanityMonKeyGenerator
                     e.Cancel = true;
                     return;
                 }
-                if (Accessories.AccessoriesMatching(Properties.Settings.Default.SavedAccessories
-                    .Cast<string>().ToList(), Accessories.ObtainedAccessories(monKey.Svg)))
+
+                List<string> obtainedAccessories = Accessories.ObtainedAccessories(monKey.Svg);
+                if (Accessories.AccessoriesMatching(requestedAccessories, obtainedAccessories))
                 {
                     e.Result = new Result(monKey, iterations);
                     break;
                 }
-                monKeySearcher.ReportProgress(0, ++iterations);
+                monKeySearcher.ReportProgress(0, new ProgressResult(expected, ++iterations));
             }
             if (monKeySearcher.CancellationPending)
             {
@@ -91,7 +95,8 @@ namespace VanityMonKeyGenerator
 
         private void MonKeySearcher_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            searchedLabel.Text = $"Searched {(int)e.UserState} MonKeys.";
+            ProgressResult result = (ProgressResult)e.UserState;
+            searchedLabel.Text = $"Searched {result.Iterations} MonKeys. Expected: {result.Expected}";
         }
 
         private void MonKeySearcher_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -122,5 +127,18 @@ namespace VanityMonKeyGenerator
                 Iterations = iterations;
             }
         }
+
+        public class ProgressResult
+        {
+            public int Expected;
+            public int Iterations;
+
+            public ProgressResult(int expected, int iterations)
+            {
+                Expected = expected;
+                Iterations = iterations;
+            }
+        }
+
     }
 }

@@ -127,7 +127,7 @@ namespace VanityMonKeyGenerator
             return true;
         }
 
-        public static double GetMonkeyChance(List<string> accessories)
+        public static double GetMonKeyChance(List<string> accessories)
         {
             double chance = 1.0;
             foreach (string accessory in accessories)
