@@ -1,7 +1,7 @@
 ﻿
 namespace VanityMonKeyGenerator
 {
-    partial class Settings
+    partial class SimpleSettings
     {
         /// <summary>
         /// Required designer variable.
@@ -38,7 +38,7 @@ namespace VanityMonKeyGenerator
             this.mouthsComboBox = new System.Windows.Forms.ComboBox();
             this.mouthsLabel = new System.Windows.Forms.Label();
             this.shirtPantsComboBox = new System.Windows.Forms.ComboBox();
-            this.shirtPantsLabel = new System.Windows.Forms.Label();
+            this.shirtsPantsLabel = new System.Windows.Forms.Label();
             this.shoesComboBox = new System.Windows.Forms.ComboBox();
             this.shoesLabel = new System.Windows.Forms.Label();
             this.tailsComboBox = new System.Windows.Forms.ComboBox();
@@ -47,6 +47,7 @@ namespace VanityMonKeyGenerator
             this.okButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.rarityLabel = new System.Windows.Forms.Label();
+            this.simpleButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.monKeyPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -220,15 +221,15 @@ namespace VanityMonKeyGenerator
             this.shirtPantsComboBox.Text = "Any";
             this.shirtPantsComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
             // 
-            // shirtPantsLabel
+            // shirtsPantsLabel
             // 
-            this.shirtPantsLabel.AutoSize = true;
-            this.shirtPantsLabel.Location = new System.Drawing.Point(65, 200);
-            this.shirtPantsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.shirtPantsLabel.Name = "shirtPantsLabel";
-            this.shirtPantsLabel.Size = new System.Drawing.Size(70, 15);
-            this.shirtPantsLabel.TabIndex = 9;
-            this.shirtPantsLabel.Text = "Shirts-Pants";
+            this.shirtsPantsLabel.AutoSize = true;
+            this.shirtsPantsLabel.Location = new System.Drawing.Point(65, 200);
+            this.shirtsPantsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.shirtsPantsLabel.Name = "shirtsPantsLabel";
+            this.shirtsPantsLabel.Size = new System.Drawing.Size(70, 15);
+            this.shirtsPantsLabel.TabIndex = 9;
+            this.shirtsPantsLabel.Text = "Shirts-Pants";
             // 
             // shoesComboBox
             // 
@@ -324,11 +325,22 @@ namespace VanityMonKeyGenerator
             this.rarityLabel.TabIndex = 17;
             this.rarityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // Settings
+            // simpleButton
+            // 
+            this.simpleButton.Location = new System.Drawing.Point(453, 14);
+            this.simpleButton.Name = "simpleButton";
+            this.simpleButton.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton.TabIndex = 18;
+            this.simpleButton.Text = "Simple";
+            this.simpleButton.UseVisualStyleBackColor = true;
+            this.simpleButton.Click += new System.EventHandler(this.SimpleButton_Click);
+            // 
+            // SimpleSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(549, 362);
+            this.Controls.Add(this.simpleButton);
             this.Controls.Add(this.rarityLabel);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
@@ -337,7 +349,7 @@ namespace VanityMonKeyGenerator
             this.Controls.Add(this.tailsComboBox);
             this.Controls.Add(this.shoesLabel);
             this.Controls.Add(this.shoesComboBox);
-            this.Controls.Add(this.shirtPantsLabel);
+            this.Controls.Add(this.shirtsPantsLabel);
             this.Controls.Add(this.shirtPantsComboBox);
             this.Controls.Add(this.mouthsLabel);
             this.Controls.Add(this.mouthsComboBox);
@@ -351,7 +363,7 @@ namespace VanityMonKeyGenerator
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Settings";
+            this.Name = "SimpleSettings";
             this.Text = "Create Your MonKey";
             ((System.ComponentModel.ISupportInitialize)(this.monKeyPictureBox)).EndInit();
             this.ResumeLayout(false);
@@ -370,7 +382,7 @@ namespace VanityMonKeyGenerator
         private System.Windows.Forms.ComboBox mouthsComboBox;
         private System.Windows.Forms.Label mouthsLabel;
         private System.Windows.Forms.ComboBox shirtPantsComboBox;
-        private System.Windows.Forms.Label shirtPantsLabel;
+        private System.Windows.Forms.Label shirtsPantsLabel;
         private System.Windows.Forms.ComboBox shoesComboBox;
         private System.Windows.Forms.Label shoesLabel;
         private System.Windows.Forms.ComboBox tailsComboBox;
@@ -379,5 +391,6 @@ namespace VanityMonKeyGenerator
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Label rarityLabel;
+        private System.Windows.Forms.Button simpleButton;
     }
 }

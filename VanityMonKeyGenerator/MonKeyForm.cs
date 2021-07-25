@@ -36,7 +36,7 @@ namespace VanityMonKeyGenerator
                     " specific MonKey. Want to create one?", "Warning", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        Settings settingsForm = new Settings();
+                        SimpleSettings settingsForm = new SimpleSettings();
                         settingsForm.ShowDialog();
                     }
                     else
@@ -60,7 +60,7 @@ namespace VanityMonKeyGenerator
         }
         private void SettingsButton_Click(object sender, EventArgs e)
         {
-            Settings settingsForm = new Settings();
+            SimpleSettings settingsForm = new SimpleSettings();
             settingsForm.ShowDialog();
         }
 

@@ -7,9 +7,9 @@ using System.Text.RegularExpressions;
 
 namespace VanityMonKeyGenerator
 {
-    public partial class Settings : Form
+    public partial class SimpleSettings : Form
     {
-        public Settings()
+        public SimpleSettings()
         {
             InitializeComponent();
             LoadSavedMonKey();
@@ -139,8 +139,10 @@ namespace VanityMonKeyGenerator
             Close();
         }
 
-        private void hatsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void SimpleButton_Click(object sender, EventArgs e)
         {
+            Properties.Settings.Default.SimpleMode = false;
+            Properties.Settings.Default.Save();
 
         }
     }
