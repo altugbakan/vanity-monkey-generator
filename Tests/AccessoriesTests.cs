@@ -204,16 +204,6 @@ namespace Tests
                 (1 - 0.2);          // Tails
             double actual = Accessories.GetMonKeyChance(accessories);
             Assert.AreEqual(expected, actual, expected * 0.01, "MonKey chance is wrong."); // 1% error is OK.
-
-            // Lowest Case.
-            accessories = new List<string>()
-            {
-                "Glasses-Monocle", "Hats-BeanieHippie", "Misc-Flamethrower", "Mouths-Joint",
-                "ShirtsPants-OverallsBlue", "Shoes-SneakersBlue", "Tails-TailSock"
-            };
-            actual = Accessories.GetMonKeyChance(accessories);
-            ulong maxMonKeyChance = (ulong)(1.0 / actual);
-            Assert.IsTrue(maxMonKeyChance < ulong.MaxValue, "The maximum chance does not fit.");
         }
 
     }

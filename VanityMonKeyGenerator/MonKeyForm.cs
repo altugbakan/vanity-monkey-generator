@@ -69,7 +69,7 @@ namespace VanityMonKeyGenerator
             ulong iterations = 0;
             List<string> requestedAccessories = Properties.Settings.Default.SavedAccessories
                 .Cast<string>().ToList();
-            ulong expected = (ulong)(1.0 /Accessories.GetMonKeyChance(requestedAccessories));
+            ulong expectation = (ulong)(1.0 /Accessories.GetMonKeyChance(requestedAccessories));
             while (!monKeySearcher.CancellationPending)
             {
                 MonKey monKey = new MonKey();
@@ -85,7 +85,7 @@ namespace VanityMonKeyGenerator
                     e.Result = new Result(monKey, iterations);
                     break;
                 }
-                monKeySearcher.ReportProgress(0, new ProgressResult(expected, ++iterations));
+                monKeySearcher.ReportProgress(0, new ProgressResult(expectation, ++iterations));
             }
             if (monKeySearcher.CancellationPending)
             {
@@ -96,7 +96,14 @@ namespace VanityMonKeyGenerator
         private void MonKeySearcher_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             ProgressResult result = (ProgressResult)e.UserState;
-            searchedLabel.Text = $"Searched {result.Iterations} MonKeys. Expected: {result.Expected}";
+            if (result.Expectation == 0)
+            {
+                searchedLabel.Text = $"Searched {result.Iterations} MonKeys. Expected: Infinity";
+            }
+            else
+            {
+                searchedLabel.Text = $"Searched {result.Iterations} MonKeys. Expected: {result.Expectation}";
+            }
         }
 
         private void MonKeySearcher_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -130,12 +137,12 @@ namespace VanityMonKeyGenerator
 
         public class ProgressResult
         {
-            public ulong Expected;
+            public ulong Expectation;
             public ulong Iterations;
 
-            public ProgressResult(ulong expected, ulong iterations)
+            public ProgressResult(ulong expectation, ulong iterations)
             {
-                Expected = expected;
+                Expectation = expectation;
                 Iterations = iterations;
             }
         }
