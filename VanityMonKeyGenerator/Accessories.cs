@@ -119,7 +119,7 @@ namespace VanityMonKeyGenerator
                 accessory => accessory.Contains("None")))
             {
                 if (obtainedAccessories.Any(obtainedAccessory =>
-                        obtainedAccessory.StartsWith(accessory.Remove(accessory.IndexOf('-')))))
+                        obtainedAccessory.StartsWith(GetCategory(accessory))))
                 {
                     return false;
                 }
@@ -150,15 +150,14 @@ namespace VanityMonKeyGenerator
             }
             else if (accessory.Contains("None"))
             {
-                return 1.0 - GetCategoryChance(accessory.Remove(accessory.IndexOf('-')));
+                return 1.0 - GetCategoryChance(accessory);
             }
-            return GetCategoryChance(accessory.Remove(accessory.IndexOf('-'))) *
-                GetAccessoryWeight(accessory); 
+            return GetCategoryChance(accessory) * GetAccessoryWeight(accessory); 
         }
 
-        private static double GetCategoryChance(string category)
+        private static double GetCategoryChance(string accessory)
         {
-            switch (category)
+            switch (GetCategory(accessory))
             {
                 case "Glasses":
                     return 0.25;
@@ -390,12 +389,12 @@ namespace VanityMonKeyGenerator
                     accessoryWeight = 1.0;
                     break;
             }
-            return accessoryWeight / GetCategoryWeight(accessory.Remove(accessory.IndexOf('-')));
+            return accessoryWeight / GetCategoryWeight(accessory);
         }
 
-        private static double GetCategoryWeight(string category)
+        private static double GetCategoryWeight(string accessory)
         {
-            switch (category)
+            switch (GetCategory(accessory))
             {
                 case "Glasses":
                     return 8.0;
@@ -414,6 +413,11 @@ namespace VanityMonKeyGenerator
                 default:
                     return 0.0;
             }
+        }
+
+        private static string GetCategory(string accessory)
+        {
+            return accessory.Remove(accessory.IndexOf('-'));
         }
     }
 }
