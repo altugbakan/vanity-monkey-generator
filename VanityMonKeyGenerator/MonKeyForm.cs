@@ -66,10 +66,10 @@ namespace VanityMonKeyGenerator
 
         private void MonKeySearcher_DoWork(object sender, DoWorkEventArgs e)
         {
-            int iterations = 0;
+            ulong iterations = 0;
             List<string> requestedAccessories = Properties.Settings.Default.SavedAccessories
                 .Cast<string>().ToList();
-            int expected = (int)(1.0 / Accessories.GetMonKeyChance(requestedAccessories));
+            ulong expected = (ulong)(1.0 /Accessories.GetMonKeyChance(requestedAccessories));
             while (!monKeySearcher.CancellationPending)
             {
                 MonKey monKey = new MonKey();
@@ -119,9 +119,9 @@ namespace VanityMonKeyGenerator
         public class Result
         {
             public MonKey MonKey;
-            public int Iterations;
+            public ulong Iterations;
 
-            public Result(MonKey monKey, int iterations)
+            public Result(MonKey monKey, ulong iterations)
             {
                 MonKey = monKey;
                 Iterations = iterations;
@@ -130,10 +130,10 @@ namespace VanityMonKeyGenerator
 
         public class ProgressResult
         {
-            public int Expected;
-            public int Iterations;
+            public ulong Expected;
+            public ulong Iterations;
 
-            public ProgressResult(int expected, int iterations)
+            public ProgressResult(ulong expected, ulong iterations)
             {
                 Expected = expected;
                 Iterations = iterations;

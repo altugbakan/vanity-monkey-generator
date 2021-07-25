@@ -339,10 +339,10 @@ namespace VanityMonKeyGenerator
                 case "Mouths-SmileBigTeeth":
                     accessoryWeight = 1.0;
                     break;
-                case "Mouths-Normal":
+                case "Mouths-SmileNormal":
                     accessoryWeight = 1.0;
                     break;
-                case "Mouths-Tongue":
+                case "Mouths-SmileTongue":
                     accessoryWeight = 0.5;
                     break;
                 case "ShirtsPants-OverallsBlue":

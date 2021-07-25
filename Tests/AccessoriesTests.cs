@@ -35,7 +35,7 @@ namespace Tests
             };
 
             bool result = Accessories.AccessoriesMatching(requestedAccessories, obtainedAccessories);
-            Assert.IsTrue(result);
+            Assert.IsTrue(result, "Accessories do not match.");
 
             // Any case.
             requestedAccessories = new List<string>()
@@ -61,7 +61,7 @@ namespace Tests
             };
 
             result = Accessories.AccessoriesMatching(requestedAccessories, obtainedAccessories);
-            Assert.IsTrue(result);
+            Assert.IsTrue(result, "Accessories do not match.");
 
             // None case.
             requestedAccessories = new List<string>()
@@ -87,7 +87,7 @@ namespace Tests
             };
 
             result = Accessories.AccessoriesMatching(requestedAccessories, obtainedAccessories);
-            Assert.IsFalse(result);
+            Assert.IsFalse(result, "Accessories match.");
 
             requestedAccessories = new List<string>()
             {
@@ -106,7 +106,7 @@ namespace Tests
             };
 
             result = Accessories.AccessoriesMatching(requestedAccessories, obtainedAccessories);
-            Assert.IsTrue(result);
+            Assert.IsTrue(result, "Accessories do not match.");
         }
 
 
@@ -123,7 +123,7 @@ namespace Tests
             };
 
             List<string> actual = Accessories.ObtainedAccessories(svg);
-            CollectionAssert.AreEquivalent(expected, actual);
+            CollectionAssert.AreEquivalent(expected, actual, "Obtained accessories are not equal.");
         }
 
         [TestMethod]
@@ -133,60 +133,61 @@ namespace Tests
             string accessory = "Glasses-SunglassesAviatorCyan";
             double expected = 0.25 * 1 / 8; // Category Chance * Accessory Weight / Category Weight
             double actual = Accessories.GetAccessoryChance(accessory);
-            Assert.AreEqual(expected, actual, expected * 0.01); // 1% error is OK.
+            Assert.AreEqual(expected, actual, expected * 0.01, "Glasses chance is wrong."); // 1% error is OK.
 
             // Hats case.
             accessory = "Hats-Cap";
             expected = 0.35 * 0.8 / 19.4;
             actual = Accessories.GetAccessoryChance(accessory);
-            Assert.AreEqual(expected, actual, expected * 0.01); // 1% error is OK.
+            Assert.AreEqual(expected, actual, expected * 0.01, "Hats chance is wrong."); // 1% error is OK.
 
             // Misc case.
             accessory = "Misc-TieCyan";
             expected = 0.3 * 1 / 11.29;
             actual = Accessories.GetAccessoryChance(accessory);
-            Assert.AreEqual(expected, actual, expected * 0.01); // 1% error is OK.
+            Assert.AreEqual(expected, actual, expected * 0.01, "Misc chance is wrong."); // 1% error is OK.
 
             // Mouths case.
-            accessory = "Mouths-Normal";
+            accessory = "Mouths-SmileNormal";
             expected = 1 * 1 / 5.56;
             actual = Accessories.GetAccessoryChance(accessory);
-            Assert.AreEqual(expected, actual, expected * 0.01); // 1% error is OK.
+            Assert.AreEqual(expected, actual, expected * 0.01, "Mouths chance is wrong."); // 1% error is OK.
 
             // Shirts Pants case.
             accessory = "ShirtsPants-OverallsBlue";
             expected = 0.25 * 1 / 6;
             actual = Accessories.GetAccessoryChance(accessory);
-            Assert.AreEqual(expected, actual, expected * 0.01); // 1% error is OK.
+            Assert.AreEqual(expected, actual, expected * 0.01, "Shirts Pants chance is wrong."); // 1% error is OK.
 
             // Shoes case.
             accessory = "Shoes-SneakersBlue";
             expected = 0.22 * 1 / 6;
             actual = Accessories.GetAccessoryChance(accessory);
-            Assert.AreEqual(expected, actual, expected * 0.01); // 1% error is OK.
+            Assert.AreEqual(expected, actual, expected * 0.01, "Shoes chance is wrong."); // 1% error is OK.
 
             // Tails case.
             accessory = "Tails-TailSock";
             expected = 0.2 * 1 / 1;
             actual = Accessories.GetAccessoryChance(accessory);
-            Assert.AreEqual(expected, actual, expected * 0.01); // 1% error is OK.
+            Assert.AreEqual(expected, actual, expected * 0.01, "Tails chance is wrong."); // 1% error is OK.
 
             // Any case.
             accessory = "Misc-Any";
             expected = 1; // Always
             actual = Accessories.GetAccessoryChance(accessory);
-            Assert.AreEqual(expected, actual, expected * 0.01); // 1% error is OK.
+            Assert.AreEqual(expected, actual, expected * 0.01, "Any chance is wrong."); // 1% error is OK.
 
             // None case.
             accessory = "Shoes-None";
             expected = 1 - 0.22;
             actual = Accessories.GetAccessoryChance(accessory);
-            Assert.AreEqual(expected, actual, expected * 0.01); // 1% error is OK.
+            Assert.AreEqual(expected, actual, expected * 0.01, "None chance is wrong."); // 1% error is OK.
         }
 
         [TestMethod]
         public void GetMonKeyChanceTest()
         {
+            // Sample Case.
             List<string> accessories = new List<string>()
             {
                 "Glasses-None", "Hats-Any", "Misc-Club", "Mouths-Meh",
@@ -202,7 +203,17 @@ namespace Tests
                 0.22 * 1 / 6 *      // Shoes
                 (1 - 0.2);          // Tails
             double actual = Accessories.GetMonKeyChance(accessories);
-            Assert.AreEqual(expected, actual, expected * 0.01); // 1% error is OK.
+            Assert.AreEqual(expected, actual, expected * 0.01, "MonKey chance is wrong."); // 1% error is OK.
+
+            // Lowest Case.
+            accessories = new List<string>()
+            {
+                "Glasses-Monocle", "Hats-BeanieHippie", "Misc-Flamethrower", "Mouths-Joint",
+                "ShirtsPants-OverallsBlue", "Shoes-SneakersBlue", "Tails-TailSock"
+            };
+            actual = Accessories.GetMonKeyChance(accessories);
+            ulong maxMonKeyChance = (ulong)(1.0 / actual);
+            Assert.IsTrue(maxMonKeyChance < ulong.MaxValue, "The maximum chance does not fit.");
         }
 
     }
