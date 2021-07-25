@@ -138,11 +138,6 @@ namespace VanityMonKeyGenerator
         {
             Close();
         }
-
-        private void hatsComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 
 }
