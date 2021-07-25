@@ -18,7 +18,7 @@ namespace Chaos.NaCl.Internal.Ed25519Ref10
 
         static byte negative(sbyte b)
         {
-            ulong x = unchecked((ulong)b); /* 18446744073709551361..18446744073709551615: yes; 0..255: no */
+            ulong x = unchecked((ulong)(long)b); /* 18446744073709551361..18446744073709551615: yes; 0..255: no */
             x >>= 63; /* 1: yes; 0: no */
             return (byte)x;
         }

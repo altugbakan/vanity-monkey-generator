@@ -2,9 +2,9 @@
 
 namespace Chaos.NaCl.Internal.Ed25519Ref10
 {
-    internal static partial class Ed25519Operations
-    {
-        /*public static void crypto_sign(
+	internal static partial class Ed25519Operations
+	{
+		/*public static void crypto_sign(
 		  byte[] sm, out int smlen,
 		   byte[] m, int mlen,
 		   byte[] sk
@@ -39,44 +39,44 @@ namespace Chaos.NaCl.Internal.Ed25519Ref10
 			Array.Copy(sm32, 0, sm, 32, 32);
 		}*/
 
-        public static void crypto_sign2(
-            byte[] sig, int sigoffset,
-            byte[] m, int moffset, int mlen,
-            byte[] sk, int skoffset)
-        {
-            byte[] az;
-            byte[] r;
-            byte[] hram;
-            GroupElementP3 R;
-            var hasher = Blake2Fast.Blake2b.CreateIncrementalHasher(64);
-            //var hasher = new Sha512();
-            {
-                hasher.Update(new ArraySegment<byte>(sk, skoffset, 32));
-                az = hasher.Finish();
-                ScalarOperations.sc_clamp(az, 0);
+		public static void crypto_sign2(
+			byte[] sig, int sigoffset,
+			byte[] m, int moffset, int mlen,
+			byte[] sk, int skoffset)
+		{
+			byte[] az;
+			byte[] r;
+			byte[] hram;
+			GroupElementP3 R;
+			var hasher = Blake2Fast.Blake2b.CreateIncrementalHasher(64);
+		    //var hasher = new Sha512();
+			{
+				hasher.Update(new ArraySegment<byte>(sk, skoffset, 32));
+			    az = hasher.Finish();
+			    ScalarOperations.sc_clamp(az, 0);
 
-                hasher = Blake2Fast.Blake2b.CreateIncrementalHasher(64);
-                hasher.Update(new ArraySegment<byte>(az, 32, 32));
-                hasher.Update(new ArraySegment<byte>(m, moffset, mlen));
-                r = hasher.Finish();
+				hasher = Blake2Fast.Blake2b.CreateIncrementalHasher(64);
+				hasher.Update(new ArraySegment<byte>(az, 32, 32));
+				hasher.Update(new ArraySegment<byte>(m, moffset, mlen));
+				r = hasher.Finish();
 
-                ScalarOperations.sc_reduce(r);
-                GroupOperations.ge_scalarmult_base(out R, r, 0);
-                GroupOperations.ge_p3_tobytes(sig, sigoffset, ref R);
+				ScalarOperations.sc_reduce(r);
+				GroupOperations.ge_scalarmult_base(out R, r, 0);
+				GroupOperations.ge_p3_tobytes(sig, sigoffset, ref R);
 
-                hasher = Blake2Fast.Blake2b.CreateIncrementalHasher(64);
-                hasher.Update(new ArraySegment<byte>(sig, sigoffset, 32));
-                hasher.Update(new ArraySegment<byte>(sk, skoffset + 32, 32));
-                hasher.Update(new ArraySegment<byte>(m, moffset, mlen));
-                hram = hasher.Finish();
+				hasher = Blake2Fast.Blake2b.CreateIncrementalHasher(64);
+				hasher.Update(new ArraySegment<byte>(sig, sigoffset, 32));
+				hasher.Update(new ArraySegment<byte>(sk, skoffset + 32, 32));
+				hasher.Update(new ArraySegment<byte>(m, moffset, mlen));
+				hram = hasher.Finish();
 
-                ScalarOperations.sc_reduce(hram);
-                var s = new byte[32];//todo: remove allocation
-                Array.Copy(sig, sigoffset + 32, s, 0, 32);
-                ScalarOperations.sc_muladd(s, hram, az, r);
-                Array.Copy(s, 0, sig, sigoffset + 32, 32);
-                CryptoBytes.Wipe(s);
-            }
-        }
-    }
+				ScalarOperations.sc_reduce(hram);
+				var s = new byte[32];//todo: remove allocation
+				Array.Copy(sig, sigoffset + 32, s, 0, 32);
+				ScalarOperations.sc_muladd(s, hram, az, r);
+				Array.Copy(s, 0, sig, sigoffset + 32, 32);
+				CryptoBytes.Wipe(s);
+			}
+		}
+	}
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Chaos.NaCl.Internal
 {
@@ -49,7 +50,7 @@ namespace Chaos.NaCl.Internal
             if (mLength < 16)
                 goto poly1305_donna_atmost15bytes;
 
-            poly1305_donna_16bytes:
+        poly1305_donna_16bytes:
             mStart += 16;
             mLength -= 16;
 
@@ -86,8 +87,8 @@ namespace Chaos.NaCl.Internal
             if (mLength >= 16)
                 goto poly1305_donna_16bytes;
 
-            /* final bytes */
-            poly1305_donna_atmost15bytes:
+    /* final bytes */
+        poly1305_donna_atmost15bytes:
             if (mLength == 0)
                 goto poly1305_donna_finish;
 

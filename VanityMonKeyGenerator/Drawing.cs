@@ -53,7 +53,7 @@ namespace VanityMonKeyGenerator
             parsedAccessories.Add("Arms");
             // Body Upper
             parsedAccessories.Add("BodyUpper");
-            // Shirts-Pants Accessory
+            // Shirts Pants Accessory
             if (accessoryList.Any(acc => acc.Contains("ShirtsPants")))
             {
                 string shirtsPants = accessoryList.First(acc => acc.Contains("ShirtsPants"));
@@ -64,9 +64,9 @@ namespace VanityMonKeyGenerator
                     {
                         parsedAccessories.Remove("Legs");
                     }
-                }
+                }         
             }
-            // Misc Above Shirts-Pants
+            // Misc Above Shirts Pants
             if (accessoryList.Any(acc => acc.Contains("Misc")))
             {
                 string misc = accessoryList.First(acc => acc.Contains("Misc"));

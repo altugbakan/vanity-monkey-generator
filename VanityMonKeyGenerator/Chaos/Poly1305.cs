@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Collections.Generic;
 using Chaos.NaCl.Internal;
 
 namespace Chaos.NaCl
@@ -16,6 +16,7 @@ namespace Chaos.NaCl
             get { return 16; }
         }
 
+        [Obsolete("Needs more testing")]
         public override byte[] Sign(byte[] message, byte[] key)
         {
             if (message == null)
@@ -32,6 +33,7 @@ namespace Chaos.NaCl
             return result;
         }
 
+        [Obsolete("Needs more testing")]
         public override void Sign(ArraySegment<byte> signature, ArraySegment<byte> message, ArraySegment<byte> key)
         {
             if (signature.Array == null)
@@ -50,6 +52,7 @@ namespace Chaos.NaCl
             Poly1305Donna.poly1305_auth(signature.Array, signature.Offset, message.Array, message.Offset, message.Count, ref internalKey);
         }
 
+        [Obsolete("Needs more testing")]
         public override bool Verify(byte[] signature, byte[] message, byte[] key)
         {
             if (signature == null)
@@ -70,6 +73,7 @@ namespace Chaos.NaCl
             return CryptoBytes.ConstantTimeEquals(tempBytes, signature);
         }
 
+        [Obsolete("Needs more testing")]
         public override bool Verify(ArraySegment<byte> signature, ArraySegment<byte> message, ArraySegment<byte> key)
         {
             if (signature.Array == null)

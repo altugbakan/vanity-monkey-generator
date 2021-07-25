@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Collections.Generic;
 using Chaos.NaCl.Internal;
 using Chaos.NaCl.Internal.Ed25519Ref10;
 using Chaos.NaCl.Internal.Salsa;
@@ -26,12 +26,12 @@ namespace Chaos.NaCl
         }
 
         static readonly byte[] _basePoint = new byte[32]
-        {
-            9, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0 ,0, 0, 0, 0, 0,
-            0, 0, 0 ,0, 0, 0, 0, 0,
-            0, 0, 0 ,0, 0, 0, 0, 0
-        };
+		{
+			9, 0, 0, 0, 0, 0, 0, 0,
+			0, 0, 0 ,0, 0, 0, 0, 0,
+			0, 0, 0 ,0, 0, 0, 0, 0,
+			0, 0, 0 ,0, 0, 0, 0, 0
+		};
 
         public static void GetPublicKey(ArraySegment<byte> publicKey, ArraySegment<byte> privateKey)
         {

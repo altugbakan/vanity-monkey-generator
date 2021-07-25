@@ -58,7 +58,7 @@ namespace Chaos.NaCl.Internal.Ed25519Ref10
             if ((sig[sigoffset + 63] & 224) != 0) return false;
             if (GroupOperations.ge_frombytes_negate_vartime(out A, pk, pkoffset) != 0)
                 return false;
-
+            
             var hasher = Blake2Fast.Blake2b.CreateIncrementalHasher(64);
             hasher.Update(new ArraySegment<byte>(sig, sigoffset, 32));
             hasher.Update(new ArraySegment<byte>(pk, pkoffset, 32));

@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Resources;
 using System.Xml;
+using System.Linq;
 using VanityMonKeyGenerator.Properties;
 
 using Svg;
@@ -35,7 +35,6 @@ namespace VanityMonKeyGenerator
             {
                 accessories.Remove("Misc-BananaRightHand");
             }
-            // Remove body parts.
             accessories.RemoveAll(accessory => !accessory.Contains("-"));
             return accessories;
         }
@@ -136,23 +135,9 @@ namespace VanityMonKeyGenerator
         public static double GetMonKeyChance(List<string> accessories)
         {
             double chance = 1.0;
-            List<string> categories = new List<string>()
+            foreach (string accessory in accessories)
             {
-                "Glasses", "Hats", "Misc", "Mouths",
-                "ShirtsPants", "Shoes", "Tails"
-            };
-
-            foreach (string category in categories)
-            {
-                double totalCategoryChance = 0.0;
-                foreach (string accessory in accessories.Where(acc => acc.Contains(category)))
-                {
-                    totalCategoryChance += GetAccessoryChance(accessory);
-                }
-                if (totalCategoryChance > 0.0)
-                {
-                    chance *= totalCategoryChance;
-                }
+                chance *= GetAccessoryChance(accessory);
             }
             return chance;
         }
@@ -167,7 +152,7 @@ namespace VanityMonKeyGenerator
             {
                 return 1.0 - GetCategoryChance(accessory);
             }
-            return GetCategoryChance(accessory) * GetAccessoryWeight(accessory);
+            return GetCategoryChance(accessory) * GetAccessoryWeight(accessory); 
         }
 
         private static double GetCategoryChance(string accessory)
@@ -191,7 +176,7 @@ namespace VanityMonKeyGenerator
                 default:
                     return 0.0;
             }
-
+            
         }
 
         private static double GetAccessoryWeight(string accessory)

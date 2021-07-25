@@ -7,7 +7,7 @@ namespace Chaos.NaCl.Internal.Ed25519Ref10
         static Int64 load_3(byte[] input, int offset)
         {
             Int64 result;
-            result = input[offset + 0];
+            result = (Int64)input[offset + 0];
             result |= ((Int64)input[offset + 1]) << 8;
             result |= ((Int64)input[offset + 2]) << 16;
             return result;
@@ -16,7 +16,7 @@ namespace Chaos.NaCl.Internal.Ed25519Ref10
         static Int64 load_4(byte[] input, int offset)
         {
             Int64 result;
-            result = input[offset + 0];
+            result = (Int64)input[offset + 0];
             result |= ((Int64)input[offset + 1]) << 8;
             result |= ((Int64)input[offset + 2]) << 16;
             result |= ((Int64)input[offset + 3]) << 24;
