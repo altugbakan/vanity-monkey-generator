@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Chaos.NaCl.Internal
 {
@@ -79,11 +78,11 @@ namespace Chaos.NaCl.Internal
                     {//0
                         t1 = h +
                              ((e >> 14) ^ (e << (64 - 14)) ^ (e >> 18) ^ (e << (64 - 18)) ^ (e >> 41) ^ (e << (64 - 41))) +
-                            //Sigma1(e)
+                             //Sigma1(e)
                              ((e & f) ^ (~e & g)) + //Ch(e,f,g)
                              K[t] + w0;
                         t2 = ((a >> 28) ^ (a << (64 - 28)) ^ (a >> 34) ^ (a << (64 - 34)) ^ (a >> 39) ^ (a << (64 - 39))) +
-                            //Sigma0(a)
+                             //Sigma0(a)
                              ((a & b) ^ (a & c) ^ (b & c)); //Maj(a,b,c)
                         h = g;
                         g = f;
@@ -98,11 +97,11 @@ namespace Chaos.NaCl.Internal
                     {//1
                         t1 = h +
                              ((e >> 14) ^ (e << (64 - 14)) ^ (e >> 18) ^ (e << (64 - 18)) ^ (e >> 41) ^ (e << (64 - 41))) +
-                            //Sigma1(e)
+                             //Sigma1(e)
                              ((e & f) ^ (~e & g)) + //Ch(e,f,g)
                              K[t] + w1;
                         t2 = ((a >> 28) ^ (a << (64 - 28)) ^ (a >> 34) ^ (a << (64 - 34)) ^ (a >> 39) ^ (a << (64 - 39))) +
-                            //Sigma0(a)
+                             //Sigma0(a)
                              ((a & b) ^ (a & c) ^ (b & c)); //Maj(a,b,c)
                         h = g;
                         g = f;
@@ -117,11 +116,11 @@ namespace Chaos.NaCl.Internal
                     {//2
                         t1 = h +
                              ((e >> 14) ^ (e << (64 - 14)) ^ (e >> 18) ^ (e << (64 - 18)) ^ (e >> 41) ^ (e << (64 - 41))) +
-                            //Sigma1(e)
+                             //Sigma1(e)
                              ((e & f) ^ (~e & g)) + //Ch(e,f,g)
                              K[t] + w2;
                         t2 = ((a >> 28) ^ (a << (64 - 28)) ^ (a >> 34) ^ (a << (64 - 34)) ^ (a >> 39) ^ (a << (64 - 39))) +
-                            //Sigma0(a)
+                             //Sigma0(a)
                              ((a & b) ^ (a & c) ^ (b & c)); //Maj(a,b,c)
                         h = g;
                         g = f;
@@ -136,11 +135,11 @@ namespace Chaos.NaCl.Internal
                     {//3
                         t1 = h +
                              ((e >> 14) ^ (e << (64 - 14)) ^ (e >> 18) ^ (e << (64 - 18)) ^ (e >> 41) ^ (e << (64 - 41))) +
-                            //Sigma1(e)
+                             //Sigma1(e)
                              ((e & f) ^ (~e & g)) + //Ch(e,f,g)
                              K[t] + w3;
                         t2 = ((a >> 28) ^ (a << (64 - 28)) ^ (a >> 34) ^ (a << (64 - 34)) ^ (a >> 39) ^ (a << (64 - 39))) +
-                            //Sigma0(a)
+                             //Sigma0(a)
                              ((a & b) ^ (a & c) ^ (b & c)); //Maj(a,b,c)
                         h = g;
                         g = f;
@@ -155,11 +154,11 @@ namespace Chaos.NaCl.Internal
                     {//4
                         t1 = h +
                              ((e >> 14) ^ (e << (64 - 14)) ^ (e >> 18) ^ (e << (64 - 18)) ^ (e >> 41) ^ (e << (64 - 41))) +
-                            //Sigma1(e)
+                             //Sigma1(e)
                              ((e & f) ^ (~e & g)) + //Ch(e,f,g)
                              K[t] + w4;
                         t2 = ((a >> 28) ^ (a << (64 - 28)) ^ (a >> 34) ^ (a << (64 - 34)) ^ (a >> 39) ^ (a << (64 - 39))) +
-                            //Sigma0(a)
+                             //Sigma0(a)
                              ((a & b) ^ (a & c) ^ (b & c)); //Maj(a,b,c)
                         h = g;
                         g = f;
@@ -174,11 +173,11 @@ namespace Chaos.NaCl.Internal
                     {//5
                         t1 = h +
                              ((e >> 14) ^ (e << (64 - 14)) ^ (e >> 18) ^ (e << (64 - 18)) ^ (e >> 41) ^ (e << (64 - 41))) +
-                            //Sigma1(e)
+                             //Sigma1(e)
                              ((e & f) ^ (~e & g)) + //Ch(e,f,g)
                              K[t] + w5;
                         t2 = ((a >> 28) ^ (a << (64 - 28)) ^ (a >> 34) ^ (a << (64 - 34)) ^ (a >> 39) ^ (a << (64 - 39))) +
-                            //Sigma0(a)
+                             //Sigma0(a)
                              ((a & b) ^ (a & c) ^ (b & c)); //Maj(a,b,c)
                         h = g;
                         g = f;
@@ -193,11 +192,11 @@ namespace Chaos.NaCl.Internal
                     {//6
                         t1 = h +
                              ((e >> 14) ^ (e << (64 - 14)) ^ (e >> 18) ^ (e << (64 - 18)) ^ (e >> 41) ^ (e << (64 - 41))) +
-                            //Sigma1(e)
+                             //Sigma1(e)
                              ((e & f) ^ (~e & g)) + //Ch(e,f,g)
                              K[t] + w6;
                         t2 = ((a >> 28) ^ (a << (64 - 28)) ^ (a >> 34) ^ (a << (64 - 34)) ^ (a >> 39) ^ (a << (64 - 39))) +
-                            //Sigma0(a)
+                             //Sigma0(a)
                              ((a & b) ^ (a & c) ^ (b & c)); //Maj(a,b,c)
                         h = g;
                         g = f;
@@ -212,11 +211,11 @@ namespace Chaos.NaCl.Internal
                     {//7
                         t1 = h +
                              ((e >> 14) ^ (e << (64 - 14)) ^ (e >> 18) ^ (e << (64 - 18)) ^ (e >> 41) ^ (e << (64 - 41))) +
-                            //Sigma1(e)
+                             //Sigma1(e)
                              ((e & f) ^ (~e & g)) + //Ch(e,f,g)
                              K[t] + w7;
                         t2 = ((a >> 28) ^ (a << (64 - 28)) ^ (a >> 34) ^ (a << (64 - 34)) ^ (a >> 39) ^ (a << (64 - 39))) +
-                            //Sigma0(a)
+                             //Sigma0(a)
                              ((a & b) ^ (a & c) ^ (b & c)); //Maj(a,b,c)
                         h = g;
                         g = f;
@@ -231,11 +230,11 @@ namespace Chaos.NaCl.Internal
                     {//8
                         t1 = h +
                              ((e >> 14) ^ (e << (64 - 14)) ^ (e >> 18) ^ (e << (64 - 18)) ^ (e >> 41) ^ (e << (64 - 41))) +
-                            //Sigma1(e)
+                             //Sigma1(e)
                              ((e & f) ^ (~e & g)) + //Ch(e,f,g)
                              K[t] + w8;
                         t2 = ((a >> 28) ^ (a << (64 - 28)) ^ (a >> 34) ^ (a << (64 - 34)) ^ (a >> 39) ^ (a << (64 - 39))) +
-                            //Sigma0(a)
+                             //Sigma0(a)
                              ((a & b) ^ (a & c) ^ (b & c)); //Maj(a,b,c)
                         h = g;
                         g = f;
@@ -250,11 +249,11 @@ namespace Chaos.NaCl.Internal
                     {//9
                         t1 = h +
                              ((e >> 14) ^ (e << (64 - 14)) ^ (e >> 18) ^ (e << (64 - 18)) ^ (e >> 41) ^ (e << (64 - 41))) +
-                            //Sigma1(e)
+                             //Sigma1(e)
                              ((e & f) ^ (~e & g)) + //Ch(e,f,g)
                              K[t] + w9;
                         t2 = ((a >> 28) ^ (a << (64 - 28)) ^ (a >> 34) ^ (a << (64 - 34)) ^ (a >> 39) ^ (a << (64 - 39))) +
-                            //Sigma0(a)
+                             //Sigma0(a)
                              ((a & b) ^ (a & c) ^ (b & c)); //Maj(a,b,c)
                         h = g;
                         g = f;
@@ -269,11 +268,11 @@ namespace Chaos.NaCl.Internal
                     {//10
                         t1 = h +
                              ((e >> 14) ^ (e << (64 - 14)) ^ (e >> 18) ^ (e << (64 - 18)) ^ (e >> 41) ^ (e << (64 - 41))) +
-                            //Sigma1(e)
+                             //Sigma1(e)
                              ((e & f) ^ (~e & g)) + //Ch(e,f,g)
                              K[t] + w10;
                         t2 = ((a >> 28) ^ (a << (64 - 28)) ^ (a >> 34) ^ (a << (64 - 34)) ^ (a >> 39) ^ (a << (64 - 39))) +
-                            //Sigma0(a)
+                             //Sigma0(a)
                              ((a & b) ^ (a & c) ^ (b & c)); //Maj(a,b,c)
                         h = g;
                         g = f;
@@ -288,11 +287,11 @@ namespace Chaos.NaCl.Internal
                     {//11
                         t1 = h +
                              ((e >> 14) ^ (e << (64 - 14)) ^ (e >> 18) ^ (e << (64 - 18)) ^ (e >> 41) ^ (e << (64 - 41))) +
-                            //Sigma1(e)
+                             //Sigma1(e)
                              ((e & f) ^ (~e & g)) + //Ch(e,f,g)
                              K[t] + w11;
                         t2 = ((a >> 28) ^ (a << (64 - 28)) ^ (a >> 34) ^ (a << (64 - 34)) ^ (a >> 39) ^ (a << (64 - 39))) +
-                            //Sigma0(a)
+                             //Sigma0(a)
                              ((a & b) ^ (a & c) ^ (b & c)); //Maj(a,b,c)
                         h = g;
                         g = f;
@@ -307,11 +306,11 @@ namespace Chaos.NaCl.Internal
                     {//12
                         t1 = h +
                              ((e >> 14) ^ (e << (64 - 14)) ^ (e >> 18) ^ (e << (64 - 18)) ^ (e >> 41) ^ (e << (64 - 41))) +
-                            //Sigma1(e)
+                             //Sigma1(e)
                              ((e & f) ^ (~e & g)) + //Ch(e,f,g)
                              K[t] + w12;
                         t2 = ((a >> 28) ^ (a << (64 - 28)) ^ (a >> 34) ^ (a << (64 - 34)) ^ (a >> 39) ^ (a << (64 - 39))) +
-                            //Sigma0(a)
+                             //Sigma0(a)
                              ((a & b) ^ (a & c) ^ (b & c)); //Maj(a,b,c)
                         h = g;
                         g = f;
@@ -326,11 +325,11 @@ namespace Chaos.NaCl.Internal
                     {//13
                         t1 = h +
                              ((e >> 14) ^ (e << (64 - 14)) ^ (e >> 18) ^ (e << (64 - 18)) ^ (e >> 41) ^ (e << (64 - 41))) +
-                            //Sigma1(e)
+                             //Sigma1(e)
                              ((e & f) ^ (~e & g)) + //Ch(e,f,g)
                              K[t] + w13;
                         t2 = ((a >> 28) ^ (a << (64 - 28)) ^ (a >> 34) ^ (a << (64 - 34)) ^ (a >> 39) ^ (a << (64 - 39))) +
-                            //Sigma0(a)
+                             //Sigma0(a)
                              ((a & b) ^ (a & c) ^ (b & c)); //Maj(a,b,c)
                         h = g;
                         g = f;
@@ -345,11 +344,11 @@ namespace Chaos.NaCl.Internal
                     {//14
                         t1 = h +
                              ((e >> 14) ^ (e << (64 - 14)) ^ (e >> 18) ^ (e << (64 - 18)) ^ (e >> 41) ^ (e << (64 - 41))) +
-                            //Sigma1(e)
+                             //Sigma1(e)
                              ((e & f) ^ (~e & g)) + //Ch(e,f,g)
                              K[t] + w14;
                         t2 = ((a >> 28) ^ (a << (64 - 28)) ^ (a >> 34) ^ (a << (64 - 34)) ^ (a >> 39) ^ (a << (64 - 39))) +
-                            //Sigma0(a)
+                             //Sigma0(a)
                              ((a & b) ^ (a & c) ^ (b & c)); //Maj(a,b,c)
                         h = g;
                         g = f;
@@ -364,11 +363,11 @@ namespace Chaos.NaCl.Internal
                     {//15
                         t1 = h +
                              ((e >> 14) ^ (e << (64 - 14)) ^ (e >> 18) ^ (e << (64 - 18)) ^ (e >> 41) ^ (e << (64 - 41))) +
-                            //Sigma1(e)
+                             //Sigma1(e)
                              ((e & f) ^ (~e & g)) + //Ch(e,f,g)
                              K[t] + w15;
                         t2 = ((a >> 28) ^ (a << (64 - 28)) ^ (a >> 34) ^ (a << (64 - 34)) ^ (a >> 39) ^ (a << (64 - 39))) +
-                            //Sigma0(a)
+                             //Sigma0(a)
                              ((a & b) ^ (a & c) ^ (b & c)); //Maj(a,b,c)
                         h = g;
                         g = f;
