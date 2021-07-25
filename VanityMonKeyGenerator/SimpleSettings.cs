@@ -143,7 +143,9 @@ namespace VanityMonKeyGenerator
         {
             Properties.Settings.Default.SimpleMode = false;
             Properties.Settings.Default.Save();
-
+            Dispose();
+            ExpertSettings expertSettings = new ExpertSettings();
+            expertSettings.ShowDialog();
         }
     }
 

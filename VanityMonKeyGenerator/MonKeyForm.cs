@@ -60,8 +60,16 @@ namespace VanityMonKeyGenerator
         }
         private void SettingsButton_Click(object sender, EventArgs e)
         {
-            SimpleSettings settingsForm = new SimpleSettings();
-            settingsForm.ShowDialog();
+            if (Properties.Settings.Default.SimpleMode)
+            {
+                SimpleSettings simpleSettings = new SimpleSettings();
+                simpleSettings.ShowDialog();
+            }
+            else
+            {
+                ExpertSettings expertSettings = new ExpertSettings();
+                expertSettings.ShowDialog();
+            }
         }
 
         private void MonKeySearcher_DoWork(object sender, DoWorkEventArgs e)

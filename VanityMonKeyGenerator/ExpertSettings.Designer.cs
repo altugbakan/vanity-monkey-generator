@@ -29,41 +29,23 @@ namespace VanityMonKeyGenerator
         /// </summary>
         private void InitializeComponent()
         {
-            this.glassesListBox = new System.Windows.Forms.CheckedListBox();
             this.glassesLabel = new System.Windows.Forms.Label();
             this.hatsLabel = new System.Windows.Forms.Label();
-            this.hatsListBox = new System.Windows.Forms.CheckedListBox();
             this.miscLabel = new System.Windows.Forms.Label();
-            this.miscListBox = new System.Windows.Forms.CheckedListBox();
             this.mouthsLabel = new System.Windows.Forms.Label();
-            this.mouthsListBox = new System.Windows.Forms.CheckedListBox();
             this.shirtsPantsLabel = new System.Windows.Forms.Label();
-            this.shirtsPantsListBox = new System.Windows.Forms.CheckedListBox();
             this.shoesLabel = new System.Windows.Forms.Label();
-            this.shoesListBox = new System.Windows.Forms.CheckedListBox();
-            this.tailsListBox = new System.Windows.Forms.CheckedListBox();
             this.tailsLabel = new System.Windows.Forms.Label();
-            this.simpleButton = new System.Windows.Forms.Button();
+            this.expertButton = new System.Windows.Forms.Button();
             this.rarityLabel = new System.Windows.Forms.Label();
+            this.hatsCheckedListBox = new VanityMonKeyGenerator.BetterCheckedListBox();
+            this.mouthsCheckedListBox = new VanityMonKeyGenerator.BetterCheckedListBox();
+            this.shirtsPantsCheckedListBox = new VanityMonKeyGenerator.BetterCheckedListBox();
+            this.shoesCheckedListBox = new VanityMonKeyGenerator.BetterCheckedListBox();
+            this.tailsCheckedListBox = new VanityMonKeyGenerator.BetterCheckedListBox();
+            this.glassesCheckedListBox = new VanityMonKeyGenerator.BetterCheckedListBox();
+            this.miscCheckedListBox = new VanityMonKeyGenerator.BetterCheckedListBox();
             this.SuspendLayout();
-            // 
-            // glassesListBox
-            // 
-            this.glassesListBox.FormattingEnabled = true;
-            this.glassesListBox.Items.AddRange(new object[] {
-            "Eye Patch",
-            "Glasses Nerd Cyan",
-            "Glasses Nerd Green",
-            "Glasses Nerd Pink",
-            "Monocle",
-            "Sunglasses Aviator Cyan",
-            "Sunglasses Aviator Green",
-            "Sunglasses Aviator Yellow",
-            "Sunglasses Thug"});
-            this.glassesListBox.Location = new System.Drawing.Point(383, 60);
-            this.glassesListBox.Name = "glassesListBox";
-            this.glassesListBox.Size = new System.Drawing.Size(165, 166);
-            this.glassesListBox.TabIndex = 0;
             // 
             // glassesLabel
             // 
@@ -85,10 +67,79 @@ namespace VanityMonKeyGenerator
             this.hatsLabel.TabIndex = 9;
             this.hatsLabel.Text = "Hats";
             // 
-            // hatsListBox
+            // miscLabel
             // 
-            this.hatsListBox.FormattingEnabled = true;
-            this.hatsListBox.Items.AddRange(new object[] {
+            this.miscLabel.AutoSize = true;
+            this.miscLabel.Location = new System.Drawing.Point(448, 227);
+            this.miscLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.miscLabel.Name = "miscLabel";
+            this.miscLabel.Size = new System.Drawing.Size(32, 15);
+            this.miscLabel.TabIndex = 11;
+            this.miscLabel.Text = "Misc";
+            // 
+            // mouthsLabel
+            // 
+            this.mouthsLabel.AutoSize = true;
+            this.mouthsLabel.Location = new System.Drawing.Point(255, 11);
+            this.mouthsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mouthsLabel.Name = "mouthsLabel";
+            this.mouthsLabel.Size = new System.Drawing.Size(48, 15);
+            this.mouthsLabel.TabIndex = 13;
+            this.mouthsLabel.Text = "Mouths";
+            // 
+            // shirtsPantsLabel
+            // 
+            this.shirtsPantsLabel.AutoSize = true;
+            this.shirtsPantsLabel.Location = new System.Drawing.Point(244, 179);
+            this.shirtsPantsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.shirtsPantsLabel.Name = "shirtsPantsLabel";
+            this.shirtsPantsLabel.Size = new System.Drawing.Size(70, 15);
+            this.shirtsPantsLabel.TabIndex = 15;
+            this.shirtsPantsLabel.Text = "Shirts-Pants";
+            // 
+            // shoesLabel
+            // 
+            this.shoesLabel.AutoSize = true;
+            this.shoesLabel.Location = new System.Drawing.Point(260, 311);
+            this.shoesLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.shoesLabel.Name = "shoesLabel";
+            this.shoesLabel.Size = new System.Drawing.Size(38, 15);
+            this.shoesLabel.TabIndex = 17;
+            this.shoesLabel.Text = "Shoes";
+            // 
+            // tailsLabel
+            // 
+            this.tailsLabel.AutoSize = true;
+            this.tailsLabel.Location = new System.Drawing.Point(265, 443);
+            this.tailsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.tailsLabel.Name = "tailsLabel";
+            this.tailsLabel.Size = new System.Drawing.Size(29, 15);
+            this.tailsLabel.TabIndex = 19;
+            this.tailsLabel.Text = "Tails";
+            // 
+            // expertButton
+            // 
+            this.expertButton.Location = new System.Drawing.Point(472, 14);
+            this.expertButton.Name = "expertButton";
+            this.expertButton.Size = new System.Drawing.Size(75, 23);
+            this.expertButton.TabIndex = 20;
+            this.expertButton.Text = "Expert";
+            this.expertButton.UseVisualStyleBackColor = true;
+            this.expertButton.Click += new System.EventHandler(this.ExpertButton_Click);
+            // 
+            // rarityLabel
+            // 
+            this.rarityLabel.Location = new System.Drawing.Point(247, 484);
+            this.rarityLabel.Name = "rarityLabel";
+            this.rarityLabel.Size = new System.Drawing.Size(300, 20);
+            this.rarityLabel.TabIndex = 21;
+            this.rarityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // hatsCheckedListBox
+            // 
+            this.hatsCheckedListBox.CheckOnClick = true;
+            this.hatsCheckedListBox.FormattingEnabled = true;
+            this.hatsCheckedListBox.Items.AddRange(new object[] {
             "Bandana",
             "Beanie",
             "Beanie Banano",
@@ -114,25 +165,96 @@ namespace VanityMonKeyGenerator
             "Hat Cowboy",
             "Hat Jester",
             "Helmet Viking"});
-            this.hatsListBox.Location = new System.Drawing.Point(12, 27);
-            this.hatsListBox.Name = "hatsListBox";
-            this.hatsListBox.Size = new System.Drawing.Size(165, 454);
-            this.hatsListBox.TabIndex = 8;
+            this.hatsCheckedListBox.Location = new System.Drawing.Point(12, 27);
+            this.hatsCheckedListBox.Name = "hatsCheckedListBox";
+            this.hatsCheckedListBox.Size = new System.Drawing.Size(165, 454);
+            this.hatsCheckedListBox.TabIndex = 22;
             // 
-            // miscLabel
+            // mouthsCheckedListBox
             // 
-            this.miscLabel.AutoSize = true;
-            this.miscLabel.Location = new System.Drawing.Point(448, 227);
-            this.miscLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.miscLabel.Name = "miscLabel";
-            this.miscLabel.Size = new System.Drawing.Size(32, 15);
-            this.miscLabel.TabIndex = 11;
-            this.miscLabel.Text = "Misc";
+            this.mouthsCheckedListBox.CheckOnClick = true;
+            this.mouthsCheckedListBox.FormattingEnabled = true;
+            this.mouthsCheckedListBox.Items.AddRange(new object[] {
+            "Cigar",
+            "Confused",
+            "Joint",
+            "Meh",
+            "Pipe",
+            "Smile Big Teeth",
+            "Smile Normal",
+            "Smile Tongue"});
+            this.mouthsCheckedListBox.Location = new System.Drawing.Point(197, 27);
+            this.mouthsCheckedListBox.Name = "mouthsCheckedListBox";
+            this.mouthsCheckedListBox.Size = new System.Drawing.Size(165, 148);
+            this.mouthsCheckedListBox.TabIndex = 23;
             // 
-            // miscListBox
+            // shirtsPantsCheckedListBox
             // 
-            this.miscListBox.FormattingEnabled = true;
-            this.miscListBox.Items.AddRange(new object[] {
+            this.shirtsPantsCheckedListBox.CheckOnClick = true;
+            this.shirtsPantsCheckedListBox.FormattingEnabled = true;
+            this.shirtsPantsCheckedListBox.Items.AddRange(new object[] {
+            "Overalls Blue",
+            "Overalls Red",
+            "Pants Business Blue",
+            "Pants Flower",
+            "Tshirt Long Stripes",
+            "Tshirt Short White"});
+            this.shirtsPantsCheckedListBox.Location = new System.Drawing.Point(197, 197);
+            this.shirtsPantsCheckedListBox.Name = "shirtsPantsCheckedListBox";
+            this.shirtsPantsCheckedListBox.Size = new System.Drawing.Size(165, 112);
+            this.shirtsPantsCheckedListBox.TabIndex = 24;
+            // 
+            // shoesCheckedListBox
+            // 
+            this.shoesCheckedListBox.CheckOnClick = true;
+            this.shoesCheckedListBox.FormattingEnabled = true;
+            this.shoesCheckedListBox.Items.AddRange(new object[] {
+            "Sneakers Blue",
+            "Sneakers Green",
+            "Sneakers Red",
+            "Sneakers Swagger",
+            "Socks H Stripe",
+            "Socks V Stripe"});
+            this.shoesCheckedListBox.Location = new System.Drawing.Point(197, 327);
+            this.shoesCheckedListBox.Name = "shoesCheckedListBox";
+            this.shoesCheckedListBox.Size = new System.Drawing.Size(165, 112);
+            this.shoesCheckedListBox.TabIndex = 25;
+            // 
+            // tailsCheckedListBox
+            // 
+            this.tailsCheckedListBox.CheckOnClick = true;
+            this.tailsCheckedListBox.FormattingEnabled = true;
+            this.tailsCheckedListBox.Items.AddRange(new object[] {
+            "Tail Sock"});
+            this.tailsCheckedListBox.Location = new System.Drawing.Point(197, 459);
+            this.tailsCheckedListBox.Name = "tailsCheckedListBox";
+            this.tailsCheckedListBox.Size = new System.Drawing.Size(165, 22);
+            this.tailsCheckedListBox.TabIndex = 26;
+            // 
+            // glassesCheckedListBox
+            // 
+            this.glassesCheckedListBox.CheckOnClick = true;
+            this.glassesCheckedListBox.FormattingEnabled = true;
+            this.glassesCheckedListBox.Items.AddRange(new object[] {
+            "Eye Patch",
+            "Glasses Nerd Cyan",
+            "Glasses Nerd Green",
+            "Glasses Nerd Pink",
+            "Monocle",
+            "Sunglasses Aviator Cyan",
+            "Sunglasses Aviator Green",
+            "Sunglasses Aviator Yellow",
+            "Sunglasses Thug"});
+            this.glassesCheckedListBox.Location = new System.Drawing.Point(380, 60);
+            this.glassesCheckedListBox.Name = "glassesCheckedListBox";
+            this.glassesCheckedListBox.Size = new System.Drawing.Size(165, 166);
+            this.glassesCheckedListBox.TabIndex = 27;
+            // 
+            // miscCheckedListBox
+            // 
+            this.miscCheckedListBox.CheckOnClick = true;
+            this.miscCheckedListBox.FormattingEnabled = true;
+            this.miscCheckedListBox.Items.AddRange(new object[] {
             "Banana Hands",
             "Banana Right Hand",
             "Bowtie",
@@ -146,146 +268,32 @@ namespace VanityMonKeyGenerator
             "Tie Cyan",
             "Tie Pink",
             "Whisky Right"});
-            this.miscListBox.Location = new System.Drawing.Point(382, 243);
-            this.miscListBox.Name = "miscListBox";
-            this.miscListBox.Size = new System.Drawing.Size(165, 238);
-            this.miscListBox.TabIndex = 10;
-            // 
-            // mouthsLabel
-            // 
-            this.mouthsLabel.AutoSize = true;
-            this.mouthsLabel.Location = new System.Drawing.Point(255, 11);
-            this.mouthsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.mouthsLabel.Name = "mouthsLabel";
-            this.mouthsLabel.Size = new System.Drawing.Size(48, 15);
-            this.mouthsLabel.TabIndex = 13;
-            this.mouthsLabel.Text = "Mouths";
-            // 
-            // mouthsListBox
-            // 
-            this.mouthsListBox.FormattingEnabled = true;
-            this.mouthsListBox.Items.AddRange(new object[] {
-            "Cigar",
-            "Confused",
-            "Joint",
-            "Meh",
-            "Pipe",
-            "Smile Big Teeth",
-            "Smile Normal",
-            "Smile Tongue"});
-            this.mouthsListBox.Location = new System.Drawing.Point(197, 27);
-            this.mouthsListBox.Name = "mouthsListBox";
-            this.mouthsListBox.Size = new System.Drawing.Size(165, 148);
-            this.mouthsListBox.TabIndex = 12;
-            // 
-            // shirtsPantsLabel
-            // 
-            this.shirtsPantsLabel.AutoSize = true;
-            this.shirtsPantsLabel.Location = new System.Drawing.Point(244, 179);
-            this.shirtsPantsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.shirtsPantsLabel.Name = "shirtsPantsLabel";
-            this.shirtsPantsLabel.Size = new System.Drawing.Size(70, 15);
-            this.shirtsPantsLabel.TabIndex = 15;
-            this.shirtsPantsLabel.Text = "Shirts-Pants";
-            // 
-            // shirtsPantsListBox
-            // 
-            this.shirtsPantsListBox.FormattingEnabled = true;
-            this.shirtsPantsListBox.Items.AddRange(new object[] {
-            "Overalls Blue",
-            "Overalls Red",
-            "Pants Business Blue",
-            "Pants Flower",
-            "Tshirt Long Stripes",
-            "Tshirt Short White"});
-            this.shirtsPantsListBox.Location = new System.Drawing.Point(197, 195);
-            this.shirtsPantsListBox.Name = "shirtsPantsListBox";
-            this.shirtsPantsListBox.Size = new System.Drawing.Size(165, 112);
-            this.shirtsPantsListBox.TabIndex = 14;
-            // 
-            // shoesLabel
-            // 
-            this.shoesLabel.AutoSize = true;
-            this.shoesLabel.Location = new System.Drawing.Point(260, 311);
-            this.shoesLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.shoesLabel.Name = "shoesLabel";
-            this.shoesLabel.Size = new System.Drawing.Size(38, 15);
-            this.shoesLabel.TabIndex = 17;
-            this.shoesLabel.Text = "Shoes";
-            // 
-            // shoesListBox
-            // 
-            this.shoesListBox.FormattingEnabled = true;
-            this.shoesListBox.Items.AddRange(new object[] {
-            "Sneakers Blue",
-            "Sneakers Green",
-            "Sneakers Red",
-            "Sneakers Swagger",
-            "Socks H Stripe",
-            "Socks V Stripe"});
-            this.shoesListBox.Location = new System.Drawing.Point(197, 327);
-            this.shoesListBox.Name = "shoesListBox";
-            this.shoesListBox.Size = new System.Drawing.Size(165, 112);
-            this.shoesListBox.TabIndex = 16;
-            // 
-            // tailsListBox
-            // 
-            this.tailsListBox.FormattingEnabled = true;
-            this.tailsListBox.Items.AddRange(new object[] {
-            "Tail Sock"});
-            this.tailsListBox.Location = new System.Drawing.Point(197, 459);
-            this.tailsListBox.Name = "tailsListBox";
-            this.tailsListBox.Size = new System.Drawing.Size(165, 22);
-            this.tailsListBox.TabIndex = 18;
-            // 
-            // tailsLabel
-            // 
-            this.tailsLabel.AutoSize = true;
-            this.tailsLabel.Location = new System.Drawing.Point(265, 443);
-            this.tailsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.tailsLabel.Name = "tailsLabel";
-            this.tailsLabel.Size = new System.Drawing.Size(29, 15);
-            this.tailsLabel.TabIndex = 19;
-            this.tailsLabel.Text = "Tails";
-            // 
-            // simpleButton
-            // 
-            this.simpleButton.Location = new System.Drawing.Point(472, 14);
-            this.simpleButton.Name = "simpleButton";
-            this.simpleButton.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton.TabIndex = 20;
-            this.simpleButton.Text = "Expert";
-            this.simpleButton.UseVisualStyleBackColor = true;
-            // 
-            // rarityLabel
-            // 
-            this.rarityLabel.Location = new System.Drawing.Point(247, 484);
-            this.rarityLabel.Name = "rarityLabel";
-            this.rarityLabel.Size = new System.Drawing.Size(300, 20);
-            this.rarityLabel.TabIndex = 21;
-            this.rarityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.miscCheckedListBox.Location = new System.Drawing.Point(382, 243);
+            this.miscCheckedListBox.Name = "miscCheckedListBox";
+            this.miscCheckedListBox.Size = new System.Drawing.Size(165, 238);
+            this.miscCheckedListBox.TabIndex = 28;
             // 
             // ExpertSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(565, 508);
+            this.Controls.Add(this.miscCheckedListBox);
+            this.Controls.Add(this.glassesCheckedListBox);
+            this.Controls.Add(this.tailsCheckedListBox);
+            this.Controls.Add(this.shoesCheckedListBox);
+            this.Controls.Add(this.shirtsPantsCheckedListBox);
+            this.Controls.Add(this.mouthsCheckedListBox);
+            this.Controls.Add(this.hatsCheckedListBox);
             this.Controls.Add(this.rarityLabel);
-            this.Controls.Add(this.simpleButton);
+            this.Controls.Add(this.expertButton);
             this.Controls.Add(this.tailsLabel);
-            this.Controls.Add(this.tailsListBox);
             this.Controls.Add(this.shoesLabel);
-            this.Controls.Add(this.shoesListBox);
             this.Controls.Add(this.shirtsPantsLabel);
-            this.Controls.Add(this.shirtsPantsListBox);
             this.Controls.Add(this.mouthsLabel);
-            this.Controls.Add(this.mouthsListBox);
             this.Controls.Add(this.miscLabel);
-            this.Controls.Add(this.miscListBox);
             this.Controls.Add(this.hatsLabel);
-            this.Controls.Add(this.hatsListBox);
             this.Controls.Add(this.glassesLabel);
-            this.Controls.Add(this.glassesListBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -297,22 +305,21 @@ namespace VanityMonKeyGenerator
         }
 
         #endregion
-
-        private System.Windows.Forms.CheckedListBox glassesListBox;
         private System.Windows.Forms.Label glassesLabel;
         private System.Windows.Forms.Label hatsLabel;
-        private System.Windows.Forms.CheckedListBox hatsListBox;
         private System.Windows.Forms.Label miscLabel;
-        private System.Windows.Forms.CheckedListBox miscListBox;
         private System.Windows.Forms.Label mouthsLabel;
-        private System.Windows.Forms.CheckedListBox mouthsListBox;
         private System.Windows.Forms.Label shirtsPantsLabel;
-        private System.Windows.Forms.CheckedListBox shirtsPantsListBox;
         private System.Windows.Forms.Label shoesLabel;
-        private System.Windows.Forms.CheckedListBox shoesListBox;
-        private System.Windows.Forms.CheckedListBox tailsListBox;
         private System.Windows.Forms.Label tailsLabel;
-        private System.Windows.Forms.Button simpleButton;
+        private System.Windows.Forms.Button expertButton;
         private System.Windows.Forms.Label rarityLabel;
+        private BetterCheckedListBox hatsCheckedListBox;
+        private BetterCheckedListBox mouthsCheckedListBox;
+        private BetterCheckedListBox shirtsPantsCheckedListBox;
+        private BetterCheckedListBox shoesCheckedListBox;
+        private BetterCheckedListBox tailsCheckedListBox;
+        private BetterCheckedListBox glassesCheckedListBox;
+        private BetterCheckedListBox miscCheckedListBox;
     }
 }
