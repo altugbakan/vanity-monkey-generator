@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Chaos.NaCl.Internal.Ed25519Ref10
+﻿namespace Chaos.NaCl.Internal.Ed25519Ref10
 {
     internal static partial class LookupTables
     {
@@ -45,6 +43,6 @@ namespace Chaos.NaCl.Internal.Ed25519Ref10
             new FieldElement( -24326370,15950226,-31801215,-14592823,-11662737,-5090925,1573892,-2625887,2198790,-15804619 ),
             new FieldElement( -3099351,10324967,-2241613,7453183,-5446979,-2735503,-13812022,-16236442,-32461234,-12290683 )
              )
-		};
+        };
     }
 }

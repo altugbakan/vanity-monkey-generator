@@ -153,11 +153,11 @@ namespace Tests
             actual = Accessories.GetAccessoryChance(accessory);
             Assert.AreEqual(expected, actual, expected * 0.01, "Mouths chance is wrong."); // 1% error is OK.
 
-            // Shirts Pants case.
+            // Shirts-Pants case.
             accessory = "ShirtsPants-OverallsBlue";
             expected = 0.25 * 1 / 6;
             actual = Accessories.GetAccessoryChance(accessory);
-            Assert.AreEqual(expected, actual, expected * 0.01, "Shirts Pants chance is wrong."); // 1% error is OK.
+            Assert.AreEqual(expected, actual, expected * 0.01, "Shirts-Pants chance is wrong."); // 1% error is OK.
 
             // Shoes case.
             accessory = "Shoes-SneakersBlue";
@@ -187,23 +187,41 @@ namespace Tests
         [TestMethod]
         public void GetMonKeyChanceTest()
         {
-            // Sample case.
+            // Simple case.
             List<string> accessories = new List<string>()
             {
                 "Glasses-None", "Hats-Any", "Misc-Club", "Mouths-Meh",
                 "ShirtsPants-Any", "Shoes-SneakersRed", "Tails-None"
             };
 
-            double expected = 
+            double expected =
                 0.75 *              // Glasses
                 1 *                 // Hats
                 0.3 * 1 / 11.29 *   // Misc
                 1 * 1 / 5.56 *      // Mouths
-                1 *                 // Shirts Pants
+                1 *                 // Shirts-Pants
                 0.22 * 1 / 6 *      // Shoes
                 (1 - 0.2);          // Tails
             double actual = Accessories.GetMonKeyChance(accessories);
-            Assert.AreEqual(expected, actual, expected * 0.01, "MonKey chance is wrong."); // 1% error is OK.            
+            Assert.AreEqual(expected, actual, expected * 0.01, "MonKey chance is wrong."); // 1% error is OK.          
+
+            // Expert case.
+            accessories = new List<string>()
+            {
+                "Glasses-None", "Hats-Any", "Misc-Club", "Mouths-Meh", "ShirtsPants-Any",
+                "Shoes-SneakersRed", "Shoes-SneakersBlue", "Tails-None"
+            };
+
+            expected =
+                0.75 *              // Glasses
+                1 *                 // Hats
+                0.3 * 1 / 11.29 *   // Misc
+                1 * 1 / 5.56 *      // Mouths
+                1 *                 // Shirts-Pants
+                0.22 * (1 + 1) / 6 *      // Shoes
+                (1 - 0.2);          // Tails
+            actual = Accessories.GetMonKeyChance(accessories);
+            Assert.AreEqual(expected, actual, expected * 0.01, "MonKey chance is wrong."); // 1% error is OK.
         }
 
         [TestMethod]

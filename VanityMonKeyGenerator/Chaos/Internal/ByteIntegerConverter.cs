@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Chaos.NaCl.Internal
 {
@@ -13,7 +12,7 @@ namespace Chaos.NaCl.Internal
         public static UInt32 LoadLittleEndian32(byte[] buf, int offset)
         {
             return
-                (UInt32)(buf[offset + 0])
+                buf[offset + 0]
             | (((UInt32)(buf[offset + 1])) << 8)
             | (((UInt32)(buf[offset + 2])) << 16)
             | (((UInt32)(buf[offset + 3])) << 24);
@@ -30,7 +29,7 @@ namespace Chaos.NaCl.Internal
         public static UInt64 LoadBigEndian64(byte[] buf, int offset)
         {
             return
-                (UInt64)(buf[offset + 7])
+                buf[offset + 7]
                 | (((UInt64)(buf[offset + 6])) << 8)
                 | (((UInt64)(buf[offset + 5])) << 16)
                 | (((UInt64)(buf[offset + 4])) << 24)
