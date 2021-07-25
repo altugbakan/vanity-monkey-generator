@@ -4,9 +4,8 @@ using System.Text;
 using System.Windows.Forms;
 
 using Blake2Fast;
-using Chaos.NaCl.Internal.Ed25519Ref10;
 using VanityAddrGen;
-
+using Chaos.NaCl.Internal.Ed25519Ref10;
 namespace VanityMonKeyGenerator
 {
     public class MonKey

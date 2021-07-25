@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -24,33 +25,110 @@ namespace VanityMonKeyGenerator
             List<string> accessoryList = Properties.Settings.Default.
                 SavedAccessories.Cast<string>().ToList();
 
-            foreach (BetterCheckedListBox checkedListBox in Controls.OfType<BetterCheckedListBox>())
+            Dictionary<string, BetterCheckedListBox> categoryDictionary =
+                new Dictionary<string, BetterCheckedListBox>()
+                {
+                    { "Glasses", glassesCheckedListBox },
+                    { "Hats", hatsCheckedListBox },
+                    { "Misc", miscCheckedListBox },
+                    { "Mouths", mouthsCheckedListBox },
+                    { "ShirtsPants", shirtsPantsCheckedListBox },
+                    { "Shoes", shoesCheckedListBox },
+                    { "Tails", tailsCheckedListBox }
+                };
+
+            foreach (var pair in categoryDictionary)
             {
-                List<string> itemsToCheck = new List<string>();
-                foreach (var item in checkedListBox.Items)
+                foreach (string accessory in accessoryList.Where(acc => acc.Contains(pair.Key)))
                 {
-                    if (accessoryList.Any(accessory => accessory.Contains(
-                        item.ToString().Replace(" ", ""))))
+                    if (accessory.Contains("None"))
                     {
-                        itemsToCheck.Add(item.ToString());
+                        break;
                     }
-                }
-                foreach (string item in itemsToCheck)
-                {
-                    checkedListBox.SetItemChecked(checkedListBox.Items.IndexOf(item), true);
+                    else
+                    {
+                        pair.Value.SetItemChecked(pair.Value.Items.
+                            IndexOf(Regex.Replace(accessory.Split('-').Last(),
+                            "([a-z])([A-Z])", "$1 $2")), true);
+                    }
                 }
             }
 
             rarityLabel.Text = $"Rarity: 1 in {Accessories.GetMonKeyRarity(accessoryList):#,#}";
         }
 
-        private void ExpertButton_Click(object sender, EventArgs e)
+        private List<string> GetAccessories()
+        {
+            List<string> accessories = new List<string>();
+            Dictionary<string, BetterCheckedListBox> categoryDictionary =
+                new Dictionary<string, BetterCheckedListBox>()
+                {
+                    { "Glasses", glassesCheckedListBox },
+                    { "Hats", hatsCheckedListBox },
+                    { "Misc", miscCheckedListBox },
+                    { "Mouths", mouthsCheckedListBox },
+                    { "ShirtsPants", shirtsPantsCheckedListBox },
+                    { "Shoes", shoesCheckedListBox },
+                    { "Tails", tailsCheckedListBox }
+                };
+
+            foreach (var pair in categoryDictionary)
+            {
+                if (pair.Value.CheckedItems.Count == 0)
+                {
+                    if (pair.Key == "Mouths")
+                    {
+                        accessories.Add("Mouths-Any");
+                    }
+                    else
+                    {
+                        accessories.Add($"{pair.Key}-None");
+                    }
+                }
+                else
+                {
+                    foreach (var checkedItem in pair.Value.CheckedItems)
+                    {
+                        accessories.Add($"{pair.Key}-{checkedItem.ToString().Replace(" ", "")}");
+                    }
+                }
+            }
+
+            return accessories;
+        }
+
+        private void OkButton_Click(object sender, EventArgs e)
+        {
+            StringCollection stringCollection = new StringCollection();
+            stringCollection.AddRange(GetAccessories().ToArray());
+            Properties.Settings.Default.SavedAccessories = stringCollection;
+            Properties.Settings.Default.Save();
+            Close();
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void SwitchButton_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.SimpleMode = true;
             Properties.Settings.Default.Save();
             Dispose();
             SimpleSettings simpleSettings = new SimpleSettings();
             simpleSettings.ShowDialog();
+        }
+
+        private void CheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (IsHandleCreated)
+            {
+                BeginInvoke((MethodInvoker)delegate
+                {
+                    rarityLabel.Text = $"Rarity: 1 in {Accessories.GetMonKeyRarity(GetAccessories()):#,#}";
+                });
+            }  
         }
     }
 }

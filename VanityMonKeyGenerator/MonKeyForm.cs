@@ -98,13 +98,14 @@ namespace VanityMonKeyGenerator
             if (monKeySearcher.CancellationPending)
             {
                 e.Cancel = true;
-            }  
+            }
         }
 
         private void MonKeySearcher_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             ProgressResult result = (ProgressResult)e.UserState;
-            searchedLabel.Text = $"Searched {result.Iterations} MonKeys. Expected: {result.Expectation}:#,#";
+            searchedLabel.Text = $"Searched {result.Iterations} MonKeys. " +
+                $"Estimated: {result.Expectation:#,#}";
         }
 
         private void MonKeySearcher_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

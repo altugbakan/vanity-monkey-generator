@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 
 namespace VanityAddrGen
 {
@@ -16,23 +15,6 @@ namespace VanityAddrGen
                 position = 0;
             }
 
-            public int Length
-            {
-                get => position;
-                set => position = value;
-            }
-
-            public void Append(string s)
-            {
-                if (s.Length > buffer.Length - position)
-                    throw new ArgumentOutOfRangeException(nameof(s), $"Length of {nameof(s)} exceeds buffer size.");
-
-                for (int i = 0, c = s.Length; i < c; ++i)
-                    buffer[position + i] = s[i];
-
-                position += s.Length;
-            }
-
             public void Append(char ch)
             {
                 if (position >= buffer.Length)
@@ -40,31 +22,6 @@ namespace VanityAddrGen
 
                 buffer[position] = ch;
                 ++position;
-            }
-
-            public bool StartsWith(string s)
-            {
-                if (s.Length > buffer.Length) return false;
-
-                for (int i = 0, c = s.Length; i < c; ++i)
-                {
-                    if (buffer[i] != s[i]) return false;
-                }
-
-                return true;
-            }
-
-            public bool EndsWith(string s)
-            {
-                if (s.Length > buffer.Length) return false;
-
-                for (int i = 0, c = s.Length; i < c; ++i)
-                {
-                    if (buffer[position - c + i] != s[i])
-                        return false;
-                }
-
-                return true;
             }
 
             public override string ToString()
@@ -113,42 +70,5 @@ namespace VanityAddrGen
             }
             tmp.CopyTo(arr);
         }
-
-        public class Params
-        {
-            public string Keyword;
-            public bool CanMatchPrefix;
-            public bool CanMatchSuffix;
-            public int RandomSeed;
-            public CancellationToken CancellationToken;
-            public Action<string, string> ResultCallback;
-        }
-
-        protected readonly string keyword;
-        protected readonly bool canMatchPrefix;
-        protected readonly bool canMatchSuffix;
-        protected readonly Random random;
-        protected readonly CancellationToken cancellationToken;
-        protected readonly Action<string, string> resultCallback;
-
-        protected long attempts;
-
-        public long Attempts => attempts;
-
-        public string FoundSeed { get; protected set; }
-        public string FoundAddress { get; protected set; }
-
-        public Job(Params @params)
-        {
-            keyword = @params.Keyword;
-            canMatchPrefix = @params.CanMatchPrefix;
-            canMatchSuffix = @params.CanMatchSuffix;
-            random = new Random(@params.RandomSeed);
-            cancellationToken = @params.CancellationToken;
-            resultCallback = @params.ResultCallback;
-            attempts = 0;
-        }
-
-        public abstract void Run(object? arg);
     }
 }
