@@ -127,6 +127,11 @@ namespace VanityMonKeyGenerator
             return true;
         }
 
+        public static ulong GetMonKeyRarity(List<string> accessories)
+        {
+            return (ulong)(1.0 / GetMonKeyChance(accessories));
+        }
+
         public static double GetMonKeyChance(List<string> accessories)
         {
             double chance = 1.0;
@@ -297,7 +302,7 @@ namespace VanityMonKeyGenerator
                 case "Misc-Club":
                     accessoryWeight = 1.0;
                     break;
-                case "Misc-FlameThrower":
+                case "Misc-Flamethrower":
                     accessoryWeight = 0.04;
                     break;
                 case "Misc-GlovesWhite":

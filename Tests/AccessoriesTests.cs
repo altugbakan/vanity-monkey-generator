@@ -187,7 +187,7 @@ namespace Tests
         [TestMethod]
         public void GetMonKeyChanceTest()
         {
-            // Sample Case.
+            // Sample case.
             List<string> accessories = new List<string>()
             {
                 "Glasses-None", "Hats-Any", "Misc-Club", "Mouths-Meh",
@@ -203,7 +203,20 @@ namespace Tests
                 0.22 * 1 / 6 *      // Shoes
                 (1 - 0.2);          // Tails
             double actual = Accessories.GetMonKeyChance(accessories);
-            Assert.AreEqual(expected, actual, expected * 0.01, "MonKey chance is wrong."); // 1% error is OK.
+            Assert.AreEqual(expected, actual, expected * 0.01, "MonKey chance is wrong."); // 1% error is OK.            
+        }
+
+        [TestMethod]
+        public void GetMonKeyRarityTest()
+        {
+            // Rarest case.
+            List<string> accessories = new List<string>()
+            {
+                "Glasses-Monocle", "Hats-BeanieHippie", "Misc-Flamethrower", "Mouths-Joint",
+                "ShirtsPants-BlueOveralls", "Shoes-SneakersBlue", "Tails-TailSock"
+            };
+            ulong actual = Accessories.GetMonKeyRarity(accessories);
+            Assert.AreNotEqual(0, actual, "Rarity is 0");
         }
 
     }

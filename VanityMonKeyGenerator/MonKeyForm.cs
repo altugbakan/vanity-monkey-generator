@@ -69,7 +69,7 @@ namespace VanityMonKeyGenerator
             ulong iterations = 0;
             List<string> requestedAccessories = Properties.Settings.Default.SavedAccessories
                 .Cast<string>().ToList();
-            ulong expectation = (ulong)(1.0 /Accessories.GetMonKeyChance(requestedAccessories));
+            ulong expectation = Accessories.GetMonKeyRarity(requestedAccessories);
             while (!monKeySearcher.CancellationPending)
             {
                 MonKey monKey = new MonKey();
@@ -96,14 +96,7 @@ namespace VanityMonKeyGenerator
         private void MonKeySearcher_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             ProgressResult result = (ProgressResult)e.UserState;
-            if (result.Expectation == 0)
-            {
-                searchedLabel.Text = $"Searched {result.Iterations} MonKeys. Expected: Infinity";
-            }
-            else
-            {
-                searchedLabel.Text = $"Searched {result.Iterations} MonKeys. Expected: {result.Expectation}";
-            }
+            searchedLabel.Text = $"Searched {result.Iterations} MonKeys. Expected: {result.Expectation}:#,#";
         }
 
         private void MonKeySearcher_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

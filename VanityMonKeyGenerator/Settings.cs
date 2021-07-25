@@ -98,6 +98,7 @@ namespace VanityMonKeyGenerator
             }
 
             Drawing.DrawMonKey(GetAccessories(), monKeyPictureBox);
+            rarityLabel.Text = $"Rarity: 1 in {Accessories.GetMonKeyRarity(accessoryList):#,#}";
         }
         private List<string> GetAccessories()
         {
@@ -115,7 +116,13 @@ namespace VanityMonKeyGenerator
 
         private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Drawing.DrawMonKey(GetAccessories(), monKeyPictureBox);
+            // Handle filling when opening the form.
+            if (((ComboBox)sender).CanSelect)
+            {
+                List<string> accessories = GetAccessories();
+                Drawing.DrawMonKey(accessories, monKeyPictureBox);
+                rarityLabel.Text = $"Rarity: 1 in {Accessories.GetMonKeyRarity(accessories):#,#}";
+            }
         }
 
         private void OkButton_Click(object sender, EventArgs e)
@@ -130,6 +137,11 @@ namespace VanityMonKeyGenerator
         private void CancelButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void hatsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 
