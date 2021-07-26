@@ -19,6 +19,13 @@ namespace VanityMonKeyGenerator
         {
             if (Properties.Settings.Default.SavedAccessories == null)
             {
+                glassesCheckedListBox.SetItemChecked(0, true);
+                hatsCheckedListBox.SetItemChecked(0, true);
+                miscCheckedListBox.SetItemChecked(0, true);
+                mouthsCheckedListBox.SetItemChecked(0, true);
+                shirtsPantsCheckedListBox.SetItemChecked(0, true);
+                shoesCheckedListBox.SetItemChecked(0, true);
+                tailsCheckedListBox.SetItemChecked(0, true);
                 return;
             }
 
