@@ -6,6 +6,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>monKey.ico</ApplicationIcon>
     <AssemblyName>Vanity MonKey Generator</AssemblyName>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
