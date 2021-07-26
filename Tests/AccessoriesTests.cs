@@ -35,7 +35,7 @@ namespace Tests
             };
 
             bool result = Accessories.AccessoriesMatching(requestedAccessories, obtainedAccessories);
-            Assert.IsTrue(result, "Accessories do not match.");
+            Assert.IsTrue(result, "Matching case does not match.");
 
             // Any case.
             requestedAccessories = new List<string>()
@@ -61,7 +61,7 @@ namespace Tests
             };
 
             result = Accessories.AccessoriesMatching(requestedAccessories, obtainedAccessories);
-            Assert.IsTrue(result, "Accessories do not match.");
+            Assert.IsTrue(result, "Any case does not match.");
 
             // None case.
             requestedAccessories = new List<string>()
@@ -87,8 +87,9 @@ namespace Tests
             };
 
             result = Accessories.AccessoriesMatching(requestedAccessories, obtainedAccessories);
-            Assert.IsFalse(result, "Accessories match.");
+            Assert.IsFalse(result, "None case does match.");
 
+            // Single case.
             requestedAccessories = new List<string>()
             {
                 "Glasses-None",
@@ -106,7 +107,53 @@ namespace Tests
             };
 
             result = Accessories.AccessoriesMatching(requestedAccessories, obtainedAccessories);
-            Assert.IsTrue(result, "Accessories do not match.");
+            Assert.IsTrue(result, "Single case does not match.");
+
+            // Multiple case.
+            requestedAccessories = new List<string>()
+            {
+                "Glasses-GlassesNerdCyan", "Glasses-GlassesNerdPink",
+                "Hats-None",
+                "Misc-Bowtie", "Misc-Camera",
+                "Mouths-SmileBigTeeth",
+                "ShirtsPants-None",
+                "Shoes-SneakersBlue", "Shoes-SneakersGreen", "Shoes-SneakersRed",
+                "Tails-None"
+            };
+
+            obtainedAccessories = new List<string>()
+            {
+                "Glasses-GlassesNerdPink",
+                "Misc-Bowtie",
+                "Mouths-SmileBigTeeth",
+                "Shoes-SneakersGreen"
+            };
+
+            result = Accessories.AccessoriesMatching(requestedAccessories, obtainedAccessories);
+            Assert.IsTrue(result, "Multiple case does not match.");
+
+            // Multiple missing case.
+            requestedAccessories = new List<string>()
+            {
+                "Glasses-GlassesNerdCyan", "Glasses-GlassesNerdPink",
+                "Hats-Fedora", "Hats-FedoraLong",
+                "Misc-Bowtie", "Misc-Camera",
+                "Mouths-SmileBigTeeth",
+                "ShirtsPants-None",
+                "Shoes-SneakersBlue", "Shoes-SneakersGreen", "Shoes-SneakersRed",
+                "Tails-None"
+            };
+
+            obtainedAccessories = new List<string>()
+            {
+                "Glasses-GlassesNerdPink",
+                "Misc-Bowtie",
+                "Mouths-SmileBigTeeth",
+                "Shoes-SneakersGreen"
+            };
+
+            result = Accessories.AccessoriesMatching(requestedAccessories, obtainedAccessories);
+            Assert.IsFalse(result, "Multiple missing case does match.");
         }
 
 

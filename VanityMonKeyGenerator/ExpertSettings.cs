@@ -41,7 +41,15 @@ namespace VanityMonKeyGenerator
             {
                 foreach (string accessory in accessoryList.Where(acc => acc.Contains(pair.Key)))
                 {
-                    if (accessory.Contains("None"))
+                    if (accessory.Contains("Any"))
+                    {
+                        for (int i = 0; i < pair.Value.Items.Count; i++)
+                        {
+                            pair.Value.SetItemChecked(i, true);
+                        }
+                        break;
+                    }
+                    else if (accessory.Contains("None"))
                     {
                         break;
                     }
