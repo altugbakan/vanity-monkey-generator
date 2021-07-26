@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Windows.Forms;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace VanityMonKeyGenerator
 {
-    public partial class Settings : Form
+    public partial class SimpleSettings : Form
     {
-        public Settings()
+        public SimpleSettings()
         {
             InitializeComponent();
             LoadSavedMonKey();
@@ -32,19 +32,11 @@ namespace VanityMonKeyGenerator
                 glassesComboBox.Text = Regex.Replace(accessoryList.First(acc => acc.Contains("Glasses"))
                     .Replace("Glasses-", ""), "([a-z])([A-Z])", "$1 $2");
             }
-            else
-            {
-                glassesComboBox.Text = "None";
-            }
             // Hats
             if (accessoryList.Any(acc => acc.Contains("Hats")))
             {
                 hatsComboBox.Text = Regex.Replace(accessoryList.First(acc => acc.Contains("Hats"))
                     .Replace("Hats-", ""), "([a-z])([A-Z])", "$1 $2");
-            }
-            else
-            {
-                hatsComboBox.Text = "None";
             }
             // Misc
             if (accessoryList.Any(acc => acc.Contains("Misc")))
@@ -52,19 +44,11 @@ namespace VanityMonKeyGenerator
                 miscComboBox.Text = Regex.Replace(accessoryList.First(acc => acc.Contains("Misc"))
                     .Replace("Misc-", ""), "([a-z])([A-Z])", "$1 $2");
             }
-            else
-            {
-                miscComboBox.Text = "None";
-            }
             // Mouths
             if (accessoryList.Any(acc => acc.Contains("Mouths")))
             {
                 mouthsComboBox.Text = Regex.Replace(accessoryList.First(acc => acc.Contains("Mouths"))
                     .Replace("Mouths-", ""), "([a-z])([A-Z])", "$1 $2");
-            }
-            else
-            {
-                mouthsComboBox.Text = "None";
             }
             // ShirtsPants
             if (accessoryList.Any(acc => acc.Contains("ShirtsPants")))
@@ -72,19 +56,11 @@ namespace VanityMonKeyGenerator
                 shirtPantsComboBox.Text = Regex.Replace(accessoryList.First(acc => acc.Contains("ShirtsPants"))
                     .Replace("ShirtsPants-", ""), "([a-z])([A-Z])", "$1 $2");
             }
-            else
-            {
-                shirtPantsComboBox.Text = "None";
-            }
             // Shoes
             if (accessoryList.Any(acc => acc.Contains("Shoes")))
             {
                 shoesComboBox.Text = Regex.Replace(accessoryList.First(acc => acc.Contains("Shoes"))
                     .Replace("Shoes-", ""), "([a-z])([A-Z])", "$1 $2");
-            }
-            else
-            {
-                shoesComboBox.Text = "None";
             }
             // Tails
             if (accessoryList.Any(acc => acc.Contains("Tails")))
@@ -92,25 +68,22 @@ namespace VanityMonKeyGenerator
                 tailsComboBox.Text = Regex.Replace(accessoryList.First(acc => acc.Contains("Tails"))
                     .Replace("Tails-", ""), "([a-z])([A-Z])", "$1 $2");
             }
-            else
-            {
-                tailsComboBox.Text = "None";
-            }
 
-            Drawing.DrawMonKey(GetAccessories(), monKeyPictureBox);
+            accessoryList = GetAccessories();
+            Drawing.DrawMonKey(accessoryList, monKeyPictureBox);
             rarityLabel.Text = $"Rarity: 1 in {Accessories.GetMonKeyRarity(accessoryList):#,#}";
         }
         private List<string> GetAccessories()
         {
             return new List<string>()
             {
-                "Glasses-" + glassesComboBox.Text.Replace(" ", ""),
-                "Hats-" + hatsComboBox.Text.Replace(" ", ""),
-                "Misc-" + miscComboBox.Text.Replace(" ", ""),
-                "Mouths-" + mouthsComboBox.Text.Replace(" ", ""),
-                "ShirtsPants-" + shirtPantsComboBox.Text.Replace(" ", ""),
-                "Shoes-" + shoesComboBox.Text.Replace(" ", ""),
-                "Tails-" + tailsComboBox.Text.Replace(" ", ""),
+                $"Glasses-{glassesComboBox.Text.Replace(" ", "")}",
+                $"Hats-{hatsComboBox.Text.Replace(" ", "")}",
+                $"Misc-{miscComboBox.Text.Replace(" ", "")}",
+                $"Mouths-{mouthsComboBox.Text.Replace(" ", "")}",
+                $"ShirtsPants-{shirtPantsComboBox.Text.Replace(" ", "")}",
+                $"Shoes-{shoesComboBox.Text.Replace(" ", "")}",
+                $"Tails-{tailsComboBox.Text.Replace(" ", "")}",
             };
         }
 
@@ -137,6 +110,15 @@ namespace VanityMonKeyGenerator
         private void CancelButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void SwitchButton_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.SimpleMode = false;
+            Properties.Settings.Default.Save();
+            Dispose();
+            ExpertSettings expertSettings = new ExpertSettings();
+            expertSettings.ShowDialog();
         }
     }
 

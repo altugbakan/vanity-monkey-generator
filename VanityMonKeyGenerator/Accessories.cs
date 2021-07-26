@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Resources;
 using System.Xml;
-using System.Linq;
 using VanityMonKeyGenerator.Properties;
 
 using Svg;
@@ -35,6 +35,7 @@ namespace VanityMonKeyGenerator
             {
                 accessories.Remove("Misc-BananaRightHand");
             }
+            // Remove body parts.
             accessories.RemoveAll(accessory => !accessory.Contains("-"));
             return accessories;
         }
@@ -107,23 +108,45 @@ namespace VanityMonKeyGenerator
         public static bool AccessoriesMatching(List<string> requestedAccessories,
             List<string> obtainedAccessories)
         {
-            foreach (string accessory in requestedAccessories.Where(
-                accessory => !accessory.Contains("Any") && !accessory.Contains("None")))
+            List<string> categories = new List<string>()
             {
-                if (!obtainedAccessories.Contains(accessory))
+                "Glasses", "Hats", "Misc", "Mouths",
+                "ShirtsPants", "Shoes", "Tails"
+            };
+
+            foreach (string category in categories)
+            {
+                if (requestedAccessories.Where(acc => acc.Contains(category)).
+                        Any(acc => acc.Contains("Any")))
                 {
-                    return false;
+                    continue;
+                }
+                else if (requestedAccessories.Where(acc => acc.Contains(category)).
+                            Any(acc => acc.Contains("None")))
+                {
+                    if (obtainedAccessories.Any(acc => acc.Contains(category)))
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+                else
+                {
+                    if (requestedAccessories.Where(acc => acc.Contains(category)).
+                        Any(acc => obtainedAccessories.Contains(acc)))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
             }
-            foreach (string accessory in requestedAccessories.Where(
-                accessory => accessory.Contains("None")))
-            {
-                if (obtainedAccessories.Any(obtainedAccessory =>
-                        obtainedAccessory.StartsWith(GetCategory(accessory))))
-                {
-                    return false;
-                }
-            }
+
             return true;
         }
 
@@ -135,9 +158,23 @@ namespace VanityMonKeyGenerator
         public static double GetMonKeyChance(List<string> accessories)
         {
             double chance = 1.0;
-            foreach (string accessory in accessories)
+            List<string> categories = new List<string>()
             {
-                chance *= GetAccessoryChance(accessory);
+                "Glasses", "Hats", "Misc", "Mouths",
+                "ShirtsPants", "Shoes", "Tails"
+            };
+
+            foreach (string category in categories)
+            {
+                double totalCategoryChance = 0.0;
+                foreach (string accessory in accessories.Where(acc => acc.Contains(category)))
+                {
+                    totalCategoryChance += GetAccessoryChance(accessory);
+                }
+                if (totalCategoryChance > 0.0)
+                {
+                    chance *= totalCategoryChance;
+                }
             }
             return chance;
         }
@@ -152,12 +189,12 @@ namespace VanityMonKeyGenerator
             {
                 return 1.0 - GetCategoryChance(accessory);
             }
-            return GetCategoryChance(accessory) * GetAccessoryWeight(accessory); 
+            return GetCategoryChance(accessory) * GetAccessoryWeight(accessory);
         }
 
         private static double GetCategoryChance(string accessory)
         {
-            switch (GetCategory(accessory))
+            switch (accessory.Category())
             {
                 case "Glasses":
                     return 0.25;
@@ -176,7 +213,7 @@ namespace VanityMonKeyGenerator
                 default:
                     return 0.0;
             }
-            
+
         }
 
         private static double GetAccessoryWeight(string accessory)
@@ -394,7 +431,7 @@ namespace VanityMonKeyGenerator
 
         private static double GetCategoryWeight(string accessory)
         {
-            switch (GetCategory(accessory))
+            switch (accessory.Category())
             {
                 case "Glasses":
                     return 8.0;
@@ -415,9 +452,14 @@ namespace VanityMonKeyGenerator
             }
         }
 
-        private static string GetCategory(string accessory)
+        private static string Category(this string accessory)
         {
-            return accessory.Remove(accessory.IndexOf('-'));
+            return accessory.Split('-').First();
+        }
+
+        private static string OnlyAccessory(this string accessory)
+        {
+            return accessory.Split('-').Last();
         }
     }
 }

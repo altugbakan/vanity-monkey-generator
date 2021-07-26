@@ -36,7 +36,7 @@ namespace VanityMonKeyGenerator
                     " specific MonKey. Want to create one?", "Warning", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        Settings settingsForm = new Settings();
+                        SimpleSettings settingsForm = new SimpleSettings();
                         settingsForm.ShowDialog();
                     }
                     else
@@ -60,8 +60,16 @@ namespace VanityMonKeyGenerator
         }
         private void SettingsButton_Click(object sender, EventArgs e)
         {
-            Settings settingsForm = new Settings();
-            settingsForm.ShowDialog();
+            if (Properties.Settings.Default.SimpleMode)
+            {
+                SimpleSettings simpleSettings = new SimpleSettings();
+                simpleSettings.ShowDialog();
+            }
+            else
+            {
+                ExpertSettings expertSettings = new ExpertSettings();
+                expertSettings.ShowDialog();
+            }
         }
 
         private void MonKeySearcher_DoWork(object sender, DoWorkEventArgs e)
@@ -90,13 +98,14 @@ namespace VanityMonKeyGenerator
             if (monKeySearcher.CancellationPending)
             {
                 e.Cancel = true;
-            }  
+            }
         }
 
         private void MonKeySearcher_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             ProgressResult result = (ProgressResult)e.UserState;
-            searchedLabel.Text = $"Searched {result.Iterations} MonKeys. Expected: {result.Expectation}:#,#";
+            searchedLabel.Text = $"Searched {result.Iterations} MonKeys. " +
+                $"Estimated: {result.Expectation:#,#}";
         }
 
         private void MonKeySearcher_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
