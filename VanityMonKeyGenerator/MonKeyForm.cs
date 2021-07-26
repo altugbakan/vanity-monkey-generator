@@ -30,7 +30,7 @@ namespace VanityMonKeyGenerator
         {
             if (findSpecificMonKeyButton.Text == "Find Specific MonKey")
             {
-                if (Properties.Settings.Default.SavedAccessories == null)
+                while (Properties.Settings.Default.SavedAccessories == null)
                 {
                     DialogResult dialogResult = MessageBox.Show("Seems like you haven't yet created a" +
                     " specific MonKey. Want to create one?", "Warning", MessageBoxButtons.YesNo);
