@@ -56,7 +56,7 @@ namespace Tests
                 "Misc-NecklaceBoss",
                 "Mouths-SmileBigTeeth",
                 "ShirtsPants-TshirtShortWhite",
-                // No shoes.
+                "Shoes-None",
                 "Tails-TailSock"
             };
 
@@ -103,7 +103,13 @@ namespace Tests
 
             obtainedAccessories = new List<string>()
             {
+                "Glasses-None",
+                "Hats-None",
+                "Misc-None",
                 "Mouths-SmileBigTeeth",
+                "ShirtsPants-None",
+                "Shoes-None",
+                "Tails-None"
             };
 
             result = Accessories.AccessoriesMatching(requestedAccessories, obtainedAccessories);
@@ -124,9 +130,12 @@ namespace Tests
             obtainedAccessories = new List<string>()
             {
                 "Glasses-GlassesNerdPink",
+                "Hats-None",
                 "Misc-Bowtie",
                 "Mouths-SmileBigTeeth",
-                "Shoes-SneakersGreen"
+                "ShirtsPants-None",
+                "Shoes-SneakersGreen",
+                "Tails-None"
             };
 
             result = Accessories.AccessoriesMatching(requestedAccessories, obtainedAccessories);
@@ -147,26 +156,55 @@ namespace Tests
             obtainedAccessories = new List<string>()
             {
                 "Glasses-GlassesNerdPink",
+                "Hats-None",
                 "Misc-Bowtie",
                 "Mouths-SmileBigTeeth",
-                "Shoes-SneakersGreen"
+                "ShirtsPants-None",
+                "Shoes-SneakersGreen",
+                "Tails-None"
             };
 
             result = Accessories.AccessoriesMatching(requestedAccessories, obtainedAccessories);
             Assert.IsFalse(result, "Multiple missing case does match.");
+
+            // Multiple none case.
+            requestedAccessories = new List<string>()
+            {
+                "Glasses-GlassesNerdCyan", "Glasses-GlassesNerdPink",
+                "Hats-None","Hats-Crown",
+                "Misc-Bowtie", "Misc-Camera", "Misc-None",
+                "Mouths-SmileBigTeeth",
+                "ShirtsPants-None",
+                "Shoes-SneakersBlue", "Shoes-SneakersGreen", "Shoes-SneakersRed",
+                "Tails-None"
+            };
+
+            obtainedAccessories = new List<string>()
+            {
+                "Glasses-GlassesNerdPink",
+                "Hats-None",
+                "Misc-Bowtie",
+                "Mouths-SmileBigTeeth",
+                "ShirtsPants-None",
+                "Shoes-SneakersGreen",
+                "Tails-None"
+            };
+
+            result = Accessories.AccessoriesMatching(requestedAccessories, obtainedAccessories);
+            Assert.IsTrue(result, "Multiple none case does not match.");
         }
 
 
         [TestMethod]
         public void ObtainedAcessoriesTest()
         {
-            // Meh, Cap Carlos, Bowtie, Overalls Red, Tail Sock
+            // No Glasses, Cap Carlos, Bowtie, Meh, Overalls Red, No Shoes, Tail Sock
             string svg = Properties.Resources.ban_16ixhfsdx8xha4btc83d3d666uq5fnf5fbeu9xoy4idua3bdifyjia4n7ewh;
 
             List<string> expected = new List<string>()
             {
-                "Mouths-Meh", "Hats-CapCarlos", "Misc-Bowtie",
-                "ShirtsPants-OverallsRed", "Tails-TailSock"
+                "Glasses-None", "Hats-CapCarlos", "Misc-Bowtie", "Mouths-Meh", 
+                "ShirtsPants-OverallsRed", "Shoes-None", "Tails-TailSock"
             };
 
             List<string> actual = Accessories.ObtainedAccessories(svg);

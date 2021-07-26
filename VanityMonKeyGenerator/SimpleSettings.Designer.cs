@@ -37,7 +37,7 @@ namespace VanityMonKeyGenerator
             this.miscLabel = new System.Windows.Forms.Label();
             this.mouthsComboBox = new System.Windows.Forms.ComboBox();
             this.mouthsLabel = new System.Windows.Forms.Label();
-            this.shirtPantsComboBox = new System.Windows.Forms.ComboBox();
+            this.shirtsPantsComboBox = new System.Windows.Forms.ComboBox();
             this.shirtsPantsLabel = new System.Windows.Forms.Label();
             this.shoesComboBox = new System.Windows.Forms.ComboBox();
             this.shoesLabel = new System.Windows.Forms.Label();
@@ -203,8 +203,8 @@ namespace VanityMonKeyGenerator
             // 
             // shirtPantsComboBox
             // 
-            this.shirtPantsComboBox.FormattingEnabled = true;
-            this.shirtPantsComboBox.Items.AddRange(new object[] {
+            this.shirtsPantsComboBox.FormattingEnabled = true;
+            this.shirtsPantsComboBox.Items.AddRange(new object[] {
             "Any",
             "None",
             "Overalls Blue",
@@ -213,13 +213,13 @@ namespace VanityMonKeyGenerator
             "Pants Flower",
             "Tshirt Long Stripes",
             "Tshirt Short White"});
-            this.shirtPantsComboBox.Location = new System.Drawing.Point(22, 227);
-            this.shirtPantsComboBox.Margin = new System.Windows.Forms.Padding(2);
-            this.shirtPantsComboBox.Name = "shirtPantsComboBox";
-            this.shirtPantsComboBox.Size = new System.Drawing.Size(156, 23);
-            this.shirtPantsComboBox.TabIndex = 8;
-            this.shirtPantsComboBox.Text = "Any";
-            this.shirtPantsComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
+            this.shirtsPantsComboBox.Location = new System.Drawing.Point(22, 227);
+            this.shirtsPantsComboBox.Margin = new System.Windows.Forms.Padding(2);
+            this.shirtsPantsComboBox.Name = "shirtPantsComboBox";
+            this.shirtsPantsComboBox.Size = new System.Drawing.Size(156, 23);
+            this.shirtsPantsComboBox.TabIndex = 8;
+            this.shirtsPantsComboBox.Text = "Any";
+            this.shirtsPantsComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
             // 
             // shirtsPantsLabel
             // 
@@ -350,7 +350,7 @@ namespace VanityMonKeyGenerator
             this.Controls.Add(this.shoesLabel);
             this.Controls.Add(this.shoesComboBox);
             this.Controls.Add(this.shirtsPantsLabel);
-            this.Controls.Add(this.shirtPantsComboBox);
+            this.Controls.Add(this.shirtsPantsComboBox);
             this.Controls.Add(this.mouthsLabel);
             this.Controls.Add(this.mouthsComboBox);
             this.Controls.Add(this.miscLabel);
@@ -381,7 +381,7 @@ namespace VanityMonKeyGenerator
         private System.Windows.Forms.Label miscLabel;
         private System.Windows.Forms.ComboBox mouthsComboBox;
         private System.Windows.Forms.Label mouthsLabel;
-        private System.Windows.Forms.ComboBox shirtPantsComboBox;
+        private System.Windows.Forms.ComboBox shirtsPantsComboBox;
         private System.Windows.Forms.Label shirtsPantsLabel;
         private System.Windows.Forms.ComboBox shoesComboBox;
         private System.Windows.Forms.Label shoesLabel;

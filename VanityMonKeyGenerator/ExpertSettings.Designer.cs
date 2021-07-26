@@ -52,7 +52,7 @@ namespace VanityMonKeyGenerator
             // glassesLabel
             // 
             this.glassesLabel.AutoSize = true;
-            this.glassesLabel.Location = new System.Drawing.Point(440, 44);
+            this.glassesLabel.Location = new System.Drawing.Point(440, 47);
             this.glassesLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.glassesLabel.Name = "glassesLabel";
             this.glassesLabel.Size = new System.Drawing.Size(45, 15);
@@ -72,7 +72,7 @@ namespace VanityMonKeyGenerator
             // miscLabel
             // 
             this.miscLabel.AutoSize = true;
-            this.miscLabel.Location = new System.Drawing.Point(448, 227);
+            this.miscLabel.Location = new System.Drawing.Point(448, 253);
             this.miscLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.miscLabel.Name = "miscLabel";
             this.miscLabel.Size = new System.Drawing.Size(32, 15);
@@ -92,7 +92,7 @@ namespace VanityMonKeyGenerator
             // shirtsPantsLabel
             // 
             this.shirtsPantsLabel.AutoSize = true;
-            this.shirtsPantsLabel.Location = new System.Drawing.Point(244, 179);
+            this.shirtsPantsLabel.Location = new System.Drawing.Point(244, 188);
             this.shirtsPantsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.shirtsPantsLabel.Name = "shirtsPantsLabel";
             this.shirtsPantsLabel.Size = new System.Drawing.Size(70, 15);
@@ -102,7 +102,7 @@ namespace VanityMonKeyGenerator
             // shoesLabel
             // 
             this.shoesLabel.AutoSize = true;
-            this.shoesLabel.Location = new System.Drawing.Point(260, 311);
+            this.shoesLabel.Location = new System.Drawing.Point(260, 347);
             this.shoesLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.shoesLabel.Name = "shoesLabel";
             this.shoesLabel.Size = new System.Drawing.Size(38, 15);
@@ -112,7 +112,7 @@ namespace VanityMonKeyGenerator
             // tailsLabel
             // 
             this.tailsLabel.AutoSize = true;
-            this.tailsLabel.Location = new System.Drawing.Point(265, 443);
+            this.tailsLabel.Location = new System.Drawing.Point(265, 506);
             this.tailsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tailsLabel.Name = "tailsLabel";
             this.tailsLabel.Size = new System.Drawing.Size(29, 15);
@@ -121,7 +121,7 @@ namespace VanityMonKeyGenerator
             // 
             // switchButton
             // 
-            this.switchButton.Location = new System.Drawing.Point(406, 14);
+            this.switchButton.Location = new System.Drawing.Point(406, 12);
             this.switchButton.Name = "switchButton";
             this.switchButton.Size = new System.Drawing.Size(139, 23);
             this.switchButton.TabIndex = 20;
@@ -134,6 +134,7 @@ namespace VanityMonKeyGenerator
             this.hatsCheckedListBox.CheckOnClick = true;
             this.hatsCheckedListBox.FormattingEnabled = true;
             this.hatsCheckedListBox.Items.AddRange(new object[] {
+            "None",
             "Bandana",
             "Beanie",
             "Beanie Banano",
@@ -161,7 +162,7 @@ namespace VanityMonKeyGenerator
             "Helmet Viking"});
             this.hatsCheckedListBox.Location = new System.Drawing.Point(12, 27);
             this.hatsCheckedListBox.Name = "hatsCheckedListBox";
-            this.hatsCheckedListBox.Size = new System.Drawing.Size(165, 454);
+            this.hatsCheckedListBox.Size = new System.Drawing.Size(165, 472);
             this.hatsCheckedListBox.TabIndex = 22;
             this.hatsCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CheckedListBox_ItemCheck);
             // 
@@ -189,15 +190,16 @@ namespace VanityMonKeyGenerator
             this.shirtsPantsCheckedListBox.CheckOnClick = true;
             this.shirtsPantsCheckedListBox.FormattingEnabled = true;
             this.shirtsPantsCheckedListBox.Items.AddRange(new object[] {
+            "None",
             "Overalls Blue",
             "Overalls Red",
             "Pants Business Blue",
             "Pants Flower",
             "Tshirt Long Stripes",
             "Tshirt Short White"});
-            this.shirtsPantsCheckedListBox.Location = new System.Drawing.Point(197, 197);
+            this.shirtsPantsCheckedListBox.Location = new System.Drawing.Point(197, 204);
             this.shirtsPantsCheckedListBox.Name = "shirtsPantsCheckedListBox";
-            this.shirtsPantsCheckedListBox.Size = new System.Drawing.Size(165, 112);
+            this.shirtsPantsCheckedListBox.Size = new System.Drawing.Size(165, 130);
             this.shirtsPantsCheckedListBox.TabIndex = 24;
             this.shirtsPantsCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CheckedListBox_ItemCheck);
             // 
@@ -206,15 +208,16 @@ namespace VanityMonKeyGenerator
             this.shoesCheckedListBox.CheckOnClick = true;
             this.shoesCheckedListBox.FormattingEnabled = true;
             this.shoesCheckedListBox.Items.AddRange(new object[] {
+            "None",
             "Sneakers Blue",
             "Sneakers Green",
             "Sneakers Red",
             "Sneakers Swagger",
             "Socks H Stripe",
             "Socks V Stripe"});
-            this.shoesCheckedListBox.Location = new System.Drawing.Point(197, 327);
+            this.shoesCheckedListBox.Location = new System.Drawing.Point(197, 363);
             this.shoesCheckedListBox.Name = "shoesCheckedListBox";
-            this.shoesCheckedListBox.Size = new System.Drawing.Size(165, 112);
+            this.shoesCheckedListBox.Size = new System.Drawing.Size(165, 130);
             this.shoesCheckedListBox.TabIndex = 25;
             this.shoesCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CheckedListBox_ItemCheck);
             // 
@@ -223,10 +226,11 @@ namespace VanityMonKeyGenerator
             this.tailsCheckedListBox.CheckOnClick = true;
             this.tailsCheckedListBox.FormattingEnabled = true;
             this.tailsCheckedListBox.Items.AddRange(new object[] {
+            "None",
             "Tail Sock"});
-            this.tailsCheckedListBox.Location = new System.Drawing.Point(197, 459);
+            this.tailsCheckedListBox.Location = new System.Drawing.Point(197, 522);
             this.tailsCheckedListBox.Name = "tailsCheckedListBox";
-            this.tailsCheckedListBox.Size = new System.Drawing.Size(165, 22);
+            this.tailsCheckedListBox.Size = new System.Drawing.Size(165, 40);
             this.tailsCheckedListBox.TabIndex = 26;
             this.tailsCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CheckedListBox_ItemCheck);
             // 
@@ -235,6 +239,7 @@ namespace VanityMonKeyGenerator
             this.glassesCheckedListBox.CheckOnClick = true;
             this.glassesCheckedListBox.FormattingEnabled = true;
             this.glassesCheckedListBox.Items.AddRange(new object[] {
+            "None",
             "Eye Patch",
             "Glasses Nerd Cyan",
             "Glasses Nerd Green",
@@ -244,9 +249,9 @@ namespace VanityMonKeyGenerator
             "Sunglasses Aviator Green",
             "Sunglasses Aviator Yellow",
             "Sunglasses Thug"});
-            this.glassesCheckedListBox.Location = new System.Drawing.Point(380, 60);
+            this.glassesCheckedListBox.Location = new System.Drawing.Point(380, 63);
             this.glassesCheckedListBox.Name = "glassesCheckedListBox";
-            this.glassesCheckedListBox.Size = new System.Drawing.Size(165, 166);
+            this.glassesCheckedListBox.Size = new System.Drawing.Size(165, 184);
             this.glassesCheckedListBox.TabIndex = 27;
             this.glassesCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CheckedListBox_ItemCheck);
             // 
@@ -255,6 +260,7 @@ namespace VanityMonKeyGenerator
             this.miscCheckedListBox.CheckOnClick = true;
             this.miscCheckedListBox.FormattingEnabled = true;
             this.miscCheckedListBox.Items.AddRange(new object[] {
+            "None",
             "Banana Hands",
             "Banana Right Hand",
             "Bowtie",
@@ -268,23 +274,23 @@ namespace VanityMonKeyGenerator
             "Tie Cyan",
             "Tie Pink",
             "Whisky Right"});
-            this.miscCheckedListBox.Location = new System.Drawing.Point(382, 243);
+            this.miscCheckedListBox.Location = new System.Drawing.Point(382, 269);
             this.miscCheckedListBox.Name = "miscCheckedListBox";
-            this.miscCheckedListBox.Size = new System.Drawing.Size(165, 238);
+            this.miscCheckedListBox.Size = new System.Drawing.Size(165, 256);
             this.miscCheckedListBox.TabIndex = 28;
             this.miscCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CheckedListBox_ItemCheck);
             // 
             // rarityLabel
             // 
-            this.rarityLabel.Location = new System.Drawing.Point(62, 496);
+            this.rarityLabel.Location = new System.Drawing.Point(12, 542);
             this.rarityLabel.Name = "rarityLabel";
-            this.rarityLabel.Size = new System.Drawing.Size(300, 20);
+            this.rarityLabel.Size = new System.Drawing.Size(165, 20);
             this.rarityLabel.TabIndex = 31;
-            this.rarityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.rarityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(469, 494);
+            this.cancelButton.Location = new System.Drawing.Point(469, 537);
             this.cancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(78, 25);
@@ -295,7 +301,7 @@ namespace VanityMonKeyGenerator
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(373, 494);
+            this.okButton.Location = new System.Drawing.Point(382, 537);
             this.okButton.Margin = new System.Windows.Forms.Padding(2);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(78, 25);
@@ -308,7 +314,7 @@ namespace VanityMonKeyGenerator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(565, 527);
+            this.ClientSize = new System.Drawing.Size(565, 568);
             this.Controls.Add(this.rarityLabel);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);

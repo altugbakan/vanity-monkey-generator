@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Resources;
 using System.Xml;
+using System.Text.RegularExpressions;
 using VanityMonKeyGenerator.Properties;
 
 using Svg;
@@ -37,6 +38,14 @@ namespace VanityMonKeyGenerator
             }
             // Remove body parts.
             accessories.RemoveAll(accessory => !accessory.Contains("-"));
+            // Add none accessories.
+            foreach (string category in categories)
+            {
+                if (!accessories.Any(acc => acc.Contains(category)))
+                {
+                    accessories.Add($"{category}-None");
+                }
+            }
             return accessories;
         }
 
@@ -108,11 +117,7 @@ namespace VanityMonKeyGenerator
         public static bool AccessoriesMatching(List<string> requestedAccessories,
             List<string> obtainedAccessories)
         {
-            List<string> categories = new List<string>()
-            {
-                "Glasses", "Hats", "Misc", "Mouths",
-                "ShirtsPants", "Shoes", "Tails"
-            };
+            
 
             foreach (string category in categories)
             {
@@ -120,18 +125,6 @@ namespace VanityMonKeyGenerator
                         Any(acc => acc.Contains("Any")))
                 {
                     continue;
-                }
-                else if (requestedAccessories.Where(acc => acc.Contains(category)).
-                            Any(acc => acc.Contains("None")))
-                {
-                    if (obtainedAccessories.Any(acc => acc.Contains(category)))
-                    {
-                        return false;
-                    }
-                    else
-                    {
-                        continue;
-                    }
                 }
                 else
                 {
@@ -457,9 +450,21 @@ namespace VanityMonKeyGenerator
             return accessory.Split('-').First();
         }
 
-        private static string OnlyAccessory(this string accessory)
+        public static string OnlyAccessory(this string accessory)
         {
             return accessory.Split('-').Last();
         }
+
+        public static string RemoveSpaces(this string accessory)
+        {
+            return Regex.Replace(accessory.Split('-').Last(),
+                            "([A-Z])", " $1").TrimStart();
+        }
+
+        private static List<string> categories = new List<string>()
+        {
+                "Glasses", "Hats", "Misc", "Mouths",
+                "ShirtsPants", "Shoes", "Tails"
+        };
     }
 }

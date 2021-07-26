@@ -49,15 +49,11 @@ namespace VanityMonKeyGenerator
                         }
                         break;
                     }
-                    else if (accessory.Contains("None"))
-                    {
-                        break;
-                    }
                     else
                     {
                         pair.Value.SetItemChecked(pair.Value.Items.
                             IndexOf(Regex.Replace(accessory.Split('-').Last(),
-                            "([a-z])([A-Z])", "$1 $2")), true);
+                            "([A-Z])", " $1").TrimStart()), true);
                     }
                 }
             }
@@ -82,16 +78,9 @@ namespace VanityMonKeyGenerator
 
             foreach (var pair in categoryDictionary)
             {
-                if (pair.Value.CheckedItems.Count == 0)
+                if (pair.Value.CheckedItems.Count == pair.Value.Items.Count)
                 {
-                    if (pair.Key == "Mouths")
-                    {
-                        accessories.Add("Mouths-Any");
-                    }
-                    else
-                    {
-                        accessories.Add($"{pair.Key}-None");
-                    }
+                    accessories.Add($"{pair.Key}-Any");
                 }
                 else
                 {

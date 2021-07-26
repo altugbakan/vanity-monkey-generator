@@ -23,50 +23,28 @@ namespace VanityMonKeyGenerator
                 return;
             }
 
+            Dictionary<string, ComboBox> categoryDictionary =
+                new Dictionary<string, ComboBox>()
+                {
+                    { "Glasses", glassesComboBox },
+                    { "Hats", hatsComboBox },
+                    { "Misc", miscComboBox },
+                    { "Mouths", mouthsComboBox },
+                    { "ShirtsPants", shirtsPantsComboBox },
+                    { "Shoes", shoesComboBox },
+                    { "Tails", tailsComboBox }
+                };
+
             List<string> accessoryList = Properties.Settings.Default.
                 SavedAccessories.Cast<string>().ToList();
 
-            // Glasses
-            if (accessoryList.Any(acc => acc.Contains("Glasses")))
+            foreach (var pair in categoryDictionary)
             {
-                glassesComboBox.Text = Regex.Replace(accessoryList.First(acc => acc.Contains("Glasses"))
-                    .Replace("Glasses-", ""), "([a-z])([A-Z])", "$1 $2");
-            }
-            // Hats
-            if (accessoryList.Any(acc => acc.Contains("Hats")))
-            {
-                hatsComboBox.Text = Regex.Replace(accessoryList.First(acc => acc.Contains("Hats"))
-                    .Replace("Hats-", ""), "([a-z])([A-Z])", "$1 $2");
-            }
-            // Misc
-            if (accessoryList.Any(acc => acc.Contains("Misc")))
-            {
-                miscComboBox.Text = Regex.Replace(accessoryList.First(acc => acc.Contains("Misc"))
-                    .Replace("Misc-", ""), "([a-z])([A-Z])", "$1 $2");
-            }
-            // Mouths
-            if (accessoryList.Any(acc => acc.Contains("Mouths")))
-            {
-                mouthsComboBox.Text = Regex.Replace(accessoryList.First(acc => acc.Contains("Mouths"))
-                    .Replace("Mouths-", ""), "([a-z])([A-Z])", "$1 $2");
-            }
-            // ShirtsPants
-            if (accessoryList.Any(acc => acc.Contains("ShirtsPants")))
-            {
-                shirtPantsComboBox.Text = Regex.Replace(accessoryList.First(acc => acc.Contains("ShirtsPants"))
-                    .Replace("ShirtsPants-", ""), "([a-z])([A-Z])", "$1 $2");
-            }
-            // Shoes
-            if (accessoryList.Any(acc => acc.Contains("Shoes")))
-            {
-                shoesComboBox.Text = Regex.Replace(accessoryList.First(acc => acc.Contains("Shoes"))
-                    .Replace("Shoes-", ""), "([a-z])([A-Z])", "$1 $2");
-            }
-            // Tails
-            if (accessoryList.Any(acc => acc.Contains("Tails")))
-            {
-                tailsComboBox.Text = Regex.Replace(accessoryList.First(acc => acc.Contains("Tails"))
-                    .Replace("Tails-", ""), "([a-z])([A-Z])", "$1 $2");
+                if (accessoryList.Any(acc => acc.Contains(pair.Key)))
+                {
+                    pair.Value.Text = accessoryList.First(acc => acc.Contains(pair.Key)).
+                        OnlyAccessory().RemoveSpaces();
+                }
             }
 
             accessoryList = GetAccessories();
@@ -81,7 +59,7 @@ namespace VanityMonKeyGenerator
                 $"Hats-{hatsComboBox.Text.Replace(" ", "")}",
                 $"Misc-{miscComboBox.Text.Replace(" ", "")}",
                 $"Mouths-{mouthsComboBox.Text.Replace(" ", "")}",
-                $"ShirtsPants-{shirtPantsComboBox.Text.Replace(" ", "")}",
+                $"ShirtsPants-{shirtsPantsComboBox.Text.Replace(" ", "")}",
                 $"Shoes-{shoesComboBox.Text.Replace(" ", "")}",
                 $"Tails-{tailsComboBox.Text.Replace(" ", "")}",
             };

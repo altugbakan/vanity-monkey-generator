@@ -16,5 +16,14 @@ namespace VanityMonKeyGenerator
                 e.Index, drawItemState, ForeColor, BackColor);
             base.OnDrawItem(de);
         }
+
+        protected override void OnItemCheck(ItemCheckEventArgs ice)
+        {
+            if (CheckedItems.Count == 1 && ice.NewValue == CheckState.Unchecked)
+            {
+                ice.NewValue = ice.CurrentValue;
+            }
+            base.OnItemCheck(ice);
+        }
     }
 }
