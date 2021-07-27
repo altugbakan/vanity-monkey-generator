@@ -117,7 +117,7 @@ namespace VanityMonKeyGenerator
         public static bool AccessoriesMatching(List<string> requestedAccessories,
             List<string> obtainedAccessories)
         {
-            
+
 
             foreach (string category in categories)
             {

@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace VanityMonKeyGenerator
 {
     public partial class MonKeyForm : Form
     {
+        private const int MaxRequestCount = 32;
+
         public MonKeyForm()
         {
             InitializeComponent();
@@ -17,6 +21,7 @@ namespace VanityMonKeyGenerator
         private void GetRandomMonKeyButton_Click(object sender, EventArgs e)
         {
             MonKey monKey = new MonKey();
+            monKey.RequestSvg();
             if (monKey.Svg == null)
             {
                 return;
@@ -33,7 +38,7 @@ namespace VanityMonKeyGenerator
                 while (Properties.Settings.Default.SavedAccessories == null)
                 {
                     DialogResult dialogResult = MessageBox.Show("Seems like you haven't yet created a" +
-                    " specific MonKey. Want to create one?", "Warning", MessageBoxButtons.YesNo);
+                        " specific MonKey. Want to create one?", "Warning", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
                         SimpleSettings settingsForm = new SimpleSettings();
@@ -75,25 +80,42 @@ namespace VanityMonKeyGenerator
         private void MonKeySearcher_DoWork(object sender, DoWorkEventArgs e)
         {
             ulong iterations = 0;
+            HttpClient client = new HttpClient();
             List<string> requestedAccessories = Properties.Settings.Default.SavedAccessories
                 .Cast<string>().ToList();
+            List<Task<MonKey>> tasks = new List<Task<MonKey>>();
             ulong expectation = Accessories.GetMonKeyRarity(requestedAccessories);
+
             while (!monKeySearcher.CancellationPending)
             {
-                MonKey monKey = new MonKey();
-                if (monKey.Svg == null)
+                for (int i = 0; i < MaxRequestCount - tasks.Where(t => !t.IsCompleted).Count(); i++)
                 {
-                    e.Cancel = true;
-                    return;
+                    tasks.Add(GetMonKeyAsync(client));
                 }
 
-                List<string> obtainedAccessories = Accessories.ObtainedAccessories(monKey.Svg);
-                if (Accessories.AccessoriesMatching(requestedAccessories, obtainedAccessories))
+                Task.WaitAny(tasks.ToArray());
+
+                foreach (Task<MonKey> task in tasks.Where(t => t.IsCompleted))
                 {
-                    e.Result = new Result(monKey, iterations);
-                    break;
+                    MonKey monKey;
+                    try
+                    {
+                        monKey = task.Result;
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Connection error.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        e.Cancel = true;
+                        return;
+                    }
+                    List<string> obtainedAccessories = Accessories.ObtainedAccessories(monKey.Svg);
+                    if (Accessories.AccessoriesMatching(requestedAccessories, obtainedAccessories))
+                    {
+                        e.Result = new Result(monKey, iterations);
+                        return;
+                    }
+                    monKeySearcher.ReportProgress(0, new ProgressResult(expectation, ++iterations));
                 }
-                monKeySearcher.ReportProgress(0, new ProgressResult(expectation, ++iterations));
             }
             if (monKeySearcher.CancellationPending)
             {
@@ -149,5 +171,29 @@ namespace VanityMonKeyGenerator
             }
         }
 
+        private async Task<MonKey> GetMonKeyAsync(HttpClient client)
+        {
+            MonKey monKey = new MonKey();
+            await monKey.RequestSvgAsync(client);
+            return monKey;
+        }
+
+        public async Task<List<MonKey>> RequestMultipleMonKeys(int count)
+        {
+            HttpClient client = new HttpClient();
+            List<MonKey> monKeys = new List<MonKey>();
+            List<Task> tasks = new List<Task>();
+
+            for (int i = 0; i < count; i++)
+            {
+                MonKey monKey = new MonKey();
+                monKeys.Add(monKey);
+                tasks.Add(monKey.RequestSvgAsync(client));
+            }
+
+            await Task.WhenAll(tasks);
+
+            return monKeys;
+        }
     }
 }

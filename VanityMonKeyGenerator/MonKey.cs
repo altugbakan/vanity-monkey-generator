@@ -1,6 +1,8 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading.Tasks;
 using System.Security.Cryptography;
 
 using Blake2Fast;
@@ -46,25 +48,34 @@ namespace VanityMonKeyGenerator
 
             Address = "ban_" + addressBuffer.ToString();
             Seed = ByteArrayToHexString(seedBytes);
-            Svg = RequestMonKey();
         }
 
-        public string RequestMonKey()
+        public void RequestSvg()
         {
             HttpClient client = new HttpClient();
             try
             {
-                string response = client.GetStringAsync("https://monkey.banano.cc/api/v1/monkey/" + Address).Result;
-                return response;
+                Svg = client.GetStringAsync("https://monkey.banano.cc/api/v1/monkey/" + Address).Result;
             }
             catch
             {
-                MessageBox.Show("No internet connection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
+                MessageBox.Show("Connection error.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
                 client.Dispose();
+            }
+        }
+
+        public async Task RequestSvgAsync(HttpClient client)
+        {
+            try
+            {
+                Svg = await client.GetStringAsync("https://monkey.banano.cc/api/v1/monkey/" + Address);
+            }
+            catch (Exception e)
+            {
+                throw e;
             }
         }
 

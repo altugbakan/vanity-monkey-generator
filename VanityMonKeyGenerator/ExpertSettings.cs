@@ -132,7 +132,7 @@ namespace VanityMonKeyGenerator
                 {
                     rarityLabel.Text = $"Rarity: 1 in {Accessories.GetMonKeyRarity(GetAccessories()):#,#}";
                 });
-            }  
+            }
         }
     }
 }

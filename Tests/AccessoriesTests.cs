@@ -203,7 +203,7 @@ namespace Tests
 
             List<string> expected = new List<string>()
             {
-                "Glasses-None", "Hats-CapCarlos", "Misc-Bowtie", "Mouths-Meh", 
+                "Glasses-None", "Hats-CapCarlos", "Misc-Bowtie", "Mouths-Meh",
                 "ShirtsPants-OverallsRed", "Shoes-None", "Tails-TailSock"
             };
 
