@@ -1,11 +1,12 @@
-﻿using System;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Text;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
 using Blake2Fast;
 using VanityAddrGen;
 using Chaos.NaCl.Internal.Ed25519Ref10;
+
 namespace VanityMonKeyGenerator
 {
     public class MonKey
@@ -29,8 +30,7 @@ namespace VanityMonKeyGenerator
             byte[] checksumBytes = new byte[5];
             byte[] tmp = new byte[64];
 
-            Random random = new Random();
-            random.NextBytes(seedBytes);
+            RandomNumberGenerator.Fill(seedBytes);
 
             var hasher = Blake2b.CreateIncrementalHasher(32);
             hasher.Update(seedBytes);

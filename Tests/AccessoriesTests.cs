@@ -293,14 +293,14 @@ namespace Tests
             // Expert case.
             accessories = new List<string>()
             {
-                "Glasses-None", "Hats-Any", "Misc-Club", "Mouths-Meh", "ShirtsPants-Any",
+                "Glasses-None", "Hats-Any", "Misc-None", "Misc-Club", "Mouths-Meh", "ShirtsPants-Any",
                 "Shoes-SneakersRed", "Shoes-SneakersBlue", "Tails-None"
             };
 
             expected =
                 0.75 *              // Glasses
                 1 *                 // Hats
-                0.3 * 1 / 11.29 *   // Misc
+                (0.7 + 0.3 * 1 / 11.29) *   // Misc
                 1 * 1 / 5.56 *      // Mouths
                 1 *                 // Shirts-Pants
                 0.22 * (1 + 1) / 6 *      // Shoes
