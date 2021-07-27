@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -10,7 +11,7 @@ namespace VanityMonKeyGenerator
 {
     public partial class MonKeyForm : Form
     {
-        private const int MaxRequestCount = 32;
+        private const int MaxRequestCount = 16;
 
         public MonKeyForm()
         {
@@ -92,12 +93,13 @@ namespace VanityMonKeyGenerator
 
         private void MonKeySearcher_DoWork(object sender, DoWorkEventArgs e)
         {
-            ulong iterations = 0;
+            ServicePointManager.DefaultConnectionLimit = MaxRequestCount;
             HttpClient client = new HttpClient();
             List<string> requestedAccessories = Properties.Settings.Default.SavedAccessories
                 .Cast<string>().ToList();
             List<Task<MonKey>> tasks = new List<Task<MonKey>>();
             ulong expectation = Accessories.GetMonKeyRarity(requestedAccessories);
+            ulong iterations = 0;
 
             while (!monKeySearcher.CancellationPending)
             {
