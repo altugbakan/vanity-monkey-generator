@@ -149,9 +149,9 @@ namespace VanityMonKeyGenerator
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "MonKeyForm";
             this.Text = "Vanity MonKey Generator";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MonKeyForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.monKeyPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

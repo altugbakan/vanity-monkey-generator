@@ -18,6 +18,19 @@ namespace VanityMonKeyGenerator
             LoadDefaultMonKey();
         }
 
+        private void MonKeyForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Hide();
+            if (monKeySearcher.IsBusy)
+            {
+                monKeySearcher.CancelAsync();
+            }
+            while (monKeySearcher.IsBusy)
+            {
+                Application.DoEvents();
+            }
+        }
+
         private void GetRandomMonKeyButton_Click(object sender, EventArgs e)
         {
             MonKey monKey = new MonKey();
@@ -147,30 +160,6 @@ namespace VanityMonKeyGenerator
             findSpecificMonKeyButton.Text = "Find Specific MonKey";
         }
 
-        public class Result
-        {
-            public MonKey MonKey;
-            public ulong Iterations;
-
-            public Result(MonKey monKey, ulong iterations)
-            {
-                MonKey = monKey;
-                Iterations = iterations;
-            }
-        }
-
-        public class ProgressResult
-        {
-            public ulong Expectation;
-            public ulong Iterations;
-
-            public ProgressResult(ulong expectation, ulong iterations)
-            {
-                Expectation = expectation;
-                Iterations = iterations;
-            }
-        }
-
         private async Task<MonKey> GetMonKeyAsync(HttpClient client)
         {
             MonKey monKey = new MonKey();
@@ -194,6 +183,30 @@ namespace VanityMonKeyGenerator
             await Task.WhenAll(tasks);
 
             return monKeys;
+        }
+
+        public class Result
+        {
+            public MonKey MonKey;
+            public ulong Iterations;
+
+            public Result(MonKey monKey, ulong iterations)
+            {
+                MonKey = monKey;
+                Iterations = iterations;
+            }
+        }
+
+        public class ProgressResult
+        {
+            public ulong Expectation;
+            public ulong Iterations;
+
+            public ProgressResult(ulong expectation, ulong iterations)
+            {
+                Expectation = expectation;
+                Iterations = iterations;
+            }
         }
     }
 }
