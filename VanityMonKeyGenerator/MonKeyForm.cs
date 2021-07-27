@@ -11,7 +11,7 @@ namespace VanityMonKeyGenerator
 {
     public partial class MonKeyForm : Form
     {
-        private const int MaxRequestCount = 16;
+        private const int MaxRequestCount = 256;
 
         public MonKeyForm()
         {
@@ -93,7 +93,7 @@ namespace VanityMonKeyGenerator
 
         private void MonKeySearcher_DoWork(object sender, DoWorkEventArgs e)
         {
-            ServicePointManager.DefaultConnectionLimit = MaxRequestCount;
+            ServicePointManager.DefaultConnectionLimit = MaxRequestCount * 2;
             HttpClient client = new HttpClient();
             List<string> requestedAccessories = Properties.Settings.Default.SavedAccessories
                 .Cast<string>().ToList();
@@ -101,21 +101,34 @@ namespace VanityMonKeyGenerator
             ulong expectation = Accessories.GetMonKeyRarity(requestedAccessories);
             ulong iterations = 0;
 
+            for (int i = 0; i < MaxRequestCount; i++)
+            {
+                tasks.Add(GetMonKeyAsync(client));
+            }
+
             while (!monKeySearcher.CancellationPending)
             {
-                for (int i = 0; i < MaxRequestCount - tasks.Where(t => !t.IsCompleted).Count(); i++)
-                {
-                    tasks.Add(GetMonKeyAsync(client));
-                }
-
                 Task.WaitAny(tasks.ToArray());
 
-                foreach (Task<MonKey> task in tasks.Where(t => t.IsCompleted))
+                for (int i = 0; i < tasks.Count; i++)
                 {
+                    if (monKeySearcher.CancellationPending)
+                    {
+                        e.Cancel = true;
+                        return;
+                    }
+
                     MonKey monKey;
                     try
                     {
-                        monKey = task.Result;
+                        if (tasks[i].IsCompleted)
+                        {
+                            monKey = tasks[i].Result;
+                        }
+                        else
+                        {
+                            continue;
+                        }
                     }
                     catch
                     {
@@ -129,12 +142,10 @@ namespace VanityMonKeyGenerator
                         e.Result = new Result(monKey, iterations);
                         return;
                     }
+                    tasks.RemoveAt(i--);
+                    tasks.Add(GetMonKeyAsync(client));
                     monKeySearcher.ReportProgress(0, new ProgressResult(expectation, ++iterations));
                 }
-            }
-            if (monKeySearcher.CancellationPending)
-            {
-                e.Cancel = true;
             }
         }
 

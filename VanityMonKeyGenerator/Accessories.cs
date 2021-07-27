@@ -36,6 +36,10 @@ namespace VanityMonKeyGenerator
             {
                 accessories.Remove("Misc-BananaRightHand");
             }
+            if (accessories.Contains("Hats-BeanieBanano"))
+            {
+                accessories.Remove("Hats-Beanie");
+            }
             // Remove body parts.
             accessories.RemoveAll(accessory => !accessory.Contains("-"));
             // Add none accessories.

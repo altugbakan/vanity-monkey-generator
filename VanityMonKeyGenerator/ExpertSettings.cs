@@ -117,6 +117,9 @@ namespace VanityMonKeyGenerator
 
         private void SwitchButton_Click(object sender, EventArgs e)
         {
+            StringCollection stringCollection = new StringCollection();
+            stringCollection.AddRange(GetAccessories().ToArray());
+            Properties.Settings.Default.SavedAccessories = stringCollection;
             Properties.Settings.Default.SimpleMode = true;
             Properties.Settings.Default.Save();
             Dispose();
