@@ -104,7 +104,7 @@ namespace VanityMonKeyGenerator
         private void MonKeySearcher_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             ProgressResult result = (ProgressResult)e.UserState;
-            searchedLabel.Text = $"Searched {result.Iterations} MonKeys. " +
+            searchedLabel.Text = $"Searched {result.Iterations:#,#} MonKeys. " +
                 $"Estimated: {result.Expectation:#,#}";
         }
 
@@ -116,7 +116,7 @@ namespace VanityMonKeyGenerator
                 Drawing.DrawSvg(result.MonKey.Svg, monKeyPictureBox);
                 addressTextBox.Text = result.MonKey.Address;
                 seedTextBox.Text = result.MonKey.Seed;
-                searchedLabel.Text = $"Found MonKey after {result.Iterations} MonKeys.";
+                searchedLabel.Text = $"Found MonKey after {result.Iterations:#,#} MonKeys.";
             }
             else
             {
