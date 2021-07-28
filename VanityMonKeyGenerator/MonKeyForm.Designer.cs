@@ -90,6 +90,7 @@ namespace VanityMonKeyGenerator
             this.monKeyPictureBox.Location = new System.Drawing.Point(85, 0);
             this.monKeyPictureBox.Name = "monKeyPictureBox";
             this.monKeyPictureBox.Size = new System.Drawing.Size(200, 200);
+            this.monKeyPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.monKeyPictureBox.TabIndex = 5;
             this.monKeyPictureBox.TabStop = false;
             // 

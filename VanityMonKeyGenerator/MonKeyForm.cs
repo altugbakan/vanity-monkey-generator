@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -11,7 +12,7 @@ namespace VanityMonKeyGenerator
 {
     public partial class MonKeyForm : Form
     {
-        private const int MaxRequestCount = 64;
+        private const int MaxRequestCount = 32;
 
         public MonKeyForm()
         {
@@ -35,12 +36,7 @@ namespace VanityMonKeyGenerator
         private void GetRandomMonKeyButton_Click(object sender, EventArgs e)
         {
             MonKey monKey = new MonKey();
-            monKey.RequestSvg();
-            if (monKey.Svg == null)
-            {
-                return;
-            }
-            Drawing.DrawSvg(monKey.Svg, monKeyPictureBox);
+            monKeyPictureBox.ImageLocation = monKey.ImageUri("png", monKeyPictureBox.Width, false);
             addressTextBox.Text = monKey.Address;
             seedTextBox.Text = monKey.Seed;
         }
@@ -97,13 +93,13 @@ namespace VanityMonKeyGenerator
             HttpClient client = new HttpClient();
             List<string> requestedAccessories = Properties.Settings.Default.SavedAccessories
                 .Cast<string>().ToList();
-            List<Task<MonKey>> tasks = new List<Task<MonKey>>();
+            List<Task<List<MonKey>>> tasks = new List<Task<List<MonKey>>>();
             ulong expectation = Accessories.GetMonKeyRarity(requestedAccessories);
             ulong iterations = 0;
 
             for (int i = 0; i < MaxRequestCount; i++)
             {
-                tasks.Add(GetMonKeyAsync(client));
+                tasks.Add(GetMonKeysAsync(client));
             }
 
             while (!monKeySearcher.CancellationPending)
@@ -118,12 +114,24 @@ namespace VanityMonKeyGenerator
                         return;
                     }
 
-                    MonKey monKey;
                     try
                     {
                         if (tasks[i].IsCompleted)
                         {
-                            monKey = tasks[i].Result;
+                            ulong localIteration = 0;
+                            foreach (MonKey monKey in tasks[i].Result)
+                            {
+                                if (Accessories.AccessoriesMatching(requestedAccessories, monKey.Accessories))
+                                {
+                                    e.Result = new Result(monKey, iterations + localIteration);
+                                    return;
+                                }
+                                localIteration++;
+                            }
+                            tasks.RemoveAt(i);
+                            tasks.Add(GetMonKeysAsync(client));
+                            iterations += (ulong)Properties.Settings.Default.MonKeyRequestAmount;
+                            monKeySearcher.ReportProgress(0, new ProgressResult(expectation, iterations));
                         }
                         else
                         {
@@ -136,15 +144,6 @@ namespace VanityMonKeyGenerator
                         e.Cancel = true;
                         return;
                     }
-                    List<string> obtainedAccessories = Accessories.ObtainedAccessories(monKey.Svg);
-                    if (Accessories.AccessoriesMatching(requestedAccessories, obtainedAccessories))
-                    {
-                        e.Result = new Result(monKey, iterations);
-                        return;
-                    }
-                    tasks.RemoveAt(i--);
-                    tasks.Add(GetMonKeyAsync(client));
-                    monKeySearcher.ReportProgress(0, new ProgressResult(expectation, ++iterations));
                 }
             }
         }
@@ -161,7 +160,7 @@ namespace VanityMonKeyGenerator
             if (!e.Cancelled && (e.Result != null))
             {
                 Result result = (Result)e.Result;
-                Drawing.DrawSvg(result.MonKey.Svg, monKeyPictureBox);
+                monKeyPictureBox.ImageLocation = result.MonKey.ImageUri("png", monKeyPictureBox.Width, false);
                 addressTextBox.Text = result.MonKey.Address;
                 seedTextBox.Text = result.MonKey.Seed;
                 searchedLabel.Text = $"Found MonKey after {result.Iterations:#,#} MonKeys.";
@@ -173,11 +172,24 @@ namespace VanityMonKeyGenerator
             findSpecificMonKeyButton.Text = "Find Specific MonKey";
         }
 
-        private async Task<MonKey> GetMonKeyAsync(HttpClient client)
+        private async Task<List<MonKey>> GetMonKeysAsync(HttpClient client)
         {
-            MonKey monKey = new MonKey();
-            await monKey.RequestSvgAsync(client);
-            return monKey;
+            Dictionary<string, MonKey> monKeyDictionary = new Dictionary<string, MonKey>();
+
+            for (int i = 0; i < Properties.Settings.Default.MonKeyRequestAmount; i++)
+            {
+                MonKey monKey = new MonKey();
+                monKeyDictionary.Add(monKey.Address, monKey);
+            }
+            var content = new StringContent("{\"addresses\":" + JsonSerializer.Serialize(monKeyDictionary.Keys) + "}");
+            var response = await client.PostAsync("http://monkey.banano.cc/api/v1/monkey/dtl", content);
+            var results = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, string>>>(await response.Content.ReadAsStringAsync());
+            foreach (var result in results)
+            {
+                monKeyDictionary[result.Key].Accessories = Accessories.ObtainedAccessories(result.Value);
+            }
+
+            return monKeyDictionary.Values.ToList();
         }
 
         public class Result

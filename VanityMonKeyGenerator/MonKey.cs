@@ -1,8 +1,5 @@
-﻿using System;
-using System.Net.Http;
-using System.Text;
-using System.Windows.Forms;
-using System.Threading.Tasks;
+﻿using System.Text;
+using System.Collections.Generic;
 using System.Security.Cryptography;
 
 using Blake2Fast;
@@ -15,7 +12,7 @@ namespace VanityMonKeyGenerator
     {
         public string Address;
         public string Seed;
-        public string Svg;
+        public List<string> Accessories;
         public MonKey()
         {
             CreateMonKeyAccount();
@@ -50,41 +47,18 @@ namespace VanityMonKeyGenerator
             Seed = ByteArrayToHexString(seedBytes);
         }
 
-        public void RequestSvg()
-        {
-            HttpClient client = new HttpClient();
-            try
-            {
-                Svg = client.GetStringAsync("https://monkey.banano.cc/api/v1/monkey/" + Address).Result;
-            }
-            catch
-            {
-                MessageBox.Show("Connection error.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                client.Dispose();
-            }
-        }
-
-        public async Task RequestSvgAsync(HttpClient client)
-        {
-            try
-            {
-                Svg = await client.GetStringAsync("https://monkey.banano.cc/api/v1/monkey/" + Address);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
         private string ByteArrayToHexString(byte[] bytes)
         {
             StringBuilder hex = new StringBuilder(bytes.Length * 2);
             foreach (byte b in bytes)
                 hex.AppendFormat("{0:X2}", b);
             return hex.ToString();
+        }
+
+        public string ImageUri(string format, int size, bool background)
+        {
+            return $"https://monkey.banano.cc/api/v1/monkey/{Address}" +
+                $"?format={format}&size={size}&background={background}";
         }
     }
 }

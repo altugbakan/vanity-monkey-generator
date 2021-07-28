@@ -106,6 +106,7 @@ namespace VanityMonKeyGenerator
             StringCollection stringCollection = new StringCollection();
             stringCollection.AddRange(GetAccessories().ToArray());
             Properties.Settings.Default.SavedAccessories = stringCollection;
+            Properties.Settings.Default.MonKeyRequestAmount = requestAmountSlider.Value;
             Properties.Settings.Default.Save();
             Close();
         }
@@ -136,6 +137,16 @@ namespace VanityMonKeyGenerator
                     rarityLabel.Text = $"Rarity: 1 in {Accessories.GetMonKeyRarity(GetAccessories()):#,#}";
                 });
             }
+        }
+
+        private void RequestAmountNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            requestAmountSlider.Value = (int)requestAmountNumeric.Value;
+        }
+
+        private void RequestAmountSlider_Scroll(object sender, EventArgs e)
+        {
+            requestAmountNumeric.Value = requestAmountSlider.Value;
         }
     }
 }

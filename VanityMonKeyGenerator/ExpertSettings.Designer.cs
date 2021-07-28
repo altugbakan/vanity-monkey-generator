@@ -47,6 +47,11 @@ namespace VanityMonKeyGenerator
             this.rarityLabel = new System.Windows.Forms.Label();
             this.cancelButton = new System.Windows.Forms.Button();
             this.okButton = new System.Windows.Forms.Button();
+            this.requestAmountSlider = new System.Windows.Forms.TrackBar();
+            this.requestAmountLabel = new System.Windows.Forms.Label();
+            this.requestAmountNumeric = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.requestAmountSlider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.requestAmountNumeric)).BeginInit();
             this.SuspendLayout();
             // 
             // glassesLabel
@@ -72,7 +77,7 @@ namespace VanityMonKeyGenerator
             // miscLabel
             // 
             this.miscLabel.AutoSize = true;
-            this.miscLabel.Location = new System.Drawing.Point(448, 253);
+            this.miscLabel.Location = new System.Drawing.Point(448, 273);
             this.miscLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.miscLabel.Name = "miscLabel";
             this.miscLabel.Size = new System.Drawing.Size(32, 15);
@@ -92,7 +97,7 @@ namespace VanityMonKeyGenerator
             // shirtsPantsLabel
             // 
             this.shirtsPantsLabel.AutoSize = true;
-            this.shirtsPantsLabel.Location = new System.Drawing.Point(244, 188);
+            this.shirtsPantsLabel.Location = new System.Drawing.Point(244, 185);
             this.shirtsPantsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.shirtsPantsLabel.Name = "shirtsPantsLabel";
             this.shirtsPantsLabel.Size = new System.Drawing.Size(70, 15);
@@ -102,7 +107,7 @@ namespace VanityMonKeyGenerator
             // shoesLabel
             // 
             this.shoesLabel.AutoSize = true;
-            this.shoesLabel.Location = new System.Drawing.Point(260, 347);
+            this.shoesLabel.Location = new System.Drawing.Point(260, 339);
             this.shoesLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.shoesLabel.Name = "shoesLabel";
             this.shoesLabel.Size = new System.Drawing.Size(38, 15);
@@ -112,7 +117,7 @@ namespace VanityMonKeyGenerator
             // tailsLabel
             // 
             this.tailsLabel.AutoSize = true;
-            this.tailsLabel.Location = new System.Drawing.Point(265, 506);
+            this.tailsLabel.Location = new System.Drawing.Point(265, 489);
             this.tailsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tailsLabel.Name = "tailsLabel";
             this.tailsLabel.Size = new System.Drawing.Size(29, 15);
@@ -197,7 +202,7 @@ namespace VanityMonKeyGenerator
             "Pants Flower",
             "Tshirt Long Stripes",
             "Tshirt Short White"});
-            this.shirtsPantsCheckedListBox.Location = new System.Drawing.Point(197, 204);
+            this.shirtsPantsCheckedListBox.Location = new System.Drawing.Point(197, 201);
             this.shirtsPantsCheckedListBox.Name = "shirtsPantsCheckedListBox";
             this.shirtsPantsCheckedListBox.Size = new System.Drawing.Size(165, 130);
             this.shirtsPantsCheckedListBox.TabIndex = 24;
@@ -215,7 +220,7 @@ namespace VanityMonKeyGenerator
             "Sneakers Swagger",
             "Socks H Stripe",
             "Socks V Stripe"});
-            this.shoesCheckedListBox.Location = new System.Drawing.Point(197, 363);
+            this.shoesCheckedListBox.Location = new System.Drawing.Point(197, 355);
             this.shoesCheckedListBox.Name = "shoesCheckedListBox";
             this.shoesCheckedListBox.Size = new System.Drawing.Size(165, 130);
             this.shoesCheckedListBox.TabIndex = 25;
@@ -228,7 +233,7 @@ namespace VanityMonKeyGenerator
             this.tailsCheckedListBox.Items.AddRange(new object[] {
             "None",
             "Tail Sock"});
-            this.tailsCheckedListBox.Location = new System.Drawing.Point(197, 522);
+            this.tailsCheckedListBox.Location = new System.Drawing.Point(197, 505);
             this.tailsCheckedListBox.Name = "tailsCheckedListBox";
             this.tailsCheckedListBox.Size = new System.Drawing.Size(165, 40);
             this.tailsCheckedListBox.TabIndex = 26;
@@ -274,7 +279,7 @@ namespace VanityMonKeyGenerator
             "Tie Cyan",
             "Tie Pink",
             "Whisky Right"});
-            this.miscCheckedListBox.Location = new System.Drawing.Point(382, 269);
+            this.miscCheckedListBox.Location = new System.Drawing.Point(382, 289);
             this.miscCheckedListBox.Name = "miscCheckedListBox";
             this.miscCheckedListBox.Size = new System.Drawing.Size(165, 256);
             this.miscCheckedListBox.TabIndex = 28;
@@ -282,7 +287,7 @@ namespace VanityMonKeyGenerator
             // 
             // rarityLabel
             // 
-            this.rarityLabel.Location = new System.Drawing.Point(12, 542);
+            this.rarityLabel.Location = new System.Drawing.Point(197, 573);
             this.rarityLabel.Name = "rarityLabel";
             this.rarityLabel.Size = new System.Drawing.Size(165, 20);
             this.rarityLabel.TabIndex = 31;
@@ -290,7 +295,7 @@ namespace VanityMonKeyGenerator
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(469, 537);
+            this.cancelButton.Location = new System.Drawing.Point(469, 571);
             this.cancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(78, 25);
@@ -301,7 +306,7 @@ namespace VanityMonKeyGenerator
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(382, 537);
+            this.okButton.Location = new System.Drawing.Point(382, 571);
             this.okButton.Margin = new System.Windows.Forms.Padding(2);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(78, 25);
@@ -310,11 +315,66 @@ namespace VanityMonKeyGenerator
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
+            // requestAmountSlider
+            // 
+            this.requestAmountSlider.LargeChange = 50;
+            this.requestAmountSlider.Location = new System.Drawing.Point(12, 534);
+            this.requestAmountSlider.Maximum = 250;
+            this.requestAmountSlider.Minimum = 1;
+            this.requestAmountSlider.Name = "requestAmountSlider";
+            this.requestAmountSlider.Size = new System.Drawing.Size(165, 45);
+            this.requestAmountSlider.SmallChange = 5;
+            this.requestAmountSlider.TabIndex = 32;
+            this.requestAmountSlider.TickFrequency = 5;
+            this.requestAmountSlider.Value = 100;
+            this.requestAmountSlider.Scroll += new System.EventHandler(this.RequestAmountSlider_Scroll);
+            // 
+            // requestAmountLabel
+            // 
+            this.requestAmountLabel.AutoSize = true;
+            this.requestAmountLabel.Location = new System.Drawing.Point(13, 515);
+            this.requestAmountLabel.Name = "requestAmountLabel";
+            this.requestAmountLabel.Size = new System.Drawing.Size(162, 15);
+            this.requestAmountLabel.TabIndex = 33;
+            this.requestAmountLabel.Text = "Amount of MonKey Requests";
+            // 
+            // requestAmountNumeric
+            // 
+            this.requestAmountNumeric.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.requestAmountNumeric.Location = new System.Drawing.Point(12, 572);
+            this.requestAmountNumeric.Maximum = new decimal(new int[] {
+            250,
+            0,
+            0,
+            0});
+            this.requestAmountNumeric.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.requestAmountNumeric.Name = "requestAmountNumeric";
+            this.requestAmountNumeric.Size = new System.Drawing.Size(162, 23);
+            this.requestAmountNumeric.TabIndex = 34;
+            this.requestAmountNumeric.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.requestAmountNumeric.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.requestAmountNumeric.ValueChanged += new System.EventHandler(this.RequestAmountNumeric_ValueChanged);
+            // 
             // ExpertSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(565, 568);
+            this.ClientSize = new System.Drawing.Size(565, 609);
+            this.Controls.Add(this.requestAmountNumeric);
+            this.Controls.Add(this.requestAmountLabel);
+            this.Controls.Add(this.requestAmountSlider);
             this.Controls.Add(this.rarityLabel);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
@@ -338,6 +398,8 @@ namespace VanityMonKeyGenerator
             this.MinimizeBox = false;
             this.Name = "ExpertSettings";
             this.Text = "Create Your MonKey";
+            ((System.ComponentModel.ISupportInitialize)(this.requestAmountSlider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.requestAmountNumeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -362,5 +424,8 @@ namespace VanityMonKeyGenerator
         private System.Windows.Forms.Label rarityLabel;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button okButton;
+        private System.Windows.Forms.TrackBar requestAmountSlider;
+        private System.Windows.Forms.Label requestAmountLabel;
+        private System.Windows.Forms.NumericUpDown requestAmountNumeric;
     }
 }

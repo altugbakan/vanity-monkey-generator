@@ -194,23 +194,6 @@ namespace Tests
             Assert.IsTrue(result, "Multiple none case does not match.");
         }
 
-
-        [TestMethod]
-        public void ObtainedAcessoriesTest()
-        {
-            // No Glasses, Cap Carlos, Bowtie, Meh, Overalls Red, No Shoes, Tail Sock
-            string svg = Properties.Resources.ban_16ixhfsdx8xha4btc83d3d666uq5fnf5fbeu9xoy4idua3bdifyjia4n7ewh;
-
-            List<string> expected = new List<string>()
-            {
-                "Glasses-None", "Hats-CapCarlos", "Misc-Bowtie", "Mouths-Meh",
-                "ShirtsPants-OverallsRed", "Shoes-None", "Tails-TailSock"
-            };
-
-            List<string> actual = Accessories.ObtainedAccessories(svg);
-            CollectionAssert.AreEquivalent(expected, actual, "Obtained accessories are not equal.");
-        }
-
         [TestMethod]
         public void GetAccessoryChanceTest()
         {
@@ -322,5 +305,41 @@ namespace Tests
             Assert.AreNotEqual(0, actual, "Rarity is 0");
         }
 
+        [TestMethod]
+        public void ObtainedAccessoriesTest()
+        {
+            // Response for ban_1fcosx1ufgsmdouk69fzsg8i3etrkgwzfe3hn9smuqsgd4xyp1yudq9a91ty
+            Dictionary<string, string> response = new Dictionary<string, string>()
+            {
+                { "background_color", "#e8f2c5"},
+                {"color_arms-[fur-color][shadow-fur].svg", "#93fb41"},
+                {"color_body-upper-[fur-color][shadow-fur].svg", "#93fb41"},
+                {"color_eyes-[eye-color][shadow-iris].svg", "#fda389"},
+                {"color_face-[fur-color][shadow-fur].svg", "#93fb41"},
+                {"color_legs-[fur-color][shadow-fur].svg", "#93fb41"},
+                {"color_tail-[fur-color][shadow-fur-dark].svg", "#93fb41"},
+                {"color_tshirt-long-stripes-[colorable-random][w-1].svg", "#b300aa"},
+                {"glasses", "glasses-nerd-green-[w-1].svg"},
+                {"hat", "none"},
+                {"misc", "banana-hands-[above-hands][removes-hands][w-1].svg"},
+                {"mouth", "smile-big-teeth-[w-1].svg"},
+                {"shirt_pants", "tshirt-long-stripes-[colorable-random][w-1].svg"},
+                {"shoes", "none"},
+                {"tail_accessory", "none"}
+            };
+
+            List<string> expected = new List<string>()
+            {
+                "Glasses-GlassesNerdGreen",
+                "Hats-None",
+                "Misc-BananaHands",
+                "Mouths-SmileBigTeeth",
+                "ShirtsPants-TshirtLongStripes",
+                "Shoes-None",
+                "Tails-None"
+            };
+            List<string> actual = Accessories.ObtainedAccessories(response);
+            CollectionAssert.AreEquivalent(expected, actual, "Accessories do not match.");
+        }
     }
 }
