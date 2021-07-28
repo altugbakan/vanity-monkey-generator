@@ -13,6 +13,8 @@ namespace VanityMonKeyGenerator
         {
             InitializeComponent();
             LoadSavedMonKey();
+            requestAmountSlider.Value = Properties.Settings.Default.MonKeyRequestAmount;
+            requestAmountNumeric.Value = Properties.Settings.Default.MonKeyRequestAmount;
         }
 
         private void LoadSavedMonKey()
