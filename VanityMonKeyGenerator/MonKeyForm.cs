@@ -11,7 +11,7 @@ namespace VanityMonKeyGenerator
 {
     public partial class MonKeyForm : Form
     {
-        private const int MaxRequestCount = 256;
+        private const int MaxRequestCount = 64;
 
         public MonKeyForm()
         {
@@ -158,7 +158,7 @@ namespace VanityMonKeyGenerator
 
         private void MonKeySearcher_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (!e.Cancelled)
+            if (!e.Cancelled && (e.Result != null))
             {
                 Result result = (Result)e.Result;
                 Drawing.DrawSvg(result.MonKey.Svg, monKeyPictureBox);
@@ -178,24 +178,6 @@ namespace VanityMonKeyGenerator
             MonKey monKey = new MonKey();
             await monKey.RequestSvgAsync(client);
             return monKey;
-        }
-
-        public async Task<List<MonKey>> RequestMultipleMonKeys(int count)
-        {
-            HttpClient client = new HttpClient();
-            List<MonKey> monKeys = new List<MonKey>();
-            List<Task> tasks = new List<Task>();
-
-            for (int i = 0; i < count; i++)
-            {
-                MonKey monKey = new MonKey();
-                monKeys.Add(monKey);
-                tasks.Add(monKey.RequestSvgAsync(client));
-            }
-
-            await Task.WhenAll(tasks);
-
-            return monKeys;
         }
 
         public class Result
