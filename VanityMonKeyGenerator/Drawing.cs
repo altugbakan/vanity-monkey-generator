@@ -179,7 +179,8 @@ namespace VanityMonKeyGenerator
         {
             List<string> removesEyesList = new List<string>()
             {
-                "Glasses-SunglassesAviatorCyan", "Glasses-SunglassesAviatorGreen", "Glasses-SunglassesAviatorYellow"
+                "Glasses-SunglassesAviatorCyan", "Glasses-SunglassesAviatorGreen", "Glasses-SunglassesAviatorYellow",
+                "Glasses-SunglassesThug"
             };
 
             return removesEyesList.Contains(accessory);
