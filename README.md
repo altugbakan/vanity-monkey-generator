@@ -15,6 +15,8 @@ More info can be found on https://monkey.banano.cc.
 
 Press the gear button to modify your MonKey. The generator will try to find a MonKey containing the selected accessories.
 
+More information can be found [here](https://vanitymonkeygenerator.gitbook.io/).
+
 ## Build
 The project is built using .NET Core 3.1.
 
