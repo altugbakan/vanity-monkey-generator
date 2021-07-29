@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,7 +12,6 @@ namespace GUI
 {
     public partial class MonKeyForm : Form
     {
-        private const int MaxRequestCount = 32;
         private CancellationTokenSource cancellationTokenSource;
 
         public MonKeyForm()
@@ -83,7 +78,7 @@ namespace GUI
                         cancellationTokenSource.Token,
                         Properties.Settings.Default.SavedAccessories.Cast<string>().ToList(),
                         Properties.Settings.Default.MonKeyRequestAmount,
-                        delegate (Progress progress) { ReportProgress(progress); } 
+                        delegate (Progress progress) { ReportProgress(progress); }
                     )
                 );
 
