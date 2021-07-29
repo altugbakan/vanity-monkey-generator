@@ -38,7 +38,6 @@ namespace GUI
             this.monKeyPictureBox = new System.Windows.Forms.PictureBox();
             this.settingsButton = new System.Windows.Forms.Button();
             this.findSpecificMonKeyButton = new System.Windows.Forms.Button();
-            this.monKeySearcher = new System.ComponentModel.BackgroundWorker();
             this.searchedLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.monKeyPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -116,14 +115,6 @@ namespace GUI
             this.findSpecificMonKeyButton.UseVisualStyleBackColor = true;
             this.findSpecificMonKeyButton.Click += new System.EventHandler(this.FindSpecificMonKeyButton_Click);
             // 
-            // monKeySearcher
-            // 
-            this.monKeySearcher.WorkerReportsProgress = true;
-            this.monKeySearcher.WorkerSupportsCancellation = true;
-            this.monKeySearcher.DoWork += new System.ComponentModel.DoWorkEventHandler(this.MonKeySearcher_DoWork);
-            this.monKeySearcher.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.MonKeySearcher_ProgressChanged);
-            this.monKeySearcher.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.MonKeySearcher_RunWorkerCompleted);
-            // 
             // searchedLabel
             // 
             this.searchedLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -169,7 +160,6 @@ namespace GUI
         private System.Windows.Forms.PictureBox monKeyPictureBox;
         private System.Windows.Forms.Button settingsButton;
         private System.Windows.Forms.Button findSpecificMonKeyButton;
-        private System.ComponentModel.BackgroundWorker monKeySearcher;
         private System.Windows.Forms.Label searchedLabel;
     }
 }
