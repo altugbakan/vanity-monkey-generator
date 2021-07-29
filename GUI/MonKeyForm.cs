@@ -8,7 +8,9 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace VanityMonKeyGenerator
+using VanityMonKeyGenerator;
+
+namespace GUI
 {
     public partial class MonKeyForm : Form
     {

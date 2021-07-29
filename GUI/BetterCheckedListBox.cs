@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace VanityMonKeyGenerator
+namespace GUI
 {
     public partial class BetterCheckedListBox : CheckedListBox
     {

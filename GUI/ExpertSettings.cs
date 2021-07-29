@@ -5,7 +5,9 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
-namespace VanityMonKeyGenerator
+using static VanityMonKeyGenerator.Accessories;
+
+namespace GUI
 {
     public partial class ExpertSettings : Form
     {
@@ -67,7 +69,7 @@ namespace VanityMonKeyGenerator
                 }
             }
 
-            rarityLabel.Text = $"Rarity: 1 in {Accessories.GetMonKeyRarity(accessoryList):#,#}";
+            rarityLabel.Text = $"Rarity: 1 in {GetMonKeyRarity(accessoryList):#,#}";
         }
 
         private List<string> GetAccessories()
@@ -136,7 +138,7 @@ namespace VanityMonKeyGenerator
             {
                 BeginInvoke((MethodInvoker)delegate
                 {
-                    rarityLabel.Text = $"Rarity: 1 in {Accessories.GetMonKeyRarity(GetAccessories()):#,#}";
+                    rarityLabel.Text = $"Rarity: 1 in {GetMonKeyRarity(GetAccessories()):#,#}";
                 });
             }
         }

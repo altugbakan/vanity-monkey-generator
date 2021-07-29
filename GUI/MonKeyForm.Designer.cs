@@ -1,5 +1,5 @@
 ﻿
-namespace VanityMonKeyGenerator
+namespace GUI
 {
     partial class MonKeyForm
     {

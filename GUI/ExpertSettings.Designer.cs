@@ -1,5 +1,5 @@
 ﻿
-namespace VanityMonKeyGenerator
+namespace GUI
 {
     partial class ExpertSettings
     {
@@ -37,13 +37,13 @@ namespace VanityMonKeyGenerator
             this.shoesLabel = new System.Windows.Forms.Label();
             this.tailsLabel = new System.Windows.Forms.Label();
             this.switchButton = new System.Windows.Forms.Button();
-            this.hatsCheckedListBox = new VanityMonKeyGenerator.BetterCheckedListBox();
-            this.mouthsCheckedListBox = new VanityMonKeyGenerator.BetterCheckedListBox();
-            this.shirtsPantsCheckedListBox = new VanityMonKeyGenerator.BetterCheckedListBox();
-            this.shoesCheckedListBox = new VanityMonKeyGenerator.BetterCheckedListBox();
-            this.tailsCheckedListBox = new VanityMonKeyGenerator.BetterCheckedListBox();
-            this.glassesCheckedListBox = new VanityMonKeyGenerator.BetterCheckedListBox();
-            this.miscCheckedListBox = new VanityMonKeyGenerator.BetterCheckedListBox();
+            this.hatsCheckedListBox = new GUI.BetterCheckedListBox();
+            this.mouthsCheckedListBox = new GUI.BetterCheckedListBox();
+            this.shirtsPantsCheckedListBox = new GUI.BetterCheckedListBox();
+            this.shoesCheckedListBox = new GUI.BetterCheckedListBox();
+            this.tailsCheckedListBox = new GUI.BetterCheckedListBox();
+            this.glassesCheckedListBox = new GUI.BetterCheckedListBox();
+            this.miscCheckedListBox = new GUI.BetterCheckedListBox();
             this.rarityLabel = new System.Windows.Forms.Label();
             this.cancelButton = new System.Windows.Forms.Button();
             this.okButton = new System.Windows.Forms.Button();

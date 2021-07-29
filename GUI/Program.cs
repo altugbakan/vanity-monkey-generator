@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace VanityMonKeyGenerator
+namespace GUI
 {
     static class Program
     {

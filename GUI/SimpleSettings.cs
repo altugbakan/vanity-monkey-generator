@@ -4,7 +4,10 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace VanityMonKeyGenerator
+using static VanityMonKeyGenerator.Drawing;
+using static VanityMonKeyGenerator.Accessories;
+
+namespace GUI
 {
     public partial class SimpleSettings : Form
     {
@@ -18,7 +21,7 @@ namespace VanityMonKeyGenerator
         {
             if (Properties.Settings.Default.SavedAccessories == null)
             {
-                Drawing.DrawMonKey(GetAccessories(), monKeyPictureBox);
+                DrawMonKey(GetAccessories(), monKeyPictureBox);
                 return;
             }
 
@@ -47,8 +50,8 @@ namespace VanityMonKeyGenerator
             }
 
             accessoryList = GetAccessories();
-            Drawing.DrawMonKey(accessoryList, monKeyPictureBox);
-            rarityLabel.Text = $"Rarity: 1 in {Accessories.GetMonKeyRarity(accessoryList):#,#}";
+            DrawMonKey(accessoryList, monKeyPictureBox);
+            rarityLabel.Text = $"Rarity: 1 in {GetMonKeyRarity(accessoryList):#,#}";
         }
         private List<string> GetAccessories()
         {
@@ -70,8 +73,8 @@ namespace VanityMonKeyGenerator
             if (((ComboBox)sender).CanSelect)
             {
                 List<string> accessories = GetAccessories();
-                Drawing.DrawMonKey(accessories, monKeyPictureBox);
-                rarityLabel.Text = $"Rarity: 1 in {Accessories.GetMonKeyRarity(accessories):#,#}";
+                DrawMonKey(accessories, monKeyPictureBox);
+                rarityLabel.Text = $"Rarity: 1 in {GetMonKeyRarity(accessories):#,#}";
             }
         }
 

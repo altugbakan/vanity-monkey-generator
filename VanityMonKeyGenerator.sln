@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VanityMonKeyGenerator", "VanityMonKeyGenerator\VanityMonKeyGenerator.csproj", "{C0D4829A-D0B1-43FA-B925-F2BFC5EB429E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{98E72FBF-7455-49C0-855E-A22F556351C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{98E72FBF-7455-49C0-855E-A22F556351C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{A4FC9975-46AC-4EA0-8A0B-05FA41EEC85C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{98E72FBF-7455-49C0-855E-A22F556351C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98E72FBF-7455-49C0-855E-A22F556351C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98E72FBF-7455-49C0-855E-A22F556351C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4FC9975-46AC-4EA0-8A0B-05FA41EEC85C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4FC9975-46AC-4EA0-8A0B-05FA41EEC85C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4FC9975-46AC-4EA0-8A0B-05FA41EEC85C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4FC9975-46AC-4EA0-8A0B-05FA41EEC85C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
