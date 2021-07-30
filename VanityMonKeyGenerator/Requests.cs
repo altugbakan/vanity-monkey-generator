@@ -27,17 +27,12 @@ namespace VanityMonKeyGenerator
                 tasks.Add(GetMonKeysAsync(client, monKeyAmount));
             }
 
-            while (true)
+            while (!cancellationToken.IsCancellationRequested)
             {
                 Task.WaitAny(tasks.ToArray());
 
                 for (int i = 0; i < tasks.Count; i++)
                 {
-                    if (cancellationToken.IsCancellationRequested)
-                    {
-                        return null;
-                    }
-
                     try
                     {
                         if (tasks[i].IsCompleted)
@@ -67,6 +62,7 @@ namespace VanityMonKeyGenerator
                     }
                 }
             }
+            return null;
         }
 
         private static async Task<List<MonKey>> GetMonKeysAsync(HttpClient client, int amount)
