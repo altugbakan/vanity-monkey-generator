@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>Vanity MonKey Generator</AssemblyName>
+    <Authors>Altuğ Bakan</Authors>
+    <Product>Vanity MonKey Generator</Product>
+    <PackageId>Vanity MonKey Generator - CLI</PackageId>
+    <ApplicationIcon>monkey-cli.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VanityMonKeyGenerator\VanityMonKeyGenerator.csproj" />
+  </ItemGroup>
+
+</Project>
