@@ -5,9 +5,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>Vanity MonKey Generator</AssemblyName>
     <Authors>Altuğ Bakan</Authors>
-    <Product>Vanity MonKey Generator</Product>
-    <PackageId>Vanity MonKey Generator - CLI</PackageId>
+    <Product>Vanity MonKey Generator - CLI</Product>
+    <PackageId>Vanity MonKey Generator</PackageId>
     <ApplicationIcon>monKeyCLI.ico</ApplicationIcon>
+    <Version>1.2.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
