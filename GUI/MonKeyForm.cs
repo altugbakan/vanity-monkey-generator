@@ -23,7 +23,7 @@ namespace GUI
         private void MonKeyForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Hide();
-            if (!cancellationTokenSource.IsCancellationRequested)
+            if (cancellationTokenSource != null && !cancellationTokenSource.IsCancellationRequested)
             {
                 cancellationTokenSource.Cancel();
             }
