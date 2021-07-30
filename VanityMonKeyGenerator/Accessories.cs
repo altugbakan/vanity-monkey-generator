@@ -45,11 +45,6 @@ namespace VanityMonKeyGenerator
             }
         }
 
-        private static string ReplaceCase(this string accessory)
-        {
-            return Regex.Replace(accessory, @"(^\w|-\w)", m => m.ToString().ToUpper()).Replace("-", "");
-        }
-
         private static ResourceSet GetAccessoryList()
         {
             ResourceManager rm = new ResourceManager(typeof(Resources));
@@ -402,6 +397,11 @@ namespace VanityMonKeyGenerator
         {
             return Regex.Replace(accessory.Split('-').Last(),
                             "([A-Z])", " $1").TrimStart();
+        }
+
+        public static string ReplaceCase(this string accessory)
+        {
+            return Regex.Replace(accessory, @"(^\w|-\w)", m => m.ToString().ToUpper()).Replace("-", "");
         }
     }
 }
