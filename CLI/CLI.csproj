@@ -9,6 +9,9 @@
     <PackageId>Vanity MonKey Generator</PackageId>
     <ApplicationIcon>monKeyCLI.ico</ApplicationIcon>
     <Version>1.2.1</Version>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+    <Platforms>AnyCPU;x64</Platforms>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
 
   <ItemGroup>

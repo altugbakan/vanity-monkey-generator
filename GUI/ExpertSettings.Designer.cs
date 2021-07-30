@@ -323,7 +323,7 @@ namespace GUI
             this.requestAmountSlider.Minimum = 1;
             this.requestAmountSlider.Name = "requestAmountSlider";
             this.requestAmountSlider.Size = new System.Drawing.Size(165, 45);
-            this.requestAmountSlider.SmallChange = 5;
+            this.requestAmountSlider.SmallChange = 10;
             this.requestAmountSlider.TabIndex = 32;
             this.requestAmountSlider.TickFrequency = 5;
             this.requestAmountSlider.Value = 100;
@@ -347,7 +347,7 @@ namespace GUI
             0});
             this.requestAmountNumeric.Location = new System.Drawing.Point(12, 572);
             this.requestAmountNumeric.Maximum = new decimal(new int[] {
-            250,
+            10000,
             0,
             0,
             0});

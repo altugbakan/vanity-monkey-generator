@@ -15,7 +15,7 @@ namespace GUI
         {
             InitializeComponent();
             LoadSavedMonKey();
-            requestAmountSlider.Value = Properties.Settings.Default.MonKeyRequestAmount;
+            requestAmountSlider.Value = Math.Min(Properties.Settings.Default.MonKeyRequestAmount, 250);
             requestAmountNumeric.Value = Properties.Settings.Default.MonKeyRequestAmount;
         }
 
@@ -145,7 +145,7 @@ namespace GUI
 
         private void RequestAmountNumeric_ValueChanged(object sender, EventArgs e)
         {
-            requestAmountSlider.Value = (int)requestAmountNumeric.Value;
+            requestAmountSlider.Value = Math.Min((int)requestAmountNumeric.Value, 250);
         }
 
         private void RequestAmountSlider_Scroll(object sender, EventArgs e)
