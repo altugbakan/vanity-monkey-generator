@@ -172,8 +172,8 @@ namespace CLI
             file.WriteLine();
             file.WriteLine("# Set the amount of MonKey requests in each batch. Leave empty for default (100).");
             file.WriteLine("request-amount: 100");
-            file.WriteLine("# Set true if you want your MonKey data to be logged.");
-            file.WriteLine("log-data: false");
+            file.WriteLine("# Set true if you want your MonKey data to be saved to a .txt file.");
+            file.WriteLine("log-data: true");
             file.Close();
         }
     }

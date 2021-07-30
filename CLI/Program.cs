@@ -14,7 +14,7 @@ namespace CLI
         private static ulong iterations = 0;
         static void Main()
         {
-            Console.WriteLine("Welcome to the Vanity MonKey Generator!");
+            Console.WriteLine("Welcome to the Vanity MonKey Generator!\n");
             Config config;
             string response;
 
@@ -25,7 +25,7 @@ namespace CLI
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                Console.WriteLine("Press \"Enter\" to exit.");
+                Console.WriteLine("\nPress \"Enter\" to exit.");
                 Console.ReadLine();
                 return;
             }
@@ -39,15 +39,15 @@ namespace CLI
                     if (response == "y" ||  response == "")
                     {
                         Config.CreateSettingsFile();
-                        Console.WriteLine("Configuration file generated. Please restart the application after" +
-                            $" creating your MonKey.\nYou can visit {gitBookUri} for more information.");
-                        Console.WriteLine("Press \"Enter\" to exit.");
+                        Console.WriteLine("\nConfiguration file generated. Please restart the application after" +
+                            $" creating your MonKey.\n\nYou can visit {gitBookUri} for more information.");
+                        Console.WriteLine("\nPress \"Enter\" to exit.");
                         Console.ReadLine();
                         return;
                     }
                     else if (response == "n")
                     {
-                        Console.WriteLine("Press \"Enter\" to exit.");
+                        Console.WriteLine("\nPress \"Enter\" to exit.");
                         Console.ReadLine();
                         return;
                     }
@@ -65,13 +65,13 @@ namespace CLI
                 }
                 else if (response == "n")
                 {
-                    Console.WriteLine("Press \"Enter\" to exit.");
+                    Console.WriteLine("\nPress \"Enter\" to exit.");
                     Console.ReadLine();
                     return;
                 }
             } while (true);
 
-            Console.WriteLine("Starting the MonKey search...");
+            Console.WriteLine("\nStarting the MonKey search...");
             Result result = Task.Run(
                     () => SearchMonKeys(
                         new System.Threading.CancellationToken(),
@@ -83,7 +83,7 @@ namespace CLI
 
             if (result != null)
             {
-                Console.WriteLine($"Found MonKey after {result.Iterations:#,#} MonKeys.");
+                Console.WriteLine($"\nFound MonKey after {result.Iterations:#,#} MonKeys.");
                 Console.WriteLine($"The MonKey address is: {result.MonKey.Address}");
                 Console.WriteLine($"The MonKey seed is: {result.MonKey.Seed}");
                 if (config.LogData)
@@ -93,7 +93,7 @@ namespace CLI
                     resultsFile.WriteLine($"Seed: {result.MonKey.Seed}");
                     resultsFile.Close();
                 }
-                Console.WriteLine("Press \"Enter\" to exit.");
+                Console.WriteLine("\nPress \"Enter\" to exit.");
                 Console.ReadLine();
             }
         }
