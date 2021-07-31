@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyName>Vanity MonKey Generator</AssemblyName>
+    <AssemblyName>VanityMonKeyGenerator</AssemblyName>
     <Authors>Altuğ Bakan</Authors>
     <Product>Vanity MonKey Generator - CLI</Product>
     <PackageId>Vanity MonKey Generator</PackageId>
