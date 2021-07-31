@@ -55,6 +55,7 @@ namespace CLI
             }
 
             Console.WriteLine("Configuration loaded successfully.");
+            Console.WriteLine($"Rarity of your MonKey is 1 in {Accessories.GetMonKeyRarity(config.AccessoryList):#,#}\n");
             do
             {
                 Console.WriteLine("Start MonKey search? [y]/n");
@@ -102,7 +103,7 @@ namespace CLI
         {
             if (progress.Iterations - iterations >= reportInterval)
             {
-                Console.WriteLine($"Searched {progress.Iterations - iterations} more MonKeys. Total: {progress.Iterations}");
+                Console.WriteLine($"Searched {progress.Iterations - iterations:#,#} more MonKeys. Total: {progress.Iterations:#,#}");
                 iterations = progress.Iterations;
             }
         }

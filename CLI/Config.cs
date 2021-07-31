@@ -137,7 +137,7 @@ namespace CLI
             file.WriteLine("mouths: any");
             file.WriteLine("shirts-pants: tshirt-short-white");
             file.WriteLine("shoes: # left empty for \"none\"");
-            file.WriteLine("# tails are not included.");
+            file.WriteLine("# tails not included for \"any\".");
             file.WriteLine();
             file.WriteLine("# Set the amount of MonKey requests in each batch. Leave empty for default (100).");
             file.WriteLine("request-amount: 100");
