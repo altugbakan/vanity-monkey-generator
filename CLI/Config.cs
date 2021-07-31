@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Collections.Generic;
 
 using static VanityMonKeyGenerator.Accessories;
@@ -9,7 +10,7 @@ namespace CLI
     public class Config
     {
         public bool IsOpened = false;
-        public List<string> Accessories = new List<string>();
+        public List<string> AccessoryList = new List<string>();
         public int RequestAmount = 100;
         public bool LogData = false;
         
@@ -34,11 +35,6 @@ namespace CLI
             "ShirtsPants-TshirtShortWhite", "Misc-WhiskyRight"
         };
 
-        private readonly List<string> possibleCategories = new List<string>()
-        {
-            "glasses", "hats", "misc", "mouths", "shirts-pants", "shoes", "tails"
-        };
-
         public Config()
         {
             if (!File.Exists(configFile))
@@ -50,18 +46,18 @@ namespace CLI
                 string[] lines = File.ReadAllLines(configFile);
                 foreach (string line in lines)
                 {
-                    if (line.Trim().StartsWith('#'))
+                    if (line.Contains('#'))
                     {
-                        continue;
+                        line.Remove(line.IndexOf('#'));
                     }
                     else if (line.Contains(':'))
                     {
                         string[] setting = line.Trim().Split(':', StringSplitOptions.RemoveEmptyEntries);
-                        if (setting[0].ToLower() == "request-amount")
+                        if (setting.Length > 1 && setting[0].ToLower() == "request-amount")
                         {
                             RequestAmount = int.Parse(setting[1]);
                         }
-                        else if (setting[0].ToLower() == "log-data")
+                        else if (setting.Length > 1 && setting[0].ToLower() == "log-data")
                         {
                             LogData = bool.Parse(setting[1]);
                         }
@@ -71,7 +67,7 @@ namespace CLI
                             {
                                 if (setting[0].ToLower() != "mouths")
                                 {
-                                    Accessories.Add($"{Capitalize(setting[0])}-None");
+                                    AccessoryList.Add($"{Capitalize(setting[0])}-None");
                                     continue;
                                 }
                                 else
@@ -92,13 +88,20 @@ namespace CLI
             string[] items = SplitItems(setting[0], setting[1]);
             foreach (string item in items)
             {
-                Accessories.Add(item);
+                AccessoryList.Add(item);
+            }
+            foreach (string category in Categories)
+            {
+                if (AccessoryList.Any(acc => !acc.Contains(category)))
+                {
+                    AccessoryList.Add($"{category}-Any");
+                }
             }
         }
 
         private string[] SplitItems(string category, string items)
         {
-            if (!possibleCategories.Contains(category))
+            if (!Categories.Contains(category.ReplaceCase()))
             {
                 throw new Exception($"\"{category}\" is not a valid category.");
             }
@@ -125,17 +128,19 @@ namespace CLI
             StreamWriter file = new StreamWriter(configFile);
             file.WriteLine("# Set your requested accessories here. Separate items on a category using commas.");
             file.WriteLine("# You can leave a category empty for \"none\". Mouths cannot be \"none\".");
+            file.WriteLine("# Any category that is not included will be accepted as \"category: any\"");
             file.WriteLine("glasses: any");
             file.WriteLine("hats: none, cap, beanie-banano");
             file.WriteLine("misc: none");
             file.WriteLine("mouths: any");
             file.WriteLine("shirts-pants: tshirt-short-white");
             file.WriteLine("shoes:");
-            file.WriteLine("tails:");
+            file.WriteLine("# tails are not included.");
             file.WriteLine();
             file.WriteLine("# Set the amount of MonKey requests in each batch. Leave empty for default (100).");
             file.WriteLine("request-amount: 100");
-            file.WriteLine("# Set true if you want your MonKey data to be saved to a .txt file.");
+            file.WriteLine();
+            file.WriteLine("# Set true if you want your MonKey data to be saved to a .txt file. Leave empty for default (false).");
             file.WriteLine("log-data: true");
             file.Close();
         }

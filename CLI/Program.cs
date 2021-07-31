@@ -75,7 +75,7 @@ namespace CLI
             Result result = Task.Run(
                     () => SearchMonKeys(
                         new System.Threading.CancellationToken(),
-                        config.Accessories,
+                        config.AccessoryList,
                         config.RequestAmount,
                         delegate (Progress progress) { ReportProgress(progress); }
                     )

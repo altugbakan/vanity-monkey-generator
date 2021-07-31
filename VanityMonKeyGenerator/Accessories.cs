@@ -10,7 +10,7 @@ namespace VanityMonKeyGenerator
 {
     public static class Accessories
     {
-        private static readonly List<string> categories = new List<string>()
+        public static readonly List<string> Categories = new List<string>()
         {
                 "Glasses", "Hats", "Misc", "Mouths",
                 "ShirtsPants", "Shoes", "Tails"
@@ -52,7 +52,7 @@ namespace VanityMonKeyGenerator
         public static bool AccessoriesMatching(List<string> requestedAccessories,
             List<string> obtainedAccessories)
         {
-            foreach (string category in categories)
+            foreach (string category in Categories)
             {
                 if (requestedAccessories.Where(acc => acc.Contains(category)).
                         Any(acc => acc.Contains("Any")))
@@ -84,7 +84,7 @@ namespace VanityMonKeyGenerator
         {
             double chance = 1.0;
 
-            foreach (string category in categories)
+            foreach (string category in Categories)
             {
                 double totalCategoryChance = 0.0;
                 foreach (string accessory in accessories.Where(acc => acc.Contains(category)))
