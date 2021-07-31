@@ -13,7 +13,6 @@ namespace CLI
         public int RequestAmount = 100;
         public bool LogData = false;
         
-        
         private const string configFile = "config.txt";
 
         private readonly List<string> possibleAccessories = new List<string>()
@@ -42,7 +41,7 @@ namespace CLI
 
         public Config()
         {
-            if (!File.Exists($@"{Directory.GetCurrentDirectory()}\{configFile}"))
+            if (!File.Exists(configFile))
             {
                 return;
             }
@@ -77,7 +76,7 @@ namespace CLI
                                 }
                                 else
                                 {
-                                    throw new Exception("Mouths cannot be none.");
+                                    throw new Exception("Mouths cannot be \"none\".");
                                 }
                             }
                             ParseSetting(setting);

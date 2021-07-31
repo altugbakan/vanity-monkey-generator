@@ -4,7 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
-    <ApplicationIcon>monKey.ico</ApplicationIcon>
+    <ApplicationIcon>monKeyGUI.ico</ApplicationIcon>
     <AssemblyName>Vanity MonKey Generator</AssemblyName>
     <Authors>Altuğ Bakan</Authors>
     <Version>1.2.1</Version>
