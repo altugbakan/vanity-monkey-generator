@@ -3,7 +3,6 @@
   <PropertyGroup>
     <OutputType>Library</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon></ApplicationIcon>
     <AssemblyName>VanityMonKeyGenerator</AssemblyName>
     <Version>1.2.0</Version>

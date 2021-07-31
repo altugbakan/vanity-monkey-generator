@@ -3,6 +3,7 @@ using System.Resources;
 using System.Globalization;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+
 using VanityMonKeyGenerator.Properties;
 
 namespace VanityMonKeyGenerator

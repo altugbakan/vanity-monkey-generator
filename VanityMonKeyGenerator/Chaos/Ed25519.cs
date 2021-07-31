@@ -60,18 +60,14 @@ namespace Chaos.NaCl
 
         public static byte[] PublicKeyFromSeed(byte[] privateKeySeed)
         {
-            byte[] privateKey;
-            byte[] publicKey;
-            KeyPairFromSeed(out publicKey, out privateKey, privateKeySeed);
+            KeyPairFromSeed(out byte[] publicKey, out byte[] privateKey, privateKeySeed);
             CryptoBytes.Wipe(privateKey);
             return publicKey;
         }
 
         public static byte[] ExpandedPrivateKeyFromSeed(byte[] privateKeySeed)
         {
-            byte[] privateKey;
-            byte[] publicKey;
-            KeyPairFromSeed(out publicKey, out privateKey, privateKeySeed);
+            KeyPairFromSeed(out byte[] publicKey, out byte[] privateKey, privateKeySeed);
             CryptoBytes.Wipe(publicKey);
             return privateKey;
         }
@@ -133,15 +129,14 @@ namespace Chaos.NaCl
             if (privateKey.Count != 64)
                 throw new ArgumentException("privateKey.Count != 64");
 
-            FieldElement montgomeryX, edwardsY, edwardsZ, sharedMontgomeryX;
-            FieldOperations.fe_frombytes(out edwardsY, publicKey.Array, publicKey.Offset);
-            FieldOperations.fe_1(out edwardsZ);
-            MontgomeryCurve25519.EdwardsToMontgomeryX(out montgomeryX, ref edwardsY, ref edwardsZ);
+            FieldOperations.fe_frombytes(out FieldElement edwardsY, publicKey.Array, publicKey.Offset);
+            FieldOperations.fe_1(out FieldElement edwardsZ);
+            MontgomeryCurve25519.EdwardsToMontgomeryX(out FieldElement montgomeryX, ref edwardsY, ref edwardsZ);
             var hasher = Blake2Fast.Blake2b.CreateIncrementalHasher(64);
             hasher.Update(new ArraySegment<byte>(privateKey.Array, privateKey.Offset, 32));
             byte[] h = hasher.Finish();
             ScalarOperations.sc_clamp(h, 0);
-            MontgomeryOperations.scalarmult(out sharedMontgomeryX, h, 0, ref montgomeryX);
+            MontgomeryOperations.scalarmult(out FieldElement sharedMontgomeryX, h, 0, ref montgomeryX);
             CryptoBytes.Wipe(h);
             FieldOperations.fe_tobytes(sharedKey.Array, sharedKey.Offset, ref sharedMontgomeryX);
             MontgomeryCurve25519.KeyExchangeOutputHashNaCl(sharedKey.Array, sharedKey.Offset);
