@@ -44,15 +44,16 @@ namespace CLI
             else
             {
                 string[] lines = File.ReadAllLines(configFile);
-                foreach (string line in lines)
+                for (int i = 0; i < lines.Length; i++)
                 {
-                    if (line.Contains('#'))
+                    if (lines[i].Contains('#'))
                     {
-                        line.Remove(line.IndexOf('#'));
+                        lines[i] = lines[i].Remove(lines[i].IndexOf('#'));
                     }
-                    else if (line.Contains(':'))
+                    if (lines[i].Contains(':'))
                     {
-                        string[] setting = line.Trim().Split(':', StringSplitOptions.RemoveEmptyEntries);
+                        string[] setting = lines[i].Trim().Split(':', StringSplitOptions.RemoveEmptyEntries);
+
                         if (setting.Length > 1 && setting[0].ToLower() == "request-amount")
                         {
                             RequestAmount = int.Parse(setting[1]);
@@ -79,6 +80,14 @@ namespace CLI
                         }
                     }
                 }
+
+                foreach (string category in Categories)
+                {
+                    if (AccessoryList.All(acc => !acc.Contains(category)))
+                    {
+                        AccessoryList.Add($"{category}-Any");
+                    }
+                }
             }
             IsOpened = true;
         }
@@ -89,14 +98,7 @@ namespace CLI
             foreach (string item in items)
             {
                 AccessoryList.Add(item);
-            }
-            foreach (string category in Categories)
-            {
-                if (AccessoryList.Any(acc => !acc.Contains(category)))
-                {
-                    AccessoryList.Add($"{category}-Any");
-                }
-            }
+            }            
         }
 
         private string[] SplitItems(string category, string items)

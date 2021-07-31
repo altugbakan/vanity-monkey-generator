@@ -37,7 +37,7 @@ namespace VanityMonKeyGenerator
                     {
                         if (tasks[i].IsCompleted)
                         {
-                            ulong localIteration = 0;
+                            ulong localIteration = 1;
                             foreach (MonKey monKey in tasks[i].Result)
                             {
                                 if (Accessories.AccessoriesMatching(requestedAccessories, monKey.Accessories))

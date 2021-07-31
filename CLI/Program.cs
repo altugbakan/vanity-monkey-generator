@@ -100,10 +100,10 @@ namespace CLI
         
         static void ReportProgress(Progress progress)
         {
-            iterations += progress.Iterations;
-            if (iterations > reportInterval)
+            if (progress.Iterations - iterations >= reportInterval)
             {
-                Console.WriteLine($"Searched {progress.Iterations - iterations} more MonKeys");
+                Console.WriteLine($"Searched {progress.Iterations - iterations} more MonKeys. Total: {progress.Iterations}");
+                iterations = progress.Iterations;
             }
         }
     }
