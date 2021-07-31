@@ -38,7 +38,7 @@ namespace CLI
                     response = Console.ReadLine().ToLower();
                     if (response == "y" ||  response == "")
                     {
-                        Config.CreateSettingsFile();
+                        Config.CreateConfigurationFile();
                         Console.WriteLine("\nConfiguration file generated. Please restart the application after" +
                             $" creating your MonKey.\n\nYou can visit {gitBookUri} for more information.");
                         Console.WriteLine("\nPress \"Enter\" to exit.");

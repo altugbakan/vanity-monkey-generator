@@ -14,7 +14,7 @@ namespace CLI
         public int RequestAmount = 100;
         public bool LogData = false;
         
-        private const string configFile = "config.txt";
+        private const string configurationFile = "config.txt";
 
         private readonly List<string> possibleAccessories = new List<string>()
         {
@@ -37,13 +37,13 @@ namespace CLI
 
         public Config()
         {
-            if (!File.Exists(configFile))
+            if (!File.Exists(configurationFile))
             {
                 return;
             }
             else
             {
-                string[] lines = File.ReadAllLines(configFile);
+                string[] lines = File.ReadAllLines(configurationFile);
                 for (int i = 0; i < lines.Length; i++)
                 {
                     if (lines[i].Contains('#'))
@@ -125,9 +125,9 @@ namespace CLI
             return char.ToUpper(word[0]) + word[1..];
         }
 
-        public static void CreateSettingsFile()
+        public static void CreateConfigurationFile()
         {
-            StreamWriter file = new StreamWriter(configFile);
+            StreamWriter file = new StreamWriter(configurationFile);
             file.WriteLine("# Set your requested accessories here. Separate items on a category using commas.");
             file.WriteLine("# You can leave a category empty for \"none\". Mouths cannot be \"none\".");
             file.WriteLine("# Any category that is not included will be accepted as \"category: any\"");
@@ -136,7 +136,7 @@ namespace CLI
             file.WriteLine("misc: none");
             file.WriteLine("mouths: any");
             file.WriteLine("shirts-pants: tshirt-short-white");
-            file.WriteLine("shoes:");
+            file.WriteLine("shoes: # left empty for \"none\"");
             file.WriteLine("# tails are not included.");
             file.WriteLine();
             file.WriteLine("# Set the amount of MonKey requests in each batch. Leave empty for default (100).");
