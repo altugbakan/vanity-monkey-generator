@@ -12,6 +12,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Svg" Version="3.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\VanityMonKeyGenerator\VanityMonKeyGenerator.csproj" />
   </ItemGroup>
 

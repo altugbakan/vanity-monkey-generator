@@ -1,18 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
+﻿using System.Linq;
 using System.Resources;
-using System.Xml;
+using System.Globalization;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using VanityMonKeyGenerator.Properties;
-
-using Svg;
 
 namespace VanityMonKeyGenerator
 {
     public static class Accessories
     {
-        private static List<string> categories = new List<string>()
+        private static readonly List<string> categories = new List<string>()
         {
                 "Glasses", "Hats", "Misc", "Mouths",
                 "ShirtsPants", "Shoes", "Tails"
@@ -45,19 +42,10 @@ namespace VanityMonKeyGenerator
             }
         }
 
-        private static ResourceSet GetAccessoryList()
+        public static ResourceSet GetAccessoryList()
         {
             ResourceManager rm = new ResourceManager(typeof(Resources));
             return rm.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
-        }
-
-        public static SvgDocument GetAccessorySvg(string accessory)
-        {
-            ResourceSet accessoryList = GetAccessoryList();
-            string svgString = (string)accessoryList.GetObject(accessory);
-            XmlDocument doc = new XmlDocument();
-            doc.LoadXml(svgString);
-            return SvgDocument.Open(doc);
         }
 
         public static bool AccessoriesMatching(List<string> requestedAccessories,
@@ -125,26 +113,17 @@ namespace VanityMonKeyGenerator
 
         private static double GetCategoryChance(string accessory)
         {
-            switch (accessory.Category())
+            return accessory.Category() switch
             {
-                case "Glasses":
-                    return 0.25;
-                case "Hats":
-                    return 0.35;
-                case "Misc":
-                    return 0.3;
-                case "Mouths":
-                    return 1.0;
-                case "ShirtsPants":
-                    return 0.25;
-                case "Shoes":
-                    return 0.22;
-                case "Tails":
-                    return 0.2;
-                default:
-                    return 0.0;
-            }
-
+                "Glasses" => 0.25,
+                "Hats" => 0.35,
+                "Misc" => 0.3,
+                "Mouths" => 1.0,
+                "ShirtsPants" => 0.25,
+                "Shoes" => 0.22,
+                "Tails" => 0.2,
+                _ => 0.0,
+            };
         }
 
         private static double GetAccessoryWeight(string accessory)
@@ -362,25 +341,17 @@ namespace VanityMonKeyGenerator
 
         private static double GetCategoryWeight(string accessory)
         {
-            switch (accessory.Category())
+            return accessory.Category() switch
             {
-                case "Glasses":
-                    return 8.0;
-                case "Hats":
-                    return 19.4;
-                case "Misc":
-                    return 11.29;
-                case "Mouths":
-                    return 5.56;
-                case "ShirtsPants":
-                    return 6.0;
-                case "Shoes":
-                    return 6.0;
-                case "Tails":
-                    return 1.0;
-                default:
-                    return 0.0;
-            }
+                "Glasses" => 8.0,
+                "Hats" => 19.4,
+                "Misc" => 11.29,
+                "Mouths" => 5.56,
+                "ShirtsPants" => 6.0,
+                "Shoes" => 6.0,
+                "Tails" => 1.0,
+                _ => 0.0,
+            };
         }
 
         private static string Category(this string accessory)

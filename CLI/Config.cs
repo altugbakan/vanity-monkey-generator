@@ -16,7 +16,7 @@ namespace CLI
         
         private const string configFile = "config.txt";
 
-        private List<string> possibleAccessories = new List<string>()
+        private readonly List<string> possibleAccessories = new List<string>()
         {
             "Glasses-Any", "Hats-Any", "Misc-Any", "Mouths-Any", "ShirtsPants-Any", "Shoes-Any", "Tails-Any",
             "Misc-BananaHands", "Misc-BananaRightHand", "Hats-Bandana", "Hats-Beanie", "Hats-BeanieBanano",
@@ -35,7 +35,7 @@ namespace CLI
             "ShirtsPants-TshirtShortWhite", "Misc-WhiskyRight"
         };
 
-        private List<string> possibleCategories = new List<string>()
+        private readonly List<string> possibleCategories = new List<string>()
         {
             "glasses", "hats", "misc", "mouths", "shirts-pants", "shoes", "tails"
         };
@@ -118,7 +118,7 @@ namespace CLI
 
         private string Capitalize(string word)
         {
-            return char.ToUpper(word[0]) + word.Substring(1);
+            return char.ToUpper(word[0]) + word[1..];
         }
 
         public static void CreateSettingsFile()

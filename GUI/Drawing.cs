@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Xml;
 using System.Linq;
+using System.Drawing;
+using System.Resources;
 using System.Windows.Forms;
-using System.Xml;
+using System.Collections.Generic;
 
 using Svg;
 
@@ -18,19 +19,20 @@ namespace VanityMonKeyGenerator
 
             foreach (string accessory in accessoryList)
             {
-                var svg = Accessories.GetAccessorySvg(accessory);
+                var svg = GetAccessorySvg(accessory);
                 graphics.DrawImage(svg.Draw(pictureBox.Width, pictureBox.Height), 0, 0);
             }
 
             pictureBox.Image = canvas;
         }
 
-        public static void DrawSvg(string svg, PictureBox pictureBox)
+        private static SvgDocument GetAccessorySvg(string accessory)
         {
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.LoadXml(svg);
-            SvgDocument svgDoc = SvgDocument.Open(xmlDoc);
-            pictureBox.Image = svgDoc.Draw(pictureBox.Width, pictureBox.Height);
+            ResourceSet accessoryList = Accessories.GetAccessoryList();
+            string svgString = (string)accessoryList.GetObject(accessory);
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(svgString);
+            return SvgDocument.Open(doc);
         }
 
         private static List<string> ParseAccessoryList(List<string> accessoryList)
