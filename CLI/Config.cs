@@ -15,21 +15,29 @@ namespace CLI
         
         
         private const string configFile = "config.txt";
+
         private List<string> possibleAccessories = new List<string>()
         {
-            "Any", "BananaHands", "BananaRightHand", "Bandana", "Beanie", "BeanieBanano",
-            "BeanieHippie", "BeanieLong", "BeanieLongBanano", "Bowtie", "Camera", "Cap",
-            "CapBackwards", "CapBanano", "CapBebe", "CapCarlos", "CapHng", "CapHngPlus",
-            "CapKappa", "CapPepe", "CapRick", "CapSmug", "CapSmugGreen", "CapThonk",
-            "Cigar", "Club", "Confused", "Crown", "EyePatch", "Fedora", "FedoraLong",
-            "Flamethrower", "GlassesNerdCyan", "GlassesNerdGreen", "GlassesNerdPink",
-            "GlovesWhite", "Guitar", "HatCowboy", "HatJester", "HelmetViking", "Joint",
-            "Meh", "Microphone", "Monocle", "NecklaceBoss", "None", "OverallsBlue", "OverallsRed",
-            "PantsBusinessBlue", "PantsFlower", "Pipe", "SmileBigTeeth", "SmileNormal",
-            "SmileTongue", "SneakersBlue", "SneakersGreen", "SneakersRed", "SneakersSwagger",
-            "SocksHStripe", "SocksVStripe", "SunglassesAviatorCyan", "SunglassesAviatorGreen",
-            "SunglassesAviatorYellow", "SunglassesThug", "TailSock", "TshirtLongStripes",
-            "TshirtShortWhite", "WhiskyRight"
+            "Glasses-Any", "Hats-Any", "Misc-Any", "Mouths-Any", "ShirtsPants-Any", "Shoes-Any", "Tails-Any",
+            "Misc-BananaHands", "Misc-BananaRightHand", "Hats-Bandana", "Hats-Beanie", "Hats-BeanieBanano",
+            "Hats-BeanieHippie", "Hats-BeanieLong", "Hats-BeanieLongBanano", "Misc-Bowtie", "Misc-Camera", "Hats-Cap",
+            "Hats-CapBackwards", "Hats-CapBanano", "Hats-CapBebe", "Hats-CapCarlos", "Hats-CapHng", "Hats-CapHngPlus",
+            "Hats-CapKappa", "Hats-CapPepe", "Hats-CapRick", "Hats-CapSmug", "Hats-CapSmugGreen", "Hats-CapThonk",
+            "Mouths-Cigar", "Misc-Club", "Mouths-Confused", "Hats-Crown", "Glasses-EyePatch", "Hats-Fedora", "Hats-FedoraLong",
+            "Misc-Flamethrower", "Glasses-GlassesNerdCyan", "Glasses-GlassesNerdGreen", "Glasses-GlassesNerdPink",
+            "Misc-GlovesWhite", "Misc-Guitar", "Hats-HatCowboy", "Hats-HatJester", "Hats-HelmetViking", "Mouths-Joint",
+            "Mouths-Meh", "Misc-Microphone", "Glasses-Monocle", "Misc-NecklaceBoss", "Glasses-None", "Hats-None", "Misc-None",
+            "ShirtsPants-None", "Shoes-None", "Tails-None", "ShirtsPants-OverallsBlue", "ShirtsPants-OverallsRed",
+            "ShirtsPants-PantsBusinessBlue", "ShirtsPants-PantsFlower", "Mouths-Pipe", "Mouths-SmileBigTeeth", "Mouths-SmileNormal",
+            "Mouths-SmileTongue", "Shoes-SneakersBlue", "Shoes-SneakersGreen", "Shoes-SneakersRed", "Shoes-SneakersSwagger",
+            "Shoes-SocksHStripe", "Shoes-SocksVStripe", "Glasses-SunglassesAviatorCyan", "Glasses-SunglassesAviatorGreen",
+            "Glasses-SunglassesAviatorYellow", "Glasses-SunglassesThug", "Tails-TailSock", "ShirtsPants-TshirtLongStripes",
+            "ShirtsPants-TshirtShortWhite", "Misc-WhiskyRight"
+        };
+
+        private List<string> possibleCategories = new List<string>()
+        {
+            "glasses", "hats", "misc", "mouths", "shirts-pants", "shoes", "tails"
         };
 
         public Config()
@@ -82,71 +90,27 @@ namespace CLI
 
         private void ParseSetting(string[] setting)
         {
-            string[] items = SplitItems(setting[1]);
-            switch (setting[0].ToLower())
+            string[] items = SplitItems(setting[0], setting[1]);
+            foreach (string item in items)
             {
-                case "glasses":
-                    foreach (string item in items)
-                    {
-                        Accessories.Add($"Glasses-{item}");
-                    }
-                    return;
-                case "hats":
-                    foreach (string item in items)
-                    {
-                        Accessories.Add($"Hats-{item}");
-                    }
-                    return;
-                case "misc":
-                    foreach (string item in items)
-                    {
-                        Accessories.Add($"Misc-{item}");
-                    }
-                    return;
-                case "mouths":
-                    foreach (string item in items)
-                    {
-                        if (item == "None")
-                        {
-                            return;
-                        }
-                        Accessories.Add($"Mouths-{item}");
-                    }
-                    return;
-                case "shirts-pants":
-                    foreach (string item in items)
-                    {
-                        Accessories.Add($"ShirtsPants-{item}");
-                    }
-                    return;
-                case "shoes":
-                    foreach (string item in items)
-                    {
-                        Accessories.Add($"Shoes-{item}");
-                    }
-                    return;
-                case "tails":
-                    foreach (string item in items)
-                    {
-                        Accessories.Add($"Tails-{item}");
-                    }
-                    return;
-
-                default:
-                    throw new Exception($"{setting[0]} is not a valid entry.");
+                Accessories.Add(item);
             }
         }
 
-        private string[] SplitItems(string items)
+        private string[] SplitItems(string category, string items)
         {
+            if (!possibleCategories.Contains(category))
+            {
+                throw new Exception($"\"{category}\" is not a valid category.");
+            }
             string[] splitItems = items.Split(',', StringSplitOptions.RemoveEmptyEntries);
             for (int i = 0; i < splitItems.Length; i++)
             {
                 string item = splitItems[i].Trim();
-                splitItems[i] = item.ReplaceCase();
+                splitItems[i] = $"{category.ReplaceCase()}-{item.ReplaceCase()}";
                 if (!possibleAccessories.Contains(splitItems[i]))
                 {
-                    throw new Exception($"\"{item}\" is not a valid item.");
+                    throw new Exception($"\"{item}\" is not a valid item for {category}.");
                 }
             }
             return splitItems;
