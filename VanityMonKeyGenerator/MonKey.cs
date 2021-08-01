@@ -54,11 +54,5 @@ namespace VanityMonKeyGenerator
                 hex.AppendFormat("{0:X2}", b);
             return hex.ToString();
         }
-
-        public string ImageUri(string format, int size, bool background)
-        {
-            return $"https://monkey.banano.cc/api/v1/monkey/{Address}" +
-                $"?format={format}&size={size}&background={background}";
-        }
     }
 }
