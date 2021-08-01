@@ -5,7 +5,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <ApplicationIcon></ApplicationIcon>
     <AssemblyName>VanityMonKeyGenerator</AssemblyName>
-    <Version>1.2.0</Version>
+    <Version>1.2.2</Version>
     <Authors>Altuğ Bakan</Authors>
     <Company />
     <Description>Vanity MonKey Generator for Banano cryptocurrency.</Description>

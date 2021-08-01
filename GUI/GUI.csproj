@@ -7,7 +7,7 @@
     <ApplicationIcon>monKeyGUI.ico</ApplicationIcon>
     <AssemblyName>Vanity MonKey Generator</AssemblyName>
     <Authors>Altuğ Bakan</Authors>
-    <Version>1.2.1</Version>
+    <Version>1.2.2</Version>
     <Product>Vanity MonKey Generator - GUI</Product>
   </PropertyGroup>
 
