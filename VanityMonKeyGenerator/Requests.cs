@@ -13,6 +13,12 @@ namespace VanityMonKeyGenerator
     {
         private const int MaxRequestCount = 32;
 
+        public static async Task<string> GetMonKeySvg(this MonKey monKey, int size)
+        {
+            HttpClient client = new HttpClient();
+            return await client.GetStringAsync($"https://monkey.banano.cc/api/v1/monkey/{monKey.Address}?size={size}");
+        }
+
         public static Result SearchMonKeys(CancellationToken cancellationToken, List<string> requestedAccessories,
             int monKeyAmount, Action<Progress> reportFunction)
         {
@@ -58,7 +64,7 @@ namespace VanityMonKeyGenerator
                     }
                     catch
                     {
-                        throw;
+                        return null;
                     }
                 }
             }

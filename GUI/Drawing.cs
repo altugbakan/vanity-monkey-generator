@@ -26,6 +26,12 @@ namespace VanityMonKeyGenerator
             pictureBox.Image = canvas;
         }
 
+        public static void DrawSvg(string svg, PictureBox pictureBox)
+        {
+            SvgDocument svgDocument = SvgDocument.FromSvg<SvgDocument>(svg);
+            pictureBox.Image = svgDocument.Draw(pictureBox.Width, pictureBox.Height);
+        }
+
         private static SvgDocument GetAccessorySvg(string accessory)
         {
             ResourceSet accessoryList = Accessories.GetAccessoryList();

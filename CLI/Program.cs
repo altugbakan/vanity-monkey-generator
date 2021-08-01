@@ -96,6 +96,14 @@ namespace CLI
                 }
                 Console.WriteLine("\nPress \"Enter\" to exit.");
                 Console.ReadLine();
+                return;
+            }
+            else
+            {
+                Console.WriteLine("\nNo internet connection.");
+                Console.WriteLine("\nPress \"Enter\" to exit.");
+                Console.ReadLine();
+                return;
             }
         }
         

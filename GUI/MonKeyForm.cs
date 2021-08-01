@@ -29,10 +29,18 @@ namespace GUI
             }
         }
 
-        private void GetRandomMonKeyButton_Click(object sender, EventArgs e)
+        private async void GetRandomMonKeyButton_Click(object sender, EventArgs e)
         {
             MonKey monKey = new MonKey();
-            monKeyPictureBox.ImageLocation = monKey.ImageUri("png", monKeyPictureBox.Width, false);
+            try
+            {
+                Drawing.DrawSvg(await monKey.GetMonKeySvg(monKeyPictureBox.Width), monKeyPictureBox);
+            }
+            catch
+            {
+                MessageBox.Show("No internet connection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             addressTextBox.Text = monKey.Address;
             seedTextBox.Text = monKey.Seed;
         }
@@ -82,17 +90,22 @@ namespace GUI
                     )
                 );
 
-                if (result != null)
+                if (cancellationTokenSource.IsCancellationRequested)
                 {
-                    monKeyPictureBox.ImageLocation = result.MonKey.ImageUri("png", monKeyPictureBox.Width, false);
+                    searchedLabel.Text = "";
+                }
+                else if (result == null)
+                {
+                    MessageBox.Show("No internet connection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    Drawing.DrawSvg(await result.MonKey.GetMonKeySvg(monKeyPictureBox.Width), monKeyPictureBox);
                     addressTextBox.Text = result.MonKey.Address;
                     seedTextBox.Text = result.MonKey.Seed;
                     searchedLabel.Text = $"Found MonKey after {result.Iterations:#,#} MonKeys.";
                 }
-                else
-                {
-                    searchedLabel.Text = "";
-                }
+
                 findSpecificMonKeyButton.Text = "Find Specific MonKey";
             }
             else
