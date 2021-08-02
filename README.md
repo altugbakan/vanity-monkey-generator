@@ -3,7 +3,7 @@ Vanity MonKey generator for Banano cryptocurrency.
 
 Create a custom MonKey and get the address and the seed.
 
-More info can be found on https://monkey.banano.cc.
+More info can be found on https://vanitymonkeygenerator.gitbook.io.
 
 ## Usage
 <br/>
