@@ -51,8 +51,7 @@ namespace GUI
         {
             if (searchedLabel.InvokeRequired)
             {
-                var d = new UpdateProgress(ReportProgress);
-                searchedLabel.Invoke(d, new object[] { progress });
+                searchedLabel.Invoke(new UpdateProgress(ReportProgress), new object[] { progress });
             }
             else
             {
