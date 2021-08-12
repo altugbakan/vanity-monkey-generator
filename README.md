@@ -1,9 +1,9 @@
 # Vanity MonKey Generator
 Vanity MonKey generator for Banano cryptocurrency.
 
-Create a custom MonKey and get the address and the seed.
+Create a custom MonKey and get the Banano address and the seed. Use your Banano account anywhere, everywhere.
 
-More info can be found on https://vanitymonkeygenerator.gitbook.io.
+More information can be found on https://vanitymonkeygenerator.gitbook.io.
 
 ## Usage
 <br/>
@@ -14,8 +14,6 @@ More info can be found on https://vanitymonkeygenerator.gitbook.io.
 <br/>
 
 Press the gear button to modify your MonKey. The generator will try to find a MonKey containing the selected accessories.
-
-More information can be found on https://vanitymonkeygenerator.gitbook.io/.
 
 ## Build
 The project is built using .NET Core 3.1.
