@@ -25,5 +25,28 @@ namespace GUI
             }
             base.OnItemCheck(ice);
         }
+
+        public void SetAllItemsChecked(bool value)
+        {
+            for (int i = 0; i < Items.Count; i++)
+            {
+                SetItemChecked(i, value);
+            }
+        }
+
+        public void SetAllItemsChecked(bool value, int exceptionIndex)
+        {
+            for (int i = 0; i < Items.Count; i++)
+            {
+                if (i == exceptionIndex)
+                {
+                    SetItemChecked(i, !value);
+                }
+                else
+                {
+                    SetItemChecked(i, value);
+                }
+            }
+        }
     }
 }

@@ -50,6 +50,8 @@ namespace GUI
             this.requestAmountSlider = new System.Windows.Forms.TrackBar();
             this.requestAmountLabel = new System.Windows.Forms.Label();
             this.requestAmountNumeric = new System.Windows.Forms.NumericUpDown();
+            this.deselectAllButton = new System.Windows.Forms.Button();
+            this.selectAllButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.requestAmountSlider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.requestAmountNumeric)).BeginInit();
             this.SuspendLayout();
@@ -77,7 +79,7 @@ namespace GUI
             // miscLabel
             // 
             this.miscLabel.AutoSize = true;
-            this.miscLabel.Location = new System.Drawing.Point(448, 273);
+            this.miscLabel.Location = new System.Drawing.Point(448, 263);
             this.miscLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.miscLabel.Name = "miscLabel";
             this.miscLabel.Size = new System.Drawing.Size(32, 15);
@@ -97,7 +99,7 @@ namespace GUI
             // shirtsPantsLabel
             // 
             this.shirtsPantsLabel.AutoSize = true;
-            this.shirtsPantsLabel.Location = new System.Drawing.Point(244, 185);
+            this.shirtsPantsLabel.Location = new System.Drawing.Point(244, 180);
             this.shirtsPantsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.shirtsPantsLabel.Name = "shirtsPantsLabel";
             this.shirtsPantsLabel.Size = new System.Drawing.Size(70, 15);
@@ -107,7 +109,7 @@ namespace GUI
             // shoesLabel
             // 
             this.shoesLabel.AutoSize = true;
-            this.shoesLabel.Location = new System.Drawing.Point(260, 339);
+            this.shoesLabel.Location = new System.Drawing.Point(260, 329);
             this.shoesLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.shoesLabel.Name = "shoesLabel";
             this.shoesLabel.Size = new System.Drawing.Size(38, 15);
@@ -117,7 +119,7 @@ namespace GUI
             // tailsLabel
             // 
             this.tailsLabel.AutoSize = true;
-            this.tailsLabel.Location = new System.Drawing.Point(265, 489);
+            this.tailsLabel.Location = new System.Drawing.Point(265, 479);
             this.tailsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tailsLabel.Name = "tailsLabel";
             this.tailsLabel.Size = new System.Drawing.Size(29, 15);
@@ -169,7 +171,6 @@ namespace GUI
             this.hatsCheckedListBox.Name = "hatsCheckedListBox";
             this.hatsCheckedListBox.Size = new System.Drawing.Size(165, 472);
             this.hatsCheckedListBox.TabIndex = 22;
-            this.hatsCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CheckedListBox_ItemCheck);
             // 
             // mouthsCheckedListBox
             // 
@@ -188,7 +189,6 @@ namespace GUI
             this.mouthsCheckedListBox.Name = "mouthsCheckedListBox";
             this.mouthsCheckedListBox.Size = new System.Drawing.Size(165, 148);
             this.mouthsCheckedListBox.TabIndex = 23;
-            this.mouthsCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CheckedListBox_ItemCheck);
             // 
             // shirtsPantsCheckedListBox
             // 
@@ -202,11 +202,10 @@ namespace GUI
             "Pants Flower",
             "Tshirt Long Stripes",
             "Tshirt Short White"});
-            this.shirtsPantsCheckedListBox.Location = new System.Drawing.Point(197, 201);
+            this.shirtsPantsCheckedListBox.Location = new System.Drawing.Point(197, 196);
             this.shirtsPantsCheckedListBox.Name = "shirtsPantsCheckedListBox";
             this.shirtsPantsCheckedListBox.Size = new System.Drawing.Size(165, 130);
             this.shirtsPantsCheckedListBox.TabIndex = 24;
-            this.shirtsPantsCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CheckedListBox_ItemCheck);
             // 
             // shoesCheckedListBox
             // 
@@ -220,11 +219,10 @@ namespace GUI
             "Sneakers Swagger",
             "Socks H Stripe",
             "Socks V Stripe"});
-            this.shoesCheckedListBox.Location = new System.Drawing.Point(197, 355);
+            this.shoesCheckedListBox.Location = new System.Drawing.Point(197, 345);
             this.shoesCheckedListBox.Name = "shoesCheckedListBox";
             this.shoesCheckedListBox.Size = new System.Drawing.Size(165, 130);
             this.shoesCheckedListBox.TabIndex = 25;
-            this.shoesCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CheckedListBox_ItemCheck);
             // 
             // tailsCheckedListBox
             // 
@@ -233,11 +231,10 @@ namespace GUI
             this.tailsCheckedListBox.Items.AddRange(new object[] {
             "None",
             "Tail Sock"});
-            this.tailsCheckedListBox.Location = new System.Drawing.Point(197, 505);
+            this.tailsCheckedListBox.Location = new System.Drawing.Point(197, 495);
             this.tailsCheckedListBox.Name = "tailsCheckedListBox";
             this.tailsCheckedListBox.Size = new System.Drawing.Size(165, 40);
             this.tailsCheckedListBox.TabIndex = 26;
-            this.tailsCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CheckedListBox_ItemCheck);
             // 
             // glassesCheckedListBox
             // 
@@ -258,7 +255,6 @@ namespace GUI
             this.glassesCheckedListBox.Name = "glassesCheckedListBox";
             this.glassesCheckedListBox.Size = new System.Drawing.Size(165, 184);
             this.glassesCheckedListBox.TabIndex = 27;
-            this.glassesCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CheckedListBox_ItemCheck);
             // 
             // miscCheckedListBox
             // 
@@ -279,17 +275,16 @@ namespace GUI
             "Tie Cyan",
             "Tie Pink",
             "Whisky Right"});
-            this.miscCheckedListBox.Location = new System.Drawing.Point(382, 289);
+            this.miscCheckedListBox.Location = new System.Drawing.Point(382, 279);
             this.miscCheckedListBox.Name = "miscCheckedListBox";
             this.miscCheckedListBox.Size = new System.Drawing.Size(165, 256);
             this.miscCheckedListBox.TabIndex = 28;
-            this.miscCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CheckedListBox_ItemCheck);
             // 
             // rarityLabel
             // 
-            this.rarityLabel.Location = new System.Drawing.Point(197, 573);
+            this.rarityLabel.Location = new System.Drawing.Point(197, 543);
             this.rarityLabel.Name = "rarityLabel";
-            this.rarityLabel.Size = new System.Drawing.Size(165, 20);
+            this.rarityLabel.Size = new System.Drawing.Size(350, 20);
             this.rarityLabel.TabIndex = 31;
             this.rarityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -367,11 +362,35 @@ namespace GUI
             0});
             this.requestAmountNumeric.ValueChanged += new System.EventHandler(this.RequestAmountNumeric_ValueChanged);
             // 
+            // deselectAllButton
+            // 
+            this.deselectAllButton.Location = new System.Drawing.Point(286, 571);
+            this.deselectAllButton.Margin = new System.Windows.Forms.Padding(2);
+            this.deselectAllButton.Name = "deselectAllButton";
+            this.deselectAllButton.Size = new System.Drawing.Size(76, 25);
+            this.deselectAllButton.TabIndex = 35;
+            this.deselectAllButton.Text = "Deselect All";
+            this.deselectAllButton.UseVisualStyleBackColor = true;
+            this.deselectAllButton.Click += new System.EventHandler(this.DeselectAllButton_Click);
+            // 
+            // selectAllButton
+            // 
+            this.selectAllButton.Location = new System.Drawing.Point(197, 571);
+            this.selectAllButton.Margin = new System.Windows.Forms.Padding(2);
+            this.selectAllButton.Name = "selectAllButton";
+            this.selectAllButton.Size = new System.Drawing.Size(76, 25);
+            this.selectAllButton.TabIndex = 36;
+            this.selectAllButton.Text = "Select All";
+            this.selectAllButton.UseVisualStyleBackColor = true;
+            this.selectAllButton.Click += new System.EventHandler(this.SelectAllButton_Click);
+            // 
             // ExpertSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(565, 609);
+            this.Controls.Add(this.selectAllButton);
+            this.Controls.Add(this.deselectAllButton);
             this.Controls.Add(this.requestAmountNumeric);
             this.Controls.Add(this.requestAmountLabel);
             this.Controls.Add(this.requestAmountSlider);
@@ -398,6 +417,8 @@ namespace GUI
             this.MinimizeBox = false;
             this.Name = "ExpertSettings";
             this.Text = "Create Your MonKey";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ExpertSettings_FormClosing);
+            this.Shown += new System.EventHandler(this.ExpertSettings_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.requestAmountSlider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.requestAmountNumeric)).EndInit();
             this.ResumeLayout(false);
@@ -427,5 +448,7 @@ namespace GUI
         private System.Windows.Forms.TrackBar requestAmountSlider;
         private System.Windows.Forms.Label requestAmountLabel;
         private System.Windows.Forms.NumericUpDown requestAmountNumeric;
+        private System.Windows.Forms.Button deselectAllButton;
+        private System.Windows.Forms.Button selectAllButton;
     }
 }

@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Linq;
+using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Linq;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
 
 using static VanityMonKeyGenerator.Accessories;
 
@@ -11,6 +11,7 @@ namespace GUI
 {
     public partial class ExpertSettings : Form
     {
+        private const int SmileNormalIndex = 6;
         public ExpertSettings()
         {
             InitializeComponent();
@@ -26,7 +27,7 @@ namespace GUI
                 glassesCheckedListBox.SetItemChecked(0, true);
                 hatsCheckedListBox.SetItemChecked(0, true);
                 miscCheckedListBox.SetItemChecked(0, true);
-                mouthsCheckedListBox.SetItemChecked(6, true);
+                mouthsCheckedListBox.SetItemChecked(SmileNormalIndex, true);
                 shirtsPantsCheckedListBox.SetItemChecked(0, true);
                 shoesCheckedListBox.SetItemChecked(0, true);
                 tailsCheckedListBox.SetItemChecked(0, true);
@@ -134,13 +135,11 @@ namespace GUI
 
         private void CheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            if (IsHandleCreated)
+            // Invocation is added here to handle the late update of the CheckedListBox after clicking.
+            BeginInvoke((MethodInvoker)delegate
             {
-                BeginInvoke((MethodInvoker)delegate
-                {
-                    rarityLabel.Text = $"Rarity: 1 in {GetMonKeyRarity(GetAccessories()):#,#}";
-                });
-            }
+                rarityLabel.Text = $"Rarity: 1 in {GetMonKeyRarity(GetAccessories()):#,#}";
+            });
         }
 
         private void RequestAmountNumeric_ValueChanged(object sender, EventArgs e)
@@ -151,6 +150,66 @@ namespace GUI
         private void RequestAmountSlider_Scroll(object sender, EventArgs e)
         {
             requestAmountNumeric.Value = requestAmountSlider.Value;
+        }
+
+        private void ExpertSettings_Shown(object sender, EventArgs e)
+        {
+            SubscribeCheckedListBoxEvents();
+        }
+
+        private void ExpertSettings_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            UnsubscribeCheckedListBoxEvents();
+        }
+
+        private void DeselectAllButton_Click(object sender, EventArgs e)
+        {
+            UnsubscribeCheckedListBoxEvents();
+            glassesCheckedListBox.SetAllItemsChecked(false, 0);
+            hatsCheckedListBox.SetAllItemsChecked(false, 0);
+            miscCheckedListBox.SetAllItemsChecked(false, 0);
+            mouthsCheckedListBox.SetAllItemsChecked(false, SmileNormalIndex);
+            shirtsPantsCheckedListBox.SetAllItemsChecked(false, 0);
+            shoesCheckedListBox.SetAllItemsChecked(false, 0);
+            tailsCheckedListBox.SetAllItemsChecked(false, 0);
+            SubscribeCheckedListBoxEvents();
+            CheckedListBox_ItemCheck(null, null); // To update rarity.
+        }
+
+        private void SelectAllButton_Click(object sender, EventArgs e)
+        {
+            UnsubscribeCheckedListBoxEvents();
+            glassesCheckedListBox.SetAllItemsChecked(true);
+            hatsCheckedListBox.SetAllItemsChecked(true);
+            miscCheckedListBox.SetAllItemsChecked(true);
+            mouthsCheckedListBox.SetAllItemsChecked(true);
+            shirtsPantsCheckedListBox.SetAllItemsChecked(true);
+            shoesCheckedListBox.SetAllItemsChecked(true);
+            tailsCheckedListBox.SetAllItemsChecked(true);
+            SubscribeCheckedListBoxEvents();
+            CheckedListBox_ItemCheck(null, null); // To update rarity.
+        }
+
+        private void UnsubscribeCheckedListBoxEvents()
+        {
+            glassesCheckedListBox.ItemCheck -= CheckedListBox_ItemCheck;
+            hatsCheckedListBox.ItemCheck -= CheckedListBox_ItemCheck;
+            miscCheckedListBox.ItemCheck -= CheckedListBox_ItemCheck;
+            mouthsCheckedListBox.ItemCheck -= CheckedListBox_ItemCheck;
+            shirtsPantsCheckedListBox.ItemCheck -= CheckedListBox_ItemCheck;
+            shoesCheckedListBox.ItemCheck -= CheckedListBox_ItemCheck;
+            tailsCheckedListBox.ItemCheck -= CheckedListBox_ItemCheck;
+        }
+
+        private void SubscribeCheckedListBoxEvents()
+        {
+            glassesCheckedListBox.ItemCheck += CheckedListBox_ItemCheck;
+            hatsCheckedListBox.ItemCheck += CheckedListBox_ItemCheck;
+            miscCheckedListBox.ItemCheck += CheckedListBox_ItemCheck;
+            mouthsCheckedListBox.ItemCheck += CheckedListBox_ItemCheck;
+            shirtsPantsCheckedListBox.ItemCheck += CheckedListBox_ItemCheck;
+            shoesCheckedListBox.ItemCheck += CheckedListBox_ItemCheck;
+            tailsCheckedListBox.ItemCheck += CheckedListBox_ItemCheck;
         }
     }
 }
