@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading;
+using System.Diagnostics;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace GUI
     public partial class MonKeyForm : Form
     {
         private CancellationTokenSource cancellationTokenSource;
+        private Stopwatch stopwatch = new Stopwatch();
 
         public MonKeyForm()
         {
@@ -55,7 +57,8 @@ namespace GUI
             }
             else
             {
-                searchedLabel.Text = $"Searched {progress.Iterations:#,#} MonKeys. Estimated: {progress.Expectation:#,#}";
+                searchedLabel.Text = $"Searched {progress.Iterations:#,#} MonKeys. Time remaining: " +
+                    $"{GetEstimatedTime(progress.Iterations, progress.Expectation, stopwatch.Elapsed.TotalSeconds)}.";
             }
         }
 
@@ -63,6 +66,7 @@ namespace GUI
         {
             if (findSpecificMonKeyButton.Text == "Find Specific MonKey")
             {
+                stopwatch.Start();
                 cancellationTokenSource = new CancellationTokenSource();
                 while (Properties.Settings.Default.SavedAccessories == null)
                 {
@@ -109,6 +113,8 @@ namespace GUI
             }
             else
             {
+                stopwatch.Stop();
+                stopwatch.Reset();
                 cancellationTokenSource.Cancel();
             }
         }

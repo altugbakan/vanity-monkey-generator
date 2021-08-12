@@ -4,6 +4,7 @@
     <OutputType>Library</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <StartupObject />
+    <Version>1.2.3</Version>
   </PropertyGroup>
 
   <ItemGroup>

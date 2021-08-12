@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
 using VanityMonKeyGenerator;
@@ -12,6 +13,7 @@ namespace CLI
         private const string gitBookUri = "vanitymonkeygenerator.gitbook.io";
         private const ulong reportInterval = 10000;
         private static ulong iterations = 0;
+        private static Stopwatch stopwatch = new Stopwatch();
         static void Main()
         {
             Console.WriteLine("Welcome to the Vanity MonKey Generator!\n");
@@ -73,6 +75,7 @@ namespace CLI
             } while (true);
 
             Console.WriteLine("\nStarting the MonKey search...");
+            stopwatch.Start();
             Result result = Task.Run(
                     () => SearchMonKeys(
                         new System.Threading.CancellationToken(),
@@ -111,7 +114,8 @@ namespace CLI
         {
             if (progress.Iterations - iterations >= reportInterval)
             {
-                Console.WriteLine($"Searched {progress.Iterations - iterations:#,#} more MonKeys. Total: {progress.Iterations:#,#}");
+                Console.WriteLine($"\rSearched {progress.Iterations - iterations:#,#} more MonKeys. Total: {progress.Iterations:#,#}");
+                Console.Write($"Time remaining: {GetEstimatedTime(progress.Iterations, progress.Expectation, stopwatch.Elapsed.TotalSeconds)}.");
                 iterations = progress.Iterations;
             }
         }

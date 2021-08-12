@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
@@ -90,7 +91,30 @@ namespace VanityMonKeyGenerator
 
             return monKeyDictionary.Values.ToList();
         }
+
+        public static string GetEstimatedTime(ulong iterations, ulong expectation, double elapsedSeconds)
+        {
+            double expectedSeconds = elapsedSeconds / iterations * expectation;
+            double remainingSeconds = expectedSeconds - elapsedSeconds;
+            if (remainingSeconds < 0)
+            {
+                return "Any time now";
+            }
+            else if (remainingSeconds > 3600)
+            {
+                return $"{(int)remainingSeconds / 3600} hours";
+            }
+            else if (remainingSeconds > 60)
+            {
+                return $"{(int)remainingSeconds / 60} minutes";
+            }
+            else
+            {
+                return $"{(int)remainingSeconds} seconds";
+            }
+        }
     }
+
     public class Progress
     {
         public ulong Expectation;
