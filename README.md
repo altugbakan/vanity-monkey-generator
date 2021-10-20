@@ -20,7 +20,7 @@ Thank you for donating!
 
 <br/>
   <p align="center">
-  <code>Banano: ban_1xredwjw5uyr13nuaheupdnt3ot1ttjmzo3p7dqb7w6638t71aoz3c9r91sw</code><br><br>
+  <code>Banano: ban_1xredwjw5uyr13nuaheupdnt3ot1ttjmzo3p7dqb7w6638t71aoz3c9r91sw</code><br>
     <img src="https://user-images.githubusercontent.com/43248015/127350928-22eb3d7a-5e47-4ca5-b69a-98556b41bed7.png" width="225" alt="Thank you for donating!">
   </p>
 <br/>
