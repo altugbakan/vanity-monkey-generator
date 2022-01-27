@@ -81,7 +81,7 @@ namespace CLI
                         new System.Threading.CancellationToken(),
                         config.AccessoryList,
                         config.RequestAmount,
-                        delegate (Progress progress) { ReportProgress(progress); }
+                        (Progress progress) => ReportProgress(progress)
                     )
                 ).Result;
 

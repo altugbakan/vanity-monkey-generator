@@ -47,19 +47,13 @@ namespace GUI
             seedTextBox.Text = monKey.Seed;
         }
 
-        public delegate void UpdateProgress(Progress progress);
-
         private void ReportProgress(Progress progress)
         {
-            if (searchedLabel.InvokeRequired)
-            {
-                searchedLabel.Invoke(new UpdateProgress(ReportProgress), new object[] { progress });
-            }
-            else
+            searchedLabel.Invoke((Action)(() =>
             {
                 searchedLabel.Text = $"Searched {progress.Iterations:#,#} MonKeys. Time remaining: " +
                     $"{GetEstimatedTime(progress.Iterations, progress.Expectation, stopwatch.Elapsed.TotalSeconds)}.";
-            }
+            }));
         }
 
         private async void FindSpecificMonKeyButton_Click(object sender, EventArgs e)
@@ -89,7 +83,7 @@ namespace GUI
                         cancellationTokenSource.Token,
                         Properties.Settings.Default.SavedAccessories.Cast<string>().ToList(),
                         Properties.Settings.Default.MonKeyRequestAmount,
-                        delegate (Progress progress) { ReportProgress(progress); }
+                        (Progress progress) => ReportProgress(progress)
                     )
                 );
 

@@ -136,10 +136,10 @@ namespace GUI
         private void CheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             // Invocation is added here to handle the late update of the CheckedListBox after clicking.
-            BeginInvoke((MethodInvoker)delegate
+            BeginInvoke((Action)(() =>
             {
                 rarityLabel.Text = $"Rarity: 1 in {GetMonKeyRarity(GetAccessories()):#,#}";
-            });
+            }));
         }
 
         private void RequestAmountNumeric_ValueChanged(object sender, EventArgs e)
