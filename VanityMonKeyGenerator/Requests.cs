@@ -12,6 +12,7 @@ namespace VanityMonKeyGenerator
     public static class Requests
     {
         private const int MaxRequestCount = 32;
+        private const int MaxFailCount = 8;
 
         public static async Task<string> GetMonKeySvg(this MonKey monKey, int size)
         {
@@ -27,6 +28,7 @@ namespace VanityMonKeyGenerator
             List<Task<List<MonKey>>> tasks = new List<Task<List<MonKey>>>();
             ulong expectation = Accessories.GetMonKeyRarity(requestedAccessories);
             ulong iterations = 0;
+            int failCount = 0;
 
             for (int i = 0; i < MaxRequestCount; i++)
             {
@@ -56,6 +58,7 @@ namespace VanityMonKeyGenerator
                             tasks.Add(GetMonKeysAsync(client, monKeyAmount));
                             iterations += (ulong)monKeyAmount;
                             reportFunction(new Progress(expectation, iterations));
+                            failCount = 0;
                         }
                         else
                         {
@@ -64,7 +67,11 @@ namespace VanityMonKeyGenerator
                     }
                     catch
                     {
-                        return null;
+                        tasks.RemoveAt(i);
+                        if (failCount++ > MaxFailCount)
+                        {
+                            return null;
+                        }
                     }
                 }
             }
