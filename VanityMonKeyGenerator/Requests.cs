@@ -88,7 +88,7 @@ namespace VanityMonKeyGenerator
                 monKeyDictionary.Add(monKey.Address, monKey);
             }
             var content = new StringContent("{\"addresses\":" + JsonSerializer.Serialize(monKeyDictionary.Keys) + "}");
-            var response = await client.PostAsync("http://monkey.banano.cc/api/v1/monkey/dtl", content);
+            var response = await client.PostAsync("https://monkey.banano.cc/api/v1/monkey/dtl", content);
             var results = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, string>>>(await response.Content.ReadAsStringAsync());
             foreach (var result in results)
             {
